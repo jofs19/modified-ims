@@ -27,14 +27,6 @@ class ShopController extends Controller
                    $products = $products->orderBy('id','DESC');
                 }elseif($_GET['sort'] == 'product_oldest'){
                    $products = $products->orderBy('id','ASC');
-                }elseif($_GET['sort'] == 'price_lowest'){
-                    // convert to int
-                     $products =  $products->orderBy('selling_price','ASC')->orderBy('discount_price','ASC');
-
-                }elseif($_GET['sort'] == 'price_highest'){
-
-                     $products = $products->orderBy('selling_price','DESC')->orderBy('discount_price','DESC');
-
                 }elseif($_GET['sort'] == 'name_a_z'){
                    $products = $products->orderBy('product_name_en','ASC');
                 }elseif($_GET['sort'] == 'name_z_a'){

@@ -50,7 +50,7 @@ class ProductController extends Controller
       	'brand_id' => $request->brand_id,
       	'category_id' => $request->category_id,
       	'subcategory_id' => $request->subcategory_id,
-      	'subsubcategory_id' => $request->subsubcategory_id,
+      	// 'subsubcategory_id' => $request->subsubcategory_id,
       	'product_name_en' => $request->product_name_en,
       	'product_name_fil' => $request->product_name_fil,
       	'product_slug_en' =>  strtolower(str_replace(' ', '-', $request->product_name_en)),
@@ -134,9 +134,9 @@ class ProductController extends Controller
 		$categories = Category::latest()->get();
 		$brands = Brand::latest()->get();
 		$subcategory = SubCategory::latest()->get();
-		$subsubcategory = SubSubCategory::latest()->get();
+		// $subsubcategory = SubSubCategory::latest()->get();
 		$products = Product::findOrFail($id);
-		return view('backend.product.product_edit',compact('categories','brands','subcategory','subsubcategory','products','multiImgs','activeVendor'));
+		return view('backend.product.product_edit',compact('categories','brands','subcategory','products','multiImgs','activeVendor'));
 
 	}// end	method
 
@@ -149,7 +149,7 @@ class ProductController extends Controller
       	'brand_id' => $request->brand_id,
       	'category_id' => $request->category_id,
       	'subcategory_id' => $request->subcategory_id,
-      	'subsubcategory_id' => $request->subsubcategory_id,
+      	// 'subsubcategory_id' => $request->subsubcategory_id,
       	'product_name_en' => $request->product_name_en,
       	'product_name_fil' => $request->product_name_fil,
       	'product_slug_en' =>  strtolower(str_replace(' ', '-', $request->product_name_en)),

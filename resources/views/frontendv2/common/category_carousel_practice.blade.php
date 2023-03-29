@@ -357,7 +357,7 @@
                       @forelse($catwiseProduct as $product)
                       <div>
                           <div class="card product-card-alt product-section">
-                            @php
+                            {{-- @php
                             $amount = $product->selling_price - $product->discount_price;
                             $discount = ($amount/$product->selling_price) * 100;
                             @endphp
@@ -370,7 +370,7 @@
 
                                <i class="ci-discount"></i> Sale {{ round($discount) }}%
                             </span>
-                            @endif
+                            @endif --}}
 
                               {{-- Product Thumbnail --}}
                               <div class="product-thumb">
@@ -413,7 +413,7 @@
                                       {{-- End Product Category --}}
 
                                       {{-- Product Rating --}}
-                                      <div class="star-rating">
+                                      {{-- <div class="star-rating">
                                           @php
                                           $reviewcount =
                                           App\Models\Review::where('product_id',$product->id)->where('status',1)->latest()->get();
@@ -494,7 +494,7 @@
                                                                   </a>
 
                                       @endif
-                                      </div>
+                                      </div> --}}
                                       {{-- End Product Rating --}}
 
 
@@ -515,14 +515,14 @@
                             <div class="d-flex flex-wrap justify-content-between align-items-center">
 
                               {{-- Review Count --}}
-                                  <div class="fs-sm me-2"><i class="ci-thumb-up-filled text-muted me-1"></i>
+                                  {{-- <div class="fs-sm me-2"><i class="ci-thumb-up-filled text-muted me-1"></i>
                                       {{ count($reviewcount) }}
                                       </span><span class="fs-xs ms-1">review(s)</span>
-                                  </div>
+                                  </div> --}}
                               {{-- End Review Count --}}
 
                               {{-- Product Price --}}
-                                  <div class="bg-faded-accent text-accent rounded-1 py-1 px-2">
+                                  {{-- <div class="bg-faded-accent text-accent rounded-1 py-1 px-2">
                                       @php
                                       $amount = $product->selling_price - $product->discount_price;
                                       $discount = ($amount/$product->selling_price) * 100;
@@ -532,12 +532,9 @@
                                       <span class="text-accent">₱{{$product->selling_price}}.<small>00</small></span>
                                       @else
                                       <span class="text-accent">₱{{$product->discount_price}}.<small>00</small></span>
-                                          {{-- <del
-                                    class="fs-sm text-muted">${{$item->selling_price}}.<small>00</small></del>
-                                          --}}
+
                                       @endif
-                                      {{-- $15.<small>00</small> --}}
-                                  </div>
+                                  </div> --}}
                               {{-- End Product Price --}}
 
 

@@ -57,7 +57,7 @@
     <div class="pt-2 px-4 ps-lg-0 pe-xl-5">
       <!-- Title-->
       <div class="d-sm-flex flex-wrap justify-content-between align-items-center pb-2">
-        <h2 class="h3 py-2 me-2 text-center text-sm-start">Add New Product</h2>
+        <h2 class="h3 py-2 me-2 text-center text-sm-start">Add New Item</h2>
         {{-- <div class="py-2">
           <select class="form-select me-2" id="unp-category">
             <option>Select Vendor</option>
@@ -75,7 +75,7 @@
       <form id="myForm" method="post" action="{{ route('vendor.store.product') }}" enctype="multipart/form-data" >
         @csrf
         <div class="mb-3 pb-2">
-          <label class="form-label" for="unp-product-name">Product name</label>
+          <label class="form-label" for="unp-product-name">Item name</label>
           <input class="form-control" type="text" id="unp-product-name" name="product_name_en" max="100" placeholder="Enter product name" required>
           <div class="form-text">Maximum 100 characters</div>
         </div>
@@ -94,7 +94,7 @@
 
                 <!-- Textual addon -->
                 <div class="input-group">
-                    <span class="input-group-text fw-medium">Brand</span>
+                    <span class="input-group-text fw-medium">Department</span>
                     <select class="form-select" name="brand_id">
                     <option>Choose one...</option>
                     @foreach($brands as $brand)
@@ -152,7 +152,7 @@
             <div class="col-6">
 
 
-                <!-- Textual addon -->
+                {{-- <!-- Textual addon -->
             <div class="input-group">
                 <span class="input-group-text fw-medium">Sub-sub Category</span>
                 <select class="form-select" name="subsubcategory_id">
@@ -165,7 +165,7 @@
                     @endforeach
 
                 </select>
-            </div>
+            </div> --}}
 
         </div>
 
@@ -190,8 +190,8 @@
 
             <div class="col-12">
                 <div class="mb-3 py-2">
-                    <label class="form-label" for="unp-product-tags">Product tags</label>
-                    <textarea class="form-control" rows="4" id="unp-product-tags" name="product_tags_en">computer, hardware, pcbuild</textarea>
+                    <label class="form-label" for="unp-product-tags">Item tags</label>
+                    <textarea class="form-control" rows="4" id="unp-product-tags" name="product_tags_en">psu, item</textarea>
                     <div class="form-text">Up to 10 keywords that describe your item. Tags should all be in lowercase and separated by commas.</div>
                   </div>
               </div>
@@ -199,7 +199,7 @@
         </div>
 
 
-        <div class="row pb-4">
+        {{-- <div class="row pb-4">
 
 
               <div class="col-6">
@@ -213,30 +213,32 @@
                 <input  value='variant 1, variant 2, variant 3' class="form-control tag3" autofocus name="product_color_en">
                 <div class="form-text"> Tags should all be in lowercase and separated by commas.</div>
               </div>
-        </div>
+        </div> --}}
 
 
         <div class="row pb-2">
 
             <div class="mb-3 pb-2 col-6">
-                <label class="form-label" for="unp-product-name">Product Code</label>
+                <label class="form-label" for="unp-product-name">Item Unit</label>
                 <input class="form-control" type="text" id="unp-product-name" name="product_code">
               </div>
 
               <div class="mb-3 pb-2 col-6">
-                <label class="form-label" for="unp-product-name">Product Stock</label>
+                <label class="form-label" for="unp-product-name">Item Stock</label>
                 <input class="form-control" type="text" id="unp-product-name" name="product_qty">
               </div>
         </div>
+
+
         {{-- END ROW --}}
 
 
 
-        <div class="row">
+        <div class="row" style="visibility: collapse">
             <div class="col-sm-6 mb-3">
               <label class="form-label" for="unp-standard-price">Selling Price</label>
               <div class="input-group"><span class="input-group-text">₱</span>
-                <input class="form-control" type="text" id="unp-standard-price" name="selling_price" placeholder="00.00">
+                <input class="form-control" type="text" id="unp-standard-price" name="selling_price" placeholder="00.00" value="00.00">
               </div>
             </div>
             <div class="col-sm-6 mb-3">
@@ -245,7 +247,7 @@
                 <div class="input-group">
                     <div class="input-group-text pe-2">
                     <div class="form-check">
-                        <input class="form-check-input discount_price form-check-sm" name="discount_price" type="checkbox" id="ex-check-1" placeholder="00.00">
+                        <input class="form-check-input discount_price form-check-sm" name="discount_price" type="checkbox" id="ex-check-1" placeholder="00.00" value="00.00">
                         <label class="form-check-label" for="ex-check-1"></label>
                     </div>
                     </div>
@@ -259,7 +261,7 @@
 
         </div>
 
-
+{{--
         <div class="row">
 
             <div class="col-sm-12 mb-3 sale_duration">
@@ -273,14 +275,14 @@
             </div>
 
 
-        </div>
+        </div> --}}
 
 
 
 
 
         <div class="mb-3 py-2">
-            <label class="form-label" for="unp-product-name">Product header description</label>
+            <label class="form-label" for="unp-product-name">Item header description</label>
             <input class="form-control" type="text" id="unp-product-name" name="short_descp_en" max="100">
             <div class="form-text">Maximum 100 characters</div>
           </div>
@@ -294,11 +296,11 @@
 
 
         <div class="mb-3 py-2">
-            <label for="inputProductDescription" class="form-label">Product body description</label>
+            <label for="inputProductDescription" class="form-label">Item body description</label>
             <textarea id="mytextarea" name="long_descp_en"><span class="text-muted">Enter product description...</span></textarea>
           </div>
 
-        <label class="form-label" for="unp-product-files">Product Thumbnail</label>
+        <label class="form-label" for="unp-product-files">Item Thumbnail</label>
 
         <div class="file-drop-area mb-3">
 
@@ -314,7 +316,7 @@
           <div class="form-text">Up to 10 keywords that describe your item. Tags should all be in lowercase and separated by commas.</div>
         </div> --}}
         <div class="mb-3 pb-2">
-          <label class="form-label" for="unp-product-files">Product Multi-image</label>
+          <label class="form-label" for="unp-product-files">Item Multi-image</label>
           <input class="form-control" type="file" name="multi_img[]" multiple="" id="multiImg" required="">
           <div class="form-text">Maximum file size is 1GB</div>
 
@@ -328,7 +330,7 @@
 
 
 
-        <fieldset>
+        {{-- <fieldset>
 
             <div class="row pb-4">
 
@@ -380,7 +382,7 @@
 
 
 
-        </fieldset>
+        </fieldset> --}}
 
 
 

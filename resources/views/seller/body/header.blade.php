@@ -8,7 +8,7 @@ $status = $verdorId->status;
 
 <header class="bg-darker shadow-sm">
     <div class="navbar navbar-expand-lg navbar-dark">
-      <div class="container"><a class="navbar-brand d-none d-sm-block flex-shrink-0 me-4 order-lg-1" href="{{ route('vendor.dashboard') }}"><img src="{{ asset('frontendv2/assets/img/logo5.svg') }}" width="100" alt="PCBUILD"></a><a class="navbar-brand d-sm-none me-2 order-lg-1" href="{{ route('vendor.dashboard') }}"><img src="{{ asset('frontendv2/assets/img/logo5.svg') }}" width="70" alt="PCBUILD"></a>
+      <div class="container"><a class="navbar-brand d-none d-sm-block flex-shrink-0 me-4 order-lg-1" href="{{ route('vendor.dashboard') }}"><img src="{{ asset('frontendv2/assets/img/psu.png') }}" width="100" alt="PCBUILD"></a><a class="navbar-brand d-sm-none me-2 order-lg-1" href="{{ route('vendor.dashboard') }}"><img src="{{ asset('frontendv2/assets/img/logo5.svg') }}" width="70" alt="PCBUILD"></a>
 
 
 
@@ -19,7 +19,7 @@ $status = $verdorId->status;
                 <div class="navbar-tool dropdown ms-2"><a class="navbar-tool-icon-box border dropdown-toggle"
                   href="{{ route('login') }}"><img class="rounded-circle"
                   src="{{ (!empty($vendorData->profile_photo_path)) ? url('upload/vendor_images/'.$vendorData->profile_photo_path):url('upload/no_image.jpg') }}"
-                      alt="User Profile"><a class="navbar-tool-text ms-n1" href="dashboard-sales.html"><small>PC Build Vendor</small>{{ Auth::user()->name }}</a>
+                      alt="User Profile"><a class="navbar-tool-text ms-n1" href="dashboard-sales.html"><small>PSU Staff</small>{{ Auth::user()->name }}</a>
 
                   <div class="dropdown-menu dropdown-menu-end">
                     <div style="min-width: 14rem;">
@@ -37,7 +37,7 @@ $status = $verdorId->status;
                     {{-- </div> --}}
                   </div>
                 </div>
-                <div class="navbar-tool ms-4"><a class="navbar-tool-icon-box bg-secondary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight2"><span class="navbar-tool-label">3</span><i class="navbar-tool-icon ci-bell text-light"></i></a></div>
+                {{-- <div class="navbar-tool ms-4"><a class="navbar-tool-icon-box bg-secondary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight2"><span class="navbar-tool-label">3</span><i class="navbar-tool-icon ci-bell text-light"></i></a></div> --}}
               </div>
               <div class="collapse navbar-collapse me-auto order-lg-2" id="navbarCollapse">
                 <!-- Search-->
@@ -66,9 +66,29 @@ $status = $verdorId->status;
 
 
                 @else
-                <h6 class="dropdown-header">Account</h6><a class="dropdown-item d-flex align-items-center" href="dashboard-settings.html"><i class="ci-settings opacity-60 me-2"></i>Settings</a><a class="dropdown-item d-flex align-items-center" href="dashboard-purchases.html"><i class="ci-basket opacity-60 me-2"></i>Purchases</a><a class="dropdown-item d-flex align-items-center" href="dashboard-favorites.html"><i class="ci-heart opacity-60 me-2"></i>Favorites<span class="fs-xs text-muted ms-auto">4</span></a>
+                <h6 class="dropdown-header">Account</h6><a class="dropdown-item d-flex align-items-center" href="{{ url('/vendor/profile') }}"><i class="ci-settings opacity-60 me-2"></i>Profile Settings</a>
+                
+                {{-- <a class="dropdown-item d-flex align-items-center" href="dashboard-purchases.html"><i class="ci-basket opacity-60 me-2"></i>Purchases</a> --}}
+                
+                
+                <a class="dropdown-item d-flex align-items-center" href="{{ url('vendor/change/password') }}"><i class="ci-security-check opacity-60 me-2"></i>Change Password<span class="fs-xs text-muted ms-auto"></span></a>
+
+
                 <div class="dropdown-divider"></div>
-                <h6 class="dropdown-header">Seller Dashboard</h6><a class="dropdown-item d-flex align-items-center" href="dashboard-sales.html"><i class="ci-dollar opacity-60 me-2"></i>Sales<span class="fs-xs text-muted ms-auto">$1,375.00</span></a><a class="dropdown-item d-flex align-items-center" href="dashboard-products.html"><i class="ci-package opacity-60 me-2"></i>Products<span class="fs-xs text-muted ms-auto">5</span></a><a class="dropdown-item d-flex align-items-center" href="dashboard-add-new-product.html"><i class="ci-cloud-upload opacity-60 me-2"></i>Add New Product</a><a class="dropdown-item d-flex align-items-center" href="dashboard-payouts.html"><i class="ci-currency-exchange opacity-60 me-2"></i>Payouts</a>
+                <h6 class="dropdown-header">Staff Dashboard</h6>
+                
+                <a class="dropdown-item d-flex align-items-center" href="{{ url('/vendor/all/product') }}"><i class="ci-bag opacity-60 me-2"></i>Items<span class="fs-xs text-muted ms-auto"></span></a>
+                
+                
+                <a class="dropdown-item d-flex align-items-center" href="{{ url('vendor/all/product') }}"><i class="ci-package opacity-60 me-2"></i>Add New Item</a>
+                
+                
+                <a class="dropdown-item d-flex align-items-center" href="{{ url('/vendor/return/order') }}"><i class="ci-arrows-horizontal opacity-60 me-2"></i>Returning Requests</a>
+                
+
+                <a class="dropdown-item d-flex align-items-center" href="{{ url('vendor/order') }}"><i class="ci-currency-exchange opacity-60 me-2"></i>Requestor's Request</a>
+
+
                 <div class="dropdown-divider"></div><a class="dropdown-item d-flex align-items-center" href="{{ route('vendor.logout') }}"><i class="ci-sign-out opacity-60 me-2"></i>Sign Out</a>
 
               </div>
@@ -77,7 +97,7 @@ $status = $verdorId->status;
           <div class="navbar-tool ms-4">
 
 
-            <a type="button" class="navbar-tool-icon-box bg-secondary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight2" href="marketplace-cart.html"><span class="navbar-tool-label">3</span><i class="navbar-tool-icon ci-bell"></i></a>
+            {{-- <a type="button" class="navbar-tool-icon-box bg-secondary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight2" href="marketplace-cart.html"><span class="navbar-tool-label">3</span><i class="navbar-tool-icon ci-bell"></i></a> --}}
 
 
 
@@ -125,11 +145,7 @@ $status = $verdorId->status;
       </div>
       <div class="d-flex">
         <div class="text-sm-end me-5">
-          <div class="text-light fs-base">Total Products</div>
-          @php
-                $total_orders = App\Models\Order::where('user_id', Auth::user()->id)->where('status', 'delivered')->count();
 
-          @endphp
 
 
         </div>
@@ -137,85 +153,7 @@ $status = $verdorId->status;
 
         {{-- Total ratings --}}
 
-        @php
-    $customer_reviews = App\Models\Review::where('vendor_id',$id)->count();
-    $average = App\Models\Review::where('vendor_id',$id)->avg('rating');
-        @endphp
 
-        <div class="text-sm-end">
-            <div class="text-light fs-base">Seller rating {{ number_format($average, 2) }}</div>
-
-            @if($average == 0 || $average < 0)
-            <div class="star-rating"><i class="star-rating-icon ci-star-filled "></i><i
-                    class="star-rating-icon ci-star-filled "></i><i
-                    class="star-rating-icon ci-star-filled "></i><i
-                    class="star-rating-icon ci-star-filled "></i><i
-                    class="star-rating-icon ci-star-filled "></i>
-            </div>
-            {{-- <span class="review">{{ count($reviewcount) }}
-            Review(s)</span> --}}
-            </a>
-            @elseif($average == 1 || $average < 2)
-                <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i
-                        class="star-rating-icon ci-star-filled "></i><i
-                        class="star-rating-icon ci-star-filled "></i><i
-                        class="star-rating-icon ci-star-filled "></i><i
-                        class="star-rating-icon ci-star-filled "></i>
-                </div>
-                {{-- <span class="review">{{ count($reviewcount) }}
-                Review(s)</span> --}}
-                </a>
-                @elseif($average == 2 || $average < 3)
-                    <div class="star-rating"><i
-                            class="star-rating-icon ci-star-filled active"></i><i
-                            class="star-rating-icon ci-star-filled active"></i><i
-                            class="star-rating-icon ci-star-filled "></i><i
-                            class="star-rating-icon ci-star-filled "></i><i
-                            class="star-rating-icon ci-star-filled "></i>
-                    </div>
-                    {{-- <span class="review">{{ count($reviewcount) }}
-                    Review(s)</span> --}}
-                    </a>
-
-                    @elseif($average == 3 || $average < 4)
-                        <div class="star-rating"><i
-                                class="star-rating-icon ci-star-filled active"></i><i
-                                class="star-rating-icon ci-star-filled active"></i><i
-                                class="star-rating-icon ci-star-filled active"></i><i
-                                class="star-rating-icon ci-star-filled "></i><i
-                                class="star-rating-icon ci-star-filled"></i>
-                        </div>
-                        {{-- <span class="review">{{ count($reviewcount) }}
-                        Review(s)</span> --}}
-                        </a>
-
-
-                        @elseif($average == 4 || $average < 5)
-                            <div class="star-rating"><i
-                                    class="star-rating-icon ci-star-filled active"></i><i
-                                    class="star-rating-icon ci-star-filled active"></i><i
-                                    class="star-rating-icon ci-star-filled active"></i><i
-                                    class="star-rating-icon ci-star-filled active"></i><i
-                                    class="star-rating-icon ci-star-filled "></i>
-                            </div>
-                            {{-- <span class="review">{{ count($reviewcount) }}
-                            Review(s)</span> --}}
-                            </a>
-                            @elseif($average == 5 || $average < 5) <div class="reviews">
-                                <
-                                    <div class="star-rating"><i
-                                            class="star-rating-icon ci-star-filled active"></i><i
-                                            class="star-rating-icon ci-star-filled active"></i><i
-                                            class="star-rating-icon ci-star-filled active"></i><i
-                                            class="star-rating-icon ci-star-filled active"></i><i
-                                            class="star-rating-icon ci-star-filled active"></i>
-                                    </div>
-                                    {{-- <span class="review">{{ count($reviewcount) }}
-                                    Review(s)</span> --}}
-                                </a>
-    </div>
-
-    @endif
     {{-- end rating --}}
 
         </div>

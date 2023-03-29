@@ -3,7 +3,7 @@
 
 
 @section('title')
-Vartouhi | Track your Order
+PSU-LC | Track My Request
 @endsection
 
 <head>
@@ -12,10 +12,10 @@ Vartouhi | Track your Order
 .hover-4 {
   --h: 1.2em;   /* the height */
   --c: #1095c1; /* the color */
-  
+
   line-height: var(--h);
   color: #0000;
-  text-shadow: 
+  text-shadow:
     0 var(--_t,var(--h)) #fff,
     0 0 var(--_c,#000);
   box-shadow: 0 var(--_t,var(--h)) var(--c);
@@ -35,7 +35,7 @@ Vartouhi | Track your Order
 
 {{-- <head>
     <style>
-      
+
       @include('frontendv2.partials.loading_screen');
 
     </style>

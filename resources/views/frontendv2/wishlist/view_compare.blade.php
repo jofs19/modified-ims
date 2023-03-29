@@ -2,7 +2,7 @@
 @section('content')
 
 @section('title')
-Vartouhi | Compare Product
+PSU-LC | Compare Product
 @endsection
 
 <!-- Page Title (Dark)-->
@@ -27,7 +27,7 @@ Vartouhi | Compare Product
         <div class="table-responsive">
           <table class="table table-bordered table-layout-fixed fs-sm" style="min-width: 45rem;"  id="compareTable">
             <thead>
-              <tr class="table-header">             
+              <tr class="table-header">
                 <td class="align-middle">
                   <select class="form-select" id="compare-criteria" data-filter-trigger>
                     <option value="all">Comparison criteria *</option>
@@ -38,7 +38,7 @@ Vartouhi | Compare Product
                     <option value="price_rating">Price</option>
                   </select>
                   <div class="form-text">* Choose criteria to filter table below.</div>
-                  
+
                 </td>
 
 
@@ -49,7 +49,7 @@ Vartouhi | Compare Product
                             onclick="productView(${value.product_id})">Add to Cart</button>
                   <button class="btn btn-primary btn-sm" type="submit" id="${value.id}" onclick="addToWishlist(this.id)">Add to Wishlist</button>
                 </td>  --}}
-                
+
               </tr>
             </thead>
 
@@ -71,7 +71,7 @@ Vartouhi | Compare Product
               </tr>
 
             </tbody>
-            
+
         {{-- DESCRIPTION --}}
 
 
@@ -111,7 +111,7 @@ Vartouhi | Compare Product
                 <td>Qualcomm Snapdragon 845 (2.5GHz octa-core)</td>
                 <td>Octa-core Qualcomm Snapdragon 855</td> --}}
               </tr>
-              
+
             </tbody>
 
         {{-- VARIANTS --}}
@@ -131,9 +131,9 @@ Vartouhi | Compare Product
                 <td>64 GB</td>
                 <td>128 GB</td> --}}
               </tr>
-          
+
             </tbody>
-                   
+
         {{-- STOCK --}}
 
         {{-- PRICE & RATING --}}

@@ -1,7 +1,7 @@
 <style type="text/css">
-	
+
 	body {
-		 
+
 	}
 	.card{
 		background-color: #fff;
@@ -47,16 +47,15 @@
 @if($products -> isEmpty())
 <h4 class="text-center text-danger">Product Not Found</h4>
 
-    
-        
-          
-    
 
-        
-    
-    @@ -11,11 +58,11 @@
-  
-@else 
+
+
+
+
+
+
+
+@else
 	<div class="container mt-5">
 		<div class="row d-flex justify-content-center">
 			<div class="col-md-12">
@@ -69,29 +68,29 @@
 				<img src="{{ asset($item->product_thumbnail) }}" style="width:40px; height:40px">
 
 				<div class="d-flex flex-column ml-5" style="margin-left:10px; font-size:16px; font-weight: bold;">
- <span>{{ $item->product_name_en }}</span> <small>${{ $item->selling_price }}</small>
+ <span>{{ $item->product_name_en }}</span>
 
 				</div>
 
-    
-          
-            
-    
 
-          
-    
-    
-  
-				
-			</div> 
+
+
+
+
+
+
+
+
+
+			</div>
 		</a>
 		@endforeach
-					
+
 				</div>
-				
+
 			</div>
-			
+
 		</div>
-		
+
 	</div>
 @endif

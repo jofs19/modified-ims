@@ -106,10 +106,9 @@
 			<meta name="viewport" content="width=device-width, initial-scale=1">
 			<meta name="description" content="">
 			<meta name="author" content="">
-			<link rel="icon" type="image/png" sizes="32x32" href="{{ asset('frontendv2/assets/img/vlogos.png') }}">
-			<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('frontendv2/assets/img/vlogos.png') }}">
-			<title>Vartouhi Admin - Log in </title>
-            <title>Document</title>
+			<link rel="icon" type="image/png" sizes="32x32" href="{{ asset('frontendv2/assets/img/psu.png') }}">
+			<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('frontendv2/assets/img/psu.png') }}">
+			<title>PSU Admin - Log in </title>
             <style>
                 @import url("https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap");
 
@@ -158,7 +157,7 @@
                     flex: 1;
                     background-color: black;
                     transition: 2s;
-                    background-image: url({{ asset('frontendv2/assets/img/logo5.svg') }});
+                    background-image: url({{ asset('frontendv2/assets/img/psu-bg.jpg') }});
                     background-size: cover;
                     background-repeat: no-repeat;
                     background-position: center;
@@ -172,7 +171,7 @@
                     flex: 1;
                     background-color: black;
                     transition: 2s;
-                    background-image: url({{ asset('frontendv2/assets/img/logo5.svg') }});
+                    background-image: url({{ asset('frontendv2/assets/img/psu-bg.jpg') }});
                     background-size: cover;
                     background-repeat: no-repeat;
                     background-position: center;
@@ -188,7 +187,7 @@
                     flex: 1;
                     background-color: black;
                     transition: 2s;
-                    background-image: url({{ asset('frontendv2/assets/img/logo5.svg') }});
+                    background-image: url({{ asset('frontendv2/assets/img/psu-bg.jpg') }});
                     background-size: cover;
                     background-repeat: no-repeat;
                     background-position: center;
@@ -355,7 +354,7 @@
             <div class="container">
                 <div class="left">
                     <div class="header">
-                        <h2 class="animation a1">Welcome Back</h2>
+                        <h2 class="animation a1">Welcome Back, Admin!</h2>
                         <h4 class="animation a2">Log in to your account using email and password</h4>
                     </div>
 

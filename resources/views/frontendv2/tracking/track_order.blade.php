@@ -3,67 +3,67 @@
 
 
 @section('title')
-Vartouhi | Track {{  $track->invoice_no }}
+PSU-LC | Track {{  $track->invoice_no }}
 @endsection
 
 
 <div class="bg-dark py-4">
     <div class="container d-lg-flex justify-content-between py-2 py-lg-3">
-        <div class="order-lg-2 mb-3 mb-lg-0 pt-lg-2">
+        <div class="item-lg-2 mb-3 mb-lg-0 pt-lg-2">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-light flex-lg-nowrap justify-content-center justify-content-lg-start">
                     <li class="breadcrumb-item"><a class="text-nowrap" href="{{ url('/') }}"><i class="ci-home"></i>Home</a>
                     </li>
-                    
-                    <li class="breadcrumb-item text-nowrap active" aria-current="page">Order tracking</li>
+
+                    <li class="breadcrumb-item text-nowrap active" aria-current="page">Item Request tracking</li>
                 </ol>
             </nav>
         </div>
-        <div class="order-lg-1 pe-lg-4 text-center text-lg-start">
-            <h1 class="h3 text-light mb-0">Tracking order: <span class="h4 fw-normal text-light">{{  $track->invoice_no }}</span></h1>
+        <div class="item-lg-1 pe-lg-4 text-center text-lg-start">
+            <h1 class="h3 text-light mb-0">Tracking item: <span class="h4 fw-normal text-light">{{  $track->invoice_no }}</span></h1>
         </div>
     </div>
 </div>
 <div class="container py-5 mb-2 mb-md-3">
     <!-- Details-->
     <div class="row gx-4 mb-4">
-        <div class="col-md-3 mb-2">
+        {{-- <div class="col-md-3 mb-2">
             <div class="bg-secondary h-100 p-4 text-center rounded-3"><span class="fw-medium text-dark me-2">Shipped
                     via:</span>LBC</div>
-        </div>
-        <div class="col-md-3 mb-2">
+        </div> --}}
+        {{-- <div class="col-md-3 mb-2">
             <div class="bg-secondary h-100 p-4 text-center rounded-3"><span class="fw-medium text-dark me-2">Payment:</span>
-            
+
                 @if($track->payment_method == 'Cash On Delivery')
                 Cash On Delivery
                 @else
                 Paid via GCash
                 @endif
 
-            
+
             </div>
-        </div>
+        </div> --}}
         <div class="col-md-3 mb-2">
             <div class="bg-secondary h-100 p-4 text-center rounded-3"><span
-                    class="fw-medium text-dark me-2">Status:</span>
+                    class="fw-medium text-dark me-2">Request Status:</span>
                     @if ($track->status == 'pending')
-                    Pending order
+                    Pending item
                     @elseif($track->status == 'confirm')
-                    Confirming order
+                    Confirming item
                     @elseif($track->status == 'reject')
-                    Rejected order
+                    Rejected item
                     @elseif($track->status == 'processing')
-                    Processing order
+                    Processing item
                     @elseif($track->status == 'picked')
-                    Picking order
+                    Picking item
                     @elseif($track->status == 'shipped')
-                    Shipping order
+                    Shipping item
                     @elseif($track->status == 'delivered')
                     Successfully Delivered
 
                     @endif
-                
-                
+
+
                 </div>
         </div>
         <div class="col-md-3 mb-2">
@@ -73,20 +73,20 @@ Vartouhi | Track {{  $track->invoice_no }}
 {{-- INSERTED --}}
 
 <div class="tns-carousel tns-controls-static tns-controls-outside tns-nav-enabled">
-    <div class="card border-0 shadow-lg">
+    <div class="card bitem-0 shadow-lg">
 
         <div class="card-body pb-2">
     <div class="tns-carousel-inner" data-carousel-options='{"items": 4, "nav": true, "loop": false, "responsive": {"0":{"items":1},"500":{"items":2, "gutter": 18},"768":{"items":4, "gutter": 20}, "1100":{"gutter": 24}}}'>
-        
 
-        {{-- Order placed --}}
-        <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Order details has been submitted.">
+
+        {{-- Item requested --}}
+        <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Item details has been submitted.">
             <div class="nav-link completed">
                 <div class="d-flex align-items-center">
                     <div class="media-tab-media"><i class="ci-bag"></i></div>
                     <div class="ps-3">
                         <div class="media-tab-subtitle text-muted fs-xs mb-1">First step</div>
-                        <h6 class="media-tab-title text-nowrap mb-0">Order placed</h6>
+                        <h6 class="media-tab-title text-nowrap mb-0">Item requested</h6>
                     </div>
                 </div>
             </div>
@@ -95,13 +95,13 @@ Vartouhi | Track {{  $track->invoice_no }}
         @if($track->status == 'pending')
 
         {{-- Pending --}}
-        <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="You order was placed on queue.">
+        <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="You item was requested on queue.">
             <div class="nav-link active">
                 <div class="d-flex align-items-center">
                     <div class="media-tab-media"><i class="ci-eye-off"></i></div>
                     <div class="ps-3">
                         <div class="media-tab-subtitle text-muted fs-xs mb-1">Second step</div>
-                        <h6 class="media-tab-title text-nowrap mb-0">Pending Order</h6>
+                        <h6 class="media-tab-title text-nowrap mb-0">Pending Item</h6>
                     </div>
                 </div>
             </div>
@@ -140,7 +140,7 @@ Vartouhi | Track {{  $track->invoice_no }}
                     <div class="media-tab-media"><i class="ci-package"></i></div>
                     <div class="ps-3">
                         <div class="media-tab-subtitle text-muted fs-xs mb-1">Fifth step</div>
-                        <h6 class="media-tab-title text-nowrap mb-0">Picking Order</h6>
+                        <h6 class="media-tab-title text-nowrap mb-0">Picking Item</h6>
                     </div>
                 </div>
             </div>
@@ -153,7 +153,7 @@ Vartouhi | Track {{  $track->invoice_no }}
                     <div class="media-tab-media"><i class="ci-delivery"></i></div>
                     <div class="ps-3">
                         <div class="media-tab-subtitle text-muted fs-xs mb-1">Sixth step</div>
-                        <h6 class="media-tab-title text-nowrap mb-0">Shipping Order</h6>
+                        <h6 class="media-tab-title text-nowrap mb-0">Distribute Item</h6>
                     </div>
                 </div>
             </div>
@@ -165,7 +165,7 @@ Vartouhi | Track {{  $track->invoice_no }}
                 <div class="d-flex align-items-center">
                     <div class="media-tab-media"><i class="ci-check"></i></div>
                     <div class="ps-3">
-                        <div class="media-tab-subtitle text-muted fs-xs mb-1">Order Completed</div>
+                        <div class="media-tab-subtitle text-muted fs-xs mb-1">Item Completed</div>
                         <h6 class="media-tab-title text-nowrap mb-0">Delivered</h6>
                     </div>
                 </div>
@@ -175,7 +175,7 @@ Vartouhi | Track {{  $track->invoice_no }}
         @elseif($track->status == 'reject')
 
                         {{-- Pending --}}
-                        <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="The admin has checked your order.">
+                        <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="The admin has checked your item.">
                             <div class="nav-link completed">
                                 <div class="d-flex align-items-center">
                                     <div class="media-tab-media"><i class="ci-eye"></i></div>
@@ -186,9 +186,9 @@ Vartouhi | Track {{  $track->invoice_no }}
                                 </div>
                             </div>
                         </div>
-                
+
                         {{-- Confirmed --}}
-                        <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Your order has been rejected!">
+                        <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Your item has been rejected!">
                             <div class="nav-link active">
                                 <div class="d-flex align-items-center">
                                     <div class="media-tab-media"><i class="ci-close"></i></div>
@@ -199,7 +199,7 @@ Vartouhi | Track {{  $track->invoice_no }}
                                 </div>
                             </div>
                         </div>
-                
+
                         {{-- Processed --}}
                         <div class="nav-item">
                             <div class="nav-link" >
@@ -212,7 +212,7 @@ Vartouhi | Track {{  $track->invoice_no }}
                                 </div>
                             </div>
                         </div>
-                
+
                         {{-- Picked --}}
                         <div class="nav-item">
                             <div class="nav-link">
@@ -220,12 +220,12 @@ Vartouhi | Track {{  $track->invoice_no }}
                                     <div class="media-tab-media"><i class="ci-package"></i></div>
                                     <div class="ps-3">
                                         <div class="media-tab-subtitle text-muted fs-xs mb-1">Fifth step</div>
-                                        <h6 class="media-tab-title text-nowrap mb-0">Picking Order</h6>
+                                        <h6 class="media-tab-title text-nowrap mb-0">Picking Item</h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                
+
                         {{-- Shipped --}}
                         <div class="nav-item">
                             <div class="nav-link">
@@ -233,31 +233,31 @@ Vartouhi | Track {{  $track->invoice_no }}
                                     <div class="media-tab-media"><i class="ci-delivery"></i></div>
                                     <div class="ps-3">
                                         <div class="media-tab-subtitle text-muted fs-xs mb-1">Sixth step</div>
-                                        <h6 class="media-tab-title text-nowrap mb-0">Shipping Order</h6>
+                                        <h6 class="media-tab-title text-nowrap mb-0">Distribute Item</h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                
+
                         {{-- Delivered --}}
                         <div class="nav-item">
                             <div class="nav-link">
                                 <div class="d-flex align-items-center">
                                     <div class="media-tab-media"><i class="ci-check"></i></div>
                                     <div class="ps-3">
-                                        <div class="media-tab-subtitle text-muted fs-xs mb-1">Order Completed</div>
+                                        <div class="media-tab-subtitle text-muted fs-xs mb-1">Item Completed</div>
                                         <h6 class="media-tab-title text-nowrap mb-0">Delivered</h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
-        
+
 
 
         @elseif($track->status == 'confirm')
 
                 {{-- Pending --}}
-                <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="The admin has checked your order.">
+                <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="The admin has checked your item.">
                     <div class="nav-link completed">
                         <div class="d-flex align-items-center">
                             <div class="media-tab-media"><i class="ci-eye"></i></div>
@@ -268,9 +268,9 @@ Vartouhi | Track {{  $track->invoice_no }}
                         </div>
                     </div>
                 </div>
-        
+
                 {{-- Confirmed --}}
-                <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Your order is under verification.">
+                <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Your item is under verification.">
                     <div class="nav-link active">
                         <div class="d-flex align-items-center">
                             <div class="media-tab-media"><i class="ci-thumb-up"></i></div>
@@ -281,7 +281,7 @@ Vartouhi | Track {{  $track->invoice_no }}
                         </div>
                     </div>
                 </div>
-        
+
                 {{-- Processed --}}
                 <div class="nav-item">
                     <div class="nav-link">
@@ -294,7 +294,7 @@ Vartouhi | Track {{  $track->invoice_no }}
                         </div>
                     </div>
                 </div>
-        
+
                 {{-- Picked --}}
                 <div class="nav-item">
                     <div class="nav-link">
@@ -302,12 +302,12 @@ Vartouhi | Track {{  $track->invoice_no }}
                             <div class="media-tab-media"><i class="ci-package"></i></div>
                             <div class="ps-3">
                                 <div class="media-tab-subtitle text-muted fs-xs mb-1">Fifth step</div>
-                                <h6 class="media-tab-title text-nowrap mb-0">Picking Order</h6>
+                                <h6 class="media-tab-title text-nowrap mb-0">Picking Item</h6>
                             </div>
                         </div>
                     </div>
                 </div>
-        
+
                 {{-- Shipped --}}
                 <div class="nav-item">
                     <div class="nav-link">
@@ -315,40 +315,40 @@ Vartouhi | Track {{  $track->invoice_no }}
                             <div class="media-tab-media"><i class="ci-delivery"></i></div>
                             <div class="ps-3">
                                 <div class="media-tab-subtitle text-muted fs-xs mb-1">Sixth step</div>
-                                <h6 class="media-tab-title text-nowrap mb-0">Shipping Order</h6>
+                                <h6 class="media-tab-title text-nowrap mb-0">Distribute Item</h6>
                             </div>
                         </div>
                     </div>
                 </div>
-        
+
                 {{-- Delivered --}}
                 <div class="nav-item">
                     <div class="nav-link">
                         <div class="d-flex align-items-center">
                             <div class="media-tab-media"><i class="ci-check"></i></div>
                             <div class="ps-3">
-                                <div class="media-tab-subtitle text-muted fs-xs mb-1">Order Completed</div>
+                                <div class="media-tab-subtitle text-muted fs-xs mb-1">Item Completed</div>
                                 <h6 class="media-tab-title text-nowrap mb-0">Delivered</h6>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                
-        
-        
-       
-       
-        
 
 
 
 
 
-        
+
+
+
+
+
+
+
                 @elseif($track->status == 'processing')
                 {{-- Pending --}}
-                <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="The admin has checked your order.">
+                <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="The admin has checked your item.">
                     <div class="nav-link completed">
                         <div class="d-flex align-items-center">
                             <div class="media-tab-media"><i class="ci-eye"></i></div>
@@ -359,9 +359,9 @@ Vartouhi | Track {{  $track->invoice_no }}
                         </div>
                     </div>
                 </div>
-        
+
                 {{-- Confirmed --}}
-                <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Your order has been confirmed!">
+                <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Your item has been confirmed!">
                     <div class="nav-link completed">
                         <div class="d-flex align-items-center">
                             <div class="media-tab-media"><i class="ci-thumb-up"></i></div>
@@ -372,9 +372,9 @@ Vartouhi | Track {{  $track->invoice_no }}
                         </div>
                     </div>
                 </div>
-        
+
                 {{-- Processed --}}
-                <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Your order is on the process.">
+                <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Your item is on the process.">
                     <div class="nav-link active">
                         <div class="d-flex align-items-center">
                             <div class="media-tab-media"><i class="ci-settings"></i></div>
@@ -385,7 +385,7 @@ Vartouhi | Track {{  $track->invoice_no }}
                         </div>
                     </div>
                 </div>
-        
+
                 {{-- Picked --}}
                 <div class="nav-item">
                     <div class="nav-link">
@@ -393,12 +393,12 @@ Vartouhi | Track {{  $track->invoice_no }}
                             <div class="media-tab-media"><i class="ci-package"></i></div>
                             <div class="ps-3">
                                 <div class="media-tab-subtitle text-muted fs-xs mb-1">Fifth step</div>
-                                <h6 class="media-tab-title text-nowrap mb-0">Picking Order</h6>
+                                <h6 class="media-tab-title text-nowrap mb-0">Picking Item</h6>
                             </div>
                         </div>
                     </div>
                 </div>
-        
+
                 {{-- Shipped --}}
                 <div class="nav-item">
                     <div class="nav-link">
@@ -406,34 +406,34 @@ Vartouhi | Track {{  $track->invoice_no }}
                             <div class="media-tab-media"><i class="ci-delivery"></i></div>
                             <div class="ps-3">
                                 <div class="media-tab-subtitle text-muted fs-xs mb-1">Sixth step</div>
-                                <h6 class="media-tab-title text-nowrap mb-0">Shipping Order</h6>
+                                <h6 class="media-tab-title text-nowrap mb-0">Distribute Item</h6>
                             </div>
                         </div>
                     </div>
                 </div>
-        
+
                 {{-- Delivered --}}
                 <div class="nav-item">
                     <div class="nav-link">
                         <div class="d-flex align-items-center">
                             <div class="media-tab-media"><i class="ci-check"></i></div>
                             <div class="ps-3">
-                                <div class="media-tab-subtitle text-muted fs-xs mb-1">Order Completed</div>
+                                <div class="media-tab-subtitle text-muted fs-xs mb-1">Item Completed</div>
                                 <h6 class="media-tab-title text-nowrap mb-0">Delivered</h6>
                             </div>
                         </div>
                     </div>
                 </div>
 
-               
-       
-       
-       
-       
-       
+
+
+
+
+
+
         @elseif($track->status == 'picked')
                 {{-- Pending --}}
-                <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="The admin has checked your order!">
+                <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="The admin has checked your item!">
                     <div class="nav-link completed">
                         <div class="d-flex align-items-center">
                             <div class="media-tab-media"><i class="ci-eye"></i></div>
@@ -444,9 +444,9 @@ Vartouhi | Track {{  $track->invoice_no }}
                         </div>
                     </div>
                 </div>
-        
+
                 {{-- Confirmed --}}
-                <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Your order has been confirmed!">
+                <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Your item has been confirmed!">
                     <div class="nav-link completed">
                         <div class="d-flex align-items-center">
                             <div class="media-tab-media"><i class="ci-thumb-up"></i></div>
@@ -457,9 +457,9 @@ Vartouhi | Track {{  $track->invoice_no }}
                         </div>
                     </div>
                 </div>
-        
+
                 {{-- Processed --}}
-                <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Your order has been processed!">
+                <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Your item has been processed!">
                     <div class="nav-link completed">
                         <div class="d-flex align-items-center">
                             <div class="media-tab-media"><i class="ci-settings"></i></div>
@@ -470,20 +470,20 @@ Vartouhi | Track {{  $track->invoice_no }}
                         </div>
                     </div>
                 </div>
-        
+
                 {{-- Picked --}}
-                <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="The courier will attempt to pick your order.">
+                <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="The courier will attempt to pick your item.">
                     <div class="nav-link active">
                         <div class="d-flex align-items-center">
                             <div class="media-tab-media"><i class="ci-package"></i></div>
                             <div class="ps-3">
                                 <div class="media-tab-subtitle text-muted fs-xs mb-1">Fifth step</div>
-                                <h6 class="media-tab-title text-nowrap mb-0">Picking Order</h6>
+                                <h6 class="media-tab-title text-nowrap mb-0">Picking Item</h6>
                             </div>
                         </div>
                     </div>
                 </div>
-        
+
                 {{-- Shipped --}}
                 <div class="nav-item">
                     <div class="nav-link">
@@ -491,35 +491,35 @@ Vartouhi | Track {{  $track->invoice_no }}
                             <div class="media-tab-media"><i class="ci-delivery"></i></div>
                             <div class="ps-3">
                                 <div class="media-tab-subtitle text-muted fs-xs mb-1">Sixth step</div>
-                                <h6 class="media-tab-title text-nowrap mb-0">Shipping Order</h6>
+                                <h6 class="media-tab-title text-nowrap mb-0">Distribute Item</h6>
                             </div>
                         </div>
                     </div>
                 </div>
-        
+
                 {{-- Delivered --}}
                 <div class="nav-item">
                     <div class="nav-link">
                         <div class="d-flex align-items-center">
                             <div class="media-tab-media"><i class="ci-check"></i></div>
                             <div class="ps-3">
-                                <div class="media-tab-subtitle text-muted fs-xs mb-1">Order Completed</div>
+                                <div class="media-tab-subtitle text-muted fs-xs mb-1">Item Completed</div>
                                 <h6 class="media-tab-title text-nowrap mb-0">Delivered</h6>
                             </div>
                         </div>
                     </div>
                 </div>
 
-               
-        
-       
-       
-       
-       
-        
+
+
+
+
+
+
+
         @elseif($track->status == 'shipped')
         {{-- Pending --}}
-        <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="The admin has checked your order!">
+        <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="The admin has checked your item!">
             <div class="nav-link completed">
                 <div class="d-flex align-items-center">
                     <div class="media-tab-media"><i class="ci-eye"></i></div>
@@ -532,7 +532,7 @@ Vartouhi | Track {{  $track->invoice_no }}
         </div>
 
         {{-- Confirmed --}}
-        <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Your order has been confirmed!">
+        <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Your item has been confirmed!">
             <div class="nav-link completed">
                 <div class="d-flex align-items-center">
                     <div class="media-tab-media"><i class="ci-thumb-up"></i></div>
@@ -545,7 +545,7 @@ Vartouhi | Track {{  $track->invoice_no }}
         </div>
 
         {{-- Processed --}}
-        <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Your order has been processed!">
+        <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Your item has been processed!">
             <div class="nav-link completed">
                 <div class="d-flex align-items-center">
                     <div class="media-tab-media"><i class="ci-settings"></i></div>
@@ -558,7 +558,7 @@ Vartouhi | Track {{  $track->invoice_no }}
         </div>
 
         {{-- Picked --}}
-        <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Your order has been picked by the courier!">
+        <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Your item has been picked by the courier!">
             <div class="nav-link completed">
                 <div class="d-flex align-items-center">
                     <div class="media-tab-media"><i class="ci-package"></i></div>
@@ -571,13 +571,13 @@ Vartouhi | Track {{  $track->invoice_no }}
         </div>
 
         {{-- Shipped --}}
-        <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="The courier will now attempt to deliver your order.">
+        <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="The courier will now attempt to deliver your item.">
             <div class="nav-link active">
                 <div class="d-flex align-items-center">
                     <div class="media-tab-media"><i class="ci-delivery"></i></div>
                     <div class="ps-3">
                         <div class="media-tab-subtitle text-muted fs-xs mb-1">Sixth step</div>
-                        <h6 class="media-tab-title text-nowrap mb-0">Shipping Order</h6>
+                        <h6 class="media-tab-title text-nowrap mb-0">Distribute Item</h6>
                     </div>
                 </div>
             </div>
@@ -589,7 +589,7 @@ Vartouhi | Track {{  $track->invoice_no }}
                 <div class="d-flex align-items-center">
                     <div class="media-tab-media"><i class="ci-check"></i></div>
                     <div class="ps-3">
-                        <div class="media-tab-subtitle text-muted fs-xs mb-1">Order Completed</div>
+                        <div class="media-tab-subtitle text-muted fs-xs mb-1">Item Completed</div>
                         <h6 class="media-tab-title text-nowrap mb-0">Delivered</h6>
                     </div>
                 </div>
@@ -597,16 +597,16 @@ Vartouhi | Track {{  $track->invoice_no }}
         </div>
 
 
-       
-       
-       
-       
-       
-       
+
+
+
+
+
+
 
         @elseif($track->status == 'delivered')
         {{-- Pending --}}
-        <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="The admin has checked your order!">
+        <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="The admin has checked your item!">
             <div class="nav-link completed">
                 <div class="d-flex align-items-center">
                     <div class="media-tab-media"><i class="ci-eye"></i></div>
@@ -619,7 +619,7 @@ Vartouhi | Track {{  $track->invoice_no }}
         </div>
 
         {{-- Confirmed --}}
-        <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Your order has been confirmed!">
+        <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Your item has been confirmed!">
             <div class="nav-link completed">
                 <div class="d-flex align-items-center">
                     <div class="media-tab-media"><i class="ci-thumb-up"></i></div>
@@ -632,7 +632,7 @@ Vartouhi | Track {{  $track->invoice_no }}
         </div>
 
         {{-- Processed --}}
-        <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Your order has been processed.">
+        <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Your item has been processed.">
             <div class="nav-link completed">
                 <div class="d-flex align-items-center">
                     <div class="media-tab-media"><i class="ci-settings"></i></div>
@@ -645,7 +645,7 @@ Vartouhi | Track {{  $track->invoice_no }}
         </div>
 
         {{-- Picked --}}
-        <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Your order has been picked by the courier!">
+        <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Your item has been picked by the courier!">
             <div class="nav-link completed">
                 <div class="d-flex align-items-center">
                     <div class="media-tab-media"><i class="ci-package"></i></div>
@@ -658,7 +658,7 @@ Vartouhi | Track {{  $track->invoice_no }}
         </div>
 
         {{-- Shipped --}}
-        <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Your order has been shipped out!">
+        <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Your item has been shipped out!">
             <div class="nav-link completed">
                 <div class="d-flex align-items-center">
                     <div class="media-tab-media"><i class="ci-delivery"></i></div>
@@ -676,7 +676,7 @@ Vartouhi | Track {{  $track->invoice_no }}
                 <div class="d-flex align-items-center">
                     <div class="media-tab-media"><i class="ci-check"></i></div>
                     <div class="ps-3">
-                        <div class="media-tab-subtitle text-muted fs-xs mb-1">Order Completed</div>
+                        <div class="media-tab-subtitle text-muted fs-xs mb-1">Item Completed</div>
                         <h6 class="media-tab-title text-nowrap mb-0">Delivered</h6>
                     </div>
                 </div>
@@ -685,15 +685,15 @@ Vartouhi | Track {{  $track->invoice_no }}
 
 
 
-        @elseif ($track->status == 'cancel_order')
+        @elseif ($track->status == 'cancel_item')
         {{-- Pending --}}
-        <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="You cancelled your order.">
+        <div class="nav-item" data-bs-toggle="tooltip" data-bs-placement="top" title="You cancelled your item.">
             <div class="nav-link active">
                 <div class="d-flex align-items-center">
                     <div class="media-tab-media"><i class="ci-close"></i></div>
                     <div class="ps-3">
                         <div class="media-tab-subtitle text-muted fs-xs mb-1">Second step</div>
-                        <h6 class="media-tab-title text-nowrap mb-0">Cancelled Order</h6>
+                        <h6 class="media-tab-title text-nowrap mb-0">Cancelled Item</h6>
                     </div>
                 </div>
             </div>
@@ -732,7 +732,7 @@ Vartouhi | Track {{  $track->invoice_no }}
                     <div class="media-tab-media"><i class="ci-package"></i></div>
                     <div class="ps-3">
                         <div class="media-tab-subtitle text-muted fs-xs mb-1">Fifth step</div>
-                        <h6 class="media-tab-title text-nowrap mb-0">Picking Order</h6>
+                        <h6 class="media-tab-title text-nowrap mb-0">Picking Item</h6>
                     </div>
                 </div>
             </div>
@@ -745,7 +745,7 @@ Vartouhi | Track {{  $track->invoice_no }}
                     <div class="media-tab-media"><i class="ci-delivery"></i></div>
                     <div class="ps-3">
                         <div class="media-tab-subtitle text-muted fs-xs mb-1">Sixth step</div>
-                        <h6 class="media-tab-title text-nowrap mb-0">Shipping Order</h6>
+                        <h6 class="media-tab-title text-nowrap mb-0">Distribute Item</h6>
                     </div>
                 </div>
             </div>
@@ -757,12 +757,12 @@ Vartouhi | Track {{  $track->invoice_no }}
                 <div class="d-flex align-items-center">
                     <div class="media-tab-media"><i class="ci-check"></i></div>
                     <div class="ps-3">
-                        <div class="media-tab-subtitle text-muted fs-xs mb-1">Order Completed</div>
+                        <div class="media-tab-subtitle text-muted fs-xs mb-1">Item Completed</div>
                         <h6 class="media-tab-title text-nowrap mb-0">Delivered</h6>
                     </div>
                 </div>
             </div>
-        </div>        
+        </div>
 
 
         @endif
@@ -776,7 +776,7 @@ Vartouhi | Track {{  $track->invoice_no }}
 {{-- End INSERTED --}}
     {{-- <!-- Progress-->
 
-        <div class="card border-0 shadow-lg">
+        <div class="card bitem-0 shadow-lg">
 
             <div class="card-body pb-2">
 
@@ -788,7 +788,7 @@ Vartouhi | Track {{  $track->invoice_no }}
                                 <div class="media-tab-media"><i class="ci-bag"></i></div>
                                 <div class="ps-3">
                                     <div class="media-tab-subtitle text-muted fs-xs mb-1">First step</div>
-                                    <h6 class="media-tab-title text-nowrap mb-0">Order placed</h6>
+                                    <h6 class="media-tab-title text-nowrap mb-0">Item requested</h6>
                                 </div>
                             </div>
                         </div>
@@ -799,7 +799,7 @@ Vartouhi | Track {{  $track->invoice_no }}
                                 <div class="media-tab-media"><i class="ci-settings"></i></div>
                                 <div class="ps-3">
                                     <div class="media-tab-subtitle text-muted fs-xs mb-1">Second step</div>
-                                    <h6 class="media-tab-title text-nowrap mb-0">Processing order</h6>
+                                    <h6 class="media-tab-title text-nowrap mb-0">Processing item</h6>
                                 </div>
                             </div>
                         </div>
@@ -832,12 +832,12 @@ Vartouhi | Track {{  $track->invoice_no }}
                                 <div class="media-tab-media"><i class="ci-settings"></i></div>
                                 <div class="ps-3">
                                     <div class="media-tab-subtitle text-muted fs-xs mb-1">Second step</div>
-                                    <h6 class="media-tab-title text-nowrap mb-0">Processing order</h6>
+                                    <h6 class="media-tab-title text-nowrap mb-0">Processing item</h6>
                                 </div>
                             </div>
                         </div>
                     </div>
-                  
+
                     <div class="nav-item align-items-center text-center">
                         <div class="nav-link">
                             <div class="d-flex align-items-center">
@@ -849,7 +849,7 @@ Vartouhi | Track {{  $track->invoice_no }}
                             </div>
                         </div>
                     </div>
-                   
+
                     <div class="nav-item align-items-center text-center">
                         <div class="nav-link">
                             <div class="d-flex align-items-center">
@@ -861,8 +861,8 @@ Vartouhi | Track {{  $track->invoice_no }}
                             </div>
                         </div>
                     </div>
-                    
-                
+
+
             </div>
 
         </div>
@@ -879,27 +879,27 @@ Vartouhi | Track {{  $track->invoice_no }}
                 @if($track->updated_at == null || $track->updated_at->diffForHumans() == null)
                 ----
                 @else
-                
+
                 {{ $track->updated_at }} </span> ({{ $track->updated_at->diffForHumans() }})
                 @endif
-            
-        </div><a class="btn btn-primary btn-sm mt-2" href="{{ url('user/order_details/'.$track->id ) }}" target="_blank">View Order Details</a>
+
+        </div><a class="btn btn-primary btn-sm mt-2" href="{{ url('user/order_details/'.$track->id ) }}" target="_blank">View Item Details</a>
     </div>
 </div>
 
-{{-- <div class="modal fade" id="order-details">
+{{-- <div class="modal fade" id="item-details">
     <div class="modal-dialog modal-lg modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Order No - {{  $track->invoice_no }}</h5>
+          <h5 class="modal-title">Item No - {{  $track->invoice_no }}</h5>
           <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body pb-0">
 
-           
+
 
           <!-- Item-->
-          <div class="d-sm-flex justify-content-between mb-4 pb-3 pb-sm-2 border-bottom">
+          <div class="d-sm-flex justify-content-between mb-4 pb-3 pb-sm-2 bitem-bottom">
             <div class="d-sm-flex text-center text-sm-start"><a class="d-inline-block flex-shrink-0 mx-auto" href="shop-single-v1.html" style="width: 10rem;"><img src="img/shop/cart/01.jpg" alt="Product"></a>
               <div class="ps-sm-4 pt-2">
                 <h3 class="product-title fs-base mb-2"><a href="shop-single-v1.html">Women Colorblock Sneakers</a></h3>
@@ -916,7 +916,7 @@ Vartouhi | Track {{  $track->invoice_no }}
             </div>
           </div>
           <!-- End Item-->
-          
+
         </div>
         <!-- Footer-->
         <div class="modal-footer flex-wrap justify-content-between bg-secondary fs-md">

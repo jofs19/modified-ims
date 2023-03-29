@@ -11,12 +11,12 @@
 <div class="content-header">
 			<div class="d-flex align-items-center">
 				<div class="mr-auto">
-					<h3 class="page-title">Returned Order Details</h3>
+					<h3 class="page-title">Returned Requests Details</h3>
 					<div class="d-inline-block align-items-center">
 						<nav>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
-								<li class="breadcrumb-item" aria-current="page">Order Details</li>
+								<li class="breadcrumb-item" aria-current="page">Request Details</li>
 
 							</ol>
 						</nav>
@@ -63,8 +63,8 @@
                   <div class="box-header with-border">
                     <a href="{{ route('return.approve',$orders->id) }}" class="btn btn-success pull-right">Approve </a>		
 
-                    <h4 class="box-title">Returned Product of [{{ Auth::user()->name }}]</h4>
-                    <h5 class="box-subtitle"><b>Invoice number:</b> [<code>{{ $orders->invoice_no }}</code>]</h5>
+                    <h4 class="box-title">Returned Item of [{{ Auth::user()->name }}]</h4>
+                    <h5 class="box-subtitle"><b>Request number:</b> [<code>{{ $orders->invoice_no }}</code>]</h5>
                     <h6 class="box-subtitle"><b> Purchased Date:</b> [{{ $orders->order_date }}] </h6>
 
 

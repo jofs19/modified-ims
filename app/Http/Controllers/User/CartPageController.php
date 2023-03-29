@@ -21,7 +21,7 @@ class CartPageController extends Controller
         $carts = Cart::content();
     	$cartQty = Cart::count();
     	$cartTotal = Cart::total();
-        
+
 
     	return response()->json(array(
     		'carts' => $carts,
@@ -29,7 +29,7 @@ class CartPageController extends Controller
     		'cartTotal' => $cartTotal,
     	));
 
-    } //end method 
+    } //end method
 
 
     public function RemoveCartProduct($rowId){
@@ -39,12 +39,12 @@ class CartPageController extends Controller
             Session::forget('coupon');
          }
 
-        return response()->json(['success' => 'Successfully Remove From Cart']);
+        return response()->json(['success' => 'Successfully Remove From Request List']);
     } //end method
 
 
 
-     // Cart Increment 
+     // Cart Increment
      public function CartIncrement($rowId){
         $row = Cart::get($rowId);
 
@@ -55,7 +55,7 @@ class CartPageController extends Controller
         if ($product->product_qty < $row->qty + 1) {
             return response()->json('out of stock');
         }
-        
+
         Cart::update($rowId, $row->qty + 1);
 
 
@@ -64,17 +64,17 @@ class CartPageController extends Controller
             $coupon_name = Session::get('coupon')['coupon_name'];
             $coupon = Coupon::where('coupon_name',$coupon_name)->first();
 
-            $total = (int)str_replace(',','',Cart::total()); 
+            $total = (int)str_replace(',','',Cart::total());
             Session::put('coupon',[ 'coupon_name' => $coupon->coupon_name, 'coupon_discount' => $coupon->coupon_discount, 'discount_amount' => round($total * $coupon->coupon_discount/100), 'total_amount' => round($total - $total * $coupon->coupon_discount/100) ]);
         }
 
-        
+
 
         return response()->json('increment');
 
     } // end method
 
-       // Cart Decrement  
+       // Cart Decrement
        public function CartDecrement($rowId){
 
         $row = Cart::get($rowId);
@@ -85,17 +85,17 @@ class CartPageController extends Controller
             $coupon_name = Session::get('coupon')['coupon_name'];
             $coupon = Coupon::where('coupon_name',$coupon_name)->first();
 
-            $total = (int)str_replace(',','',Cart::total()); 
+            $total = (int)str_replace(',','',Cart::total());
             Session::put('coupon',[ 'coupon_name' => $coupon->coupon_name, 'coupon_discount' => $coupon->coupon_discount, 'discount_amount' => round($total * $coupon->coupon_discount/100), 'total_amount' => round($total - $total * $coupon->coupon_discount/100) ]);
         }
 
         return response()->json('Decrement');
 
-    }// end method 
-
-    
+    }// end method
 
 
 
 
-} 
+
+
+}

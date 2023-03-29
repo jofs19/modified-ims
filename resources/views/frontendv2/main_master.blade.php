@@ -13,12 +13,12 @@
     <meta name="author" content="John Oliver Santiago">
     <!-- Viewport-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:image" content="{{ asset('frontendv2/assets/img/logo.png') }}" />
+    <meta property="og:image" content="{{ asset('frontendv2/assets/img/psu.png') }}" />
 
     <!-- Favicon and Touch Icons-->
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('frontendv2/assets/img/logo.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('frontendv2/assets/img/logo.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('frontendv2/assets/img/psu.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('frontendv2/assets/img/psu.png') }}">
     <link rel="manifest" href="site.webmanifest">
     <link rel="mask-icon" color="#fe6a6a" href="safari-pinned-tab.svg">
     <meta name="msapplication-TileColor" content="#ffffff">
@@ -204,10 +204,10 @@
 
       <!-- Hero (Banners + Slider)-->
       {{-- Slider Area --}}
-      {{-- Products grid Trending Products Area --}}
+      {{-- Items grid Trending Items Area --}}
       {{-- Promo Banner Area --}}
       {{-- Brand Area --}}
-      {{-- Product Widgets Area --}}
+      {{-- Item Widgets Area --}}
       {{-- Blog Area --}}
       {{-- Blog + Instagram info cards --}}
 
@@ -215,10 +215,10 @@
 
       <!-- End Hero (Banners + Slider)-->
       {{-- End Slider Area --}}
-      {{-- End Products grid Trending Products Area --}}
+      {{-- End Items grid Trending Items Area --}}
       {{-- End Promo Banner Area --}}
       {{-- End Brand Area --}}
-      {{-- End Product Widgets Area --}}
+      {{-- End Item Widgets Area --}}
       {{-- End Blog Area --}}
       {{-- End Blog + Instagram info cards --}}
 
@@ -240,11 +240,11 @@
 
     {{-- Mobile UI Area for Home Page --}}
     <div class="handheld-toolbar">
-      <div class="d-table table-layout-fixed w-100"><a class="d-table-cell handheld-toolbar-item" href="{{ route('wishlist') }}"><span class="handheld-toolbar-icon"><i class="ci-heart"></i><span class="badge bg-primary rounded-pill ms-1 wishlistQty">0</span>
-      </span><span class="handheld-toolbar-label">Wishlist</span></a>
+      <div class="d-table table-layout-fixed w-100"><a class="d-table-cell handheld-toolbar-item" href="{{ route('wishlist') }}"><span class="handheld-toolbar-icon"><i class="ci-star"></i><span class="badge bg-primary rounded-pill ms-1 wishlistQty">0</span>
+      </span><span class="handheld-toolbar-label">Favorites</span></a>
 
 
-      <a class="d-table-cell handheld-toolbar-item" href="{{ route('mycart') }}"><span class="handheld-toolbar-icon"><i class="ci-cart"></i><span class="badge bg-primary rounded-pill ms-1 cartQty"></span></span> <span class="handheld-toolbar-label" id="cartSubTotal"></span></a>
+      <a class="d-table-cell handheld-toolbar-item" href="{{ route('mycart') }}"><span class="handheld-toolbar-icon"><i class="ci-bag"></i><span class="badge bg-primary rounded-pill ms-1 cartQty"></span></span> <span class="handheld-toolbar-label" id="cartSubTotal"></span></a>
 
                                         @php
 			                                  if (Auth::check()){
@@ -273,10 +273,10 @@
 
     {{-- Mobile UI Area for Shop Page --}}
     <div class="handheld-toolbar">
-      <div class="d-table table-layout-fixed w-100"><a class="d-table-cell handheld-toolbar-item" href="#" data-bs-toggle="offcanvas" data-bs-target="#shop-sidebar"><span class="handheld-toolbar-icon"><i class="ci-filter-alt"></i></span><span class="handheld-toolbar-label">Filters</span></a><a class="d-table-cell handheld-toolbar-item" href="{{ route('wishlist') }}"><span class="handheld-toolbar-icon"><i class="ci-heart"></i><span class="badge bg-primary rounded-pill ms-1 wishlistQty">0</span></span><span class="handheld-toolbar-label">Wishlist</span></a>
+      <div class="d-table table-layout-fixed w-100"><a class="d-table-cell handheld-toolbar-item" href="#" data-bs-toggle="offcanvas" data-bs-target="#shop-sidebar"><span class="handheld-toolbar-icon"><i class="ci-filter-alt"></i></span><span class="handheld-toolbar-label">Filters</span></a><a class="d-table-cell handheld-toolbar-item" href="{{ route('wishlist') }}"><span class="handheld-toolbar-icon"><i class="ci-star"></i><span class="badge bg-primary rounded-pill ms-1 wishlistQty">0</span></span><span class="handheld-toolbar-label">Favorites</span></a>
 
 
-        <a class="d-table-cell handheld-toolbar-item" href="{{ route('mycart') }}"><span class="handheld-toolbar-icon"><i class="ci-cart"></i><span class="badge bg-primary rounded-pill ms-1 cartQty"></span></span> <span class="handheld-toolbar-label" id="cartSubTotal"></span></a>
+        <a class="d-table-cell handheld-toolbar-item" href="{{ route('mycart') }}"><span class="handheld-toolbar-icon"><i class="ci-bag"></i><span class="badge bg-primary rounded-pill ms-1 cartQty"></span></span> <span class="handheld-toolbar-label" id="cartSubTotal"></span></a>
 
         <a class="d-table-cell handheld-toolbar-item" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" onclick="window.scrollTo(0, 0)"><span class="handheld-toolbar-icon"><i class="ci-menu"></i></span><span class="handheld-toolbar-label">Menu</span></a>
 
@@ -288,11 +288,11 @@
 
     <!-- Toolbar for handheld devices (Blog)-->
     <div class="handheld-toolbar">
-      <div class="d-table table-layout-fixed w-100"><a class="d-table-cell handheld-toolbar-item" href="#" data-bs-toggle="offcanvas" data-bs-target="#blog-sidebar"><span class="handheld-toolbar-icon"><i class="ci-sign-in"></i></span><span class="handheld-toolbar-label">Sidebar</span></a><a class="d-table-cell handheld-toolbar-item" href="{{ route('wishlist') }}"><span class="handheld-toolbar-icon"><i class="ci-heart"></i><span class="badge bg-primary rounded-pill ms-1 wishlistQty"></span></span><span class="handheld-toolbar-label">Wishlist</span></a>
+      <div class="d-table table-layout-fixed w-100"><a class="d-table-cell handheld-toolbar-item" href="#" data-bs-toggle="offcanvas" data-bs-target="#blog-sidebar"><span class="handheld-toolbar-icon"><i class="ci-sign-in"></i></span><span class="handheld-toolbar-label">Sidebar</span></a><a class="d-table-cell handheld-toolbar-item" href="{{ route('wishlist') }}"><span class="handheld-toolbar-icon"><i class="ci-star"></i><span class="badge bg-primary rounded-pill ms-1 wishlistQty"></span></span><span class="handheld-toolbar-label">Favorites</span></a>
 
 
 
-        <a class="d-table-cell handheld-toolbar-item" href="{{ route('mycart') }}"><span class="handheld-toolbar-icon"><i class="ci-cart"></i><span class="badge bg-primary rounded-pill ms-1 cartQty"></span></span> <span class="handheld-toolbar-label" id="cartSubTotal"></span></a>
+        <a class="d-table-cell handheld-toolbar-item" href="{{ route('mycart') }}"><span class="handheld-toolbar-icon"><i class="ci-bag"></i><span class="badge bg-primary rounded-pill ms-1 cartQty"></span></span> <span class="handheld-toolbar-label" id="cartSubTotal"></span></a>
 
         <a class="d-table-cell handheld-toolbar-item" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" onclick="window.scrollTo(0, 0)"><span class="handheld-toolbar-icon"><i class="ci-menu"></i></span><span class="handheld-toolbar-label">Menu</span></a>
 
@@ -407,7 +407,7 @@
 
     <!-- Post comment -->
 <div class=" d-flex align-items-start border-bottom py-2 my-2 roll-in-blurred-right">
-  <img class="rounded-circle" width="50" src="{{ asset('frontendv2/assets/img/vartouhi-logo.png') }}" alt="Laura Willson"/>
+  <img class="rounded-circle" width="50" src="{{ asset('frontendv2/assets/img/psu.png') }}" alt="Laura Willson"/>
   <div class="ps-3">
     <div class="d-flex justify-content-between align-items-center mb-2">
       <h6 class="fs-md mb-0">
@@ -422,7 +422,7 @@
     @endphp
 
 
-      Vartouhi Corporation </h6>
+      PSU-LC IMS </h6>
 
     </div>
     <p class="fs-md mb-1">{{ $notification->data['message'] }}</p>
@@ -522,25 +522,25 @@
 
               <div class="mb-2">
                 <label class="form-label" for="su-name">Username</label>
-                <input class="form-control" type="text" id="name" name="name" placeholder="John Oliver Santiago" required>
+                <input class="form-control" type="text" id="name" name="name" required>
                 <div class="invalid-feedback">Please fill in your name.</div>
               </div>
               <div class="mb-2">
                 <label for="su-email" class="form-label">Email address</label>
-                <input class="form-control" type="email" id="email" name="email" placeholder="jofs@example.com" required>
+                <input class="form-control" type="email" id="email" name="email" required>
                 <div class="invalid-feedback">Please provide a valid email address.</div>
               </div>
 
               <div class="mb-2">
-                <label for="su-address" class="form-label">Home Address <span> <div class="form-text">(<strong>e.g.</strong> #26 Padilla St. West Poblacion)</div></span>
+                <label for="su-address" class="form-label">Home Address 
                 </label>
-                <input class="form-control" type="text" id="address" name="address" placeholder="House #, Street/Bldg. Name, Brgy." required>
+                <input class="form-control" type="text" id="address" name="address" required>
                 <div class="invalid-feedback">Please provide a valid email address.</div>
               </div>
 
               <div class="mb-2">
                 <label for="su-email" class="form-label">Phone number</label>
-                <input class="form-control" type="tel" id="phone" name="phone" placeholder="+(63)-012-3456-789" required>
+                <input class="form-control" type="tel" id="phone" name="phone" required>
                 <div class="invalid-feedback">Please provide a valid email address.</div>
               </div>
 
@@ -591,7 +591,7 @@
     {{-- END SIGN-UP FORM --}}
 
 
-        {{-- Product Quick View Area --}}
+        {{-- Item Quick View Area --}}
 
             <!-- Quick View Modal Area-->
 
@@ -613,7 +613,7 @@
                         </div>
                         <div class="modal-body">
                             <div class="row">
-                                <!-- Product gallery-->
+                                <!-- Item gallery-->
                                 <div class="col-lg-7 pe-lg-0">
                                     <div class="product-gallery">
                                         <div class="product-gallery-preview order-sm-2">
@@ -621,26 +621,26 @@
                                                 <img class="image-zoom"
                                                     id="pimage"
 
-                                                    alt="Product image">
+                                                    alt="Item image">
                                                 <div class="image-zoom-pane"></div>
                                             </div>
 
                                             <div class="product-gallery-preview-item" id="second"><img class="image-zoom"
                                                     src="{{ asset('frontendv2/assets/img/shop/single/gallery/06.jp') }}g"
                                                     data-zoom="{{ asset('frontendv2/assets/img/shop/single/gallery/06.jpg') }}"
-                                                    alt="Product image">
+                                                    alt="Item image">
                                                 <div class="image-zoom-pane"></div>
                                             </div>
                                             <div class="product-gallery-preview-item" id="third"><img class="image-zoom"
                                                     src="{{ asset('frontendv2/assets/img/shop/single/gallery/07.jpg') }}"
                                                     data-zoom="{{ asset('frontendv2/assets/img/shop/single/gallery/07.jpg') }}"
-                                                    alt="Product image">
+                                                    alt="Item image">
                                                 <div class="image-zoom-pane"></div>
                                             </div>
                                             <div class="product-gallery-preview-item" id="fourth"><img class="image-zoom"
                                                     src="{{ asset('frontendv2/assets/img/shop/single/gallery/08.jpg') }}"
                                                     data-zoom="{{ asset('frontendv2/assets/img/shop/single/gallery/08.jpg') }}"
-                                                    alt="Product image">
+                                                    alt="Item image">
                                                 <div class="image-zoom-pane"></div>
                                             </div>
                                         </div>
@@ -649,21 +649,21 @@
                                                 class="product-gallery-thumblist-item active" href="#first"><img
                                                 id="pgallery"
 
-                                                    alt="Product thumb"></a>
+                                                    alt="Item thumb"></a>
                                                     <a class="product-gallery-thumblist-item"
                                                 href="#second"><img
                                                     src="{{ asset('frontendv2/assets/img/shop/single/gallery/th06.jpg') }}"
-                                                    alt="Product thumb"></a><a class="product-gallery-thumblist-item"
+                                                    alt="Item thumb"></a><a class="product-gallery-thumblist-item"
                                                 href="#third"><img
                                                     src="{{ asset('frontendv2/assets/img/shop/single/gallery/th07.jpg') }}"
-                                                    alt="Product thumb"></a><a class="product-gallery-thumblist-item"
+                                                    alt="Item thumb"></a><a class="product-gallery-thumblist-item"
                                                 href="#fourth"><img
                                                     src="{{ asset('frontendv2/assets/img/shop/single/gallery/th08.jpg') }}"
-                                                    alt="Product thumb"></a>
+                                                    alt="Item thumb"></a>
                                         </div> --}}
                                     </div>
                                 </div>
-                                <!-- Product details-->
+                                <!-- Item details-->
                                 <div class="col-lg-5 pt-4 pt-lg-0 image-zoom-pane">
                                     <div class="product-details ms-auto pb-3">
                                         {{-- <div class="mb-2">
@@ -784,7 +784,7 @@
                                             </div> --}}
                                         {{-- </div> --}} <!--END-->
 
-                      <!-- Product panels-->
+                      <!-- Item panels-->
                       <div class="accordion mb-4" id="productPanels">
                         <div class="accordion-item">
                           <h3 class="accordion-header"><a class="accordion-button" href="#shippingOptions" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="shippingOptions"><i class="ci-announcement text-muted fs-lg align-middle mt-n1 me-2"></i>General info</a></h3>
@@ -792,14 +792,14 @@
                             <div class="accordion-body fs-sm">
                               <div class="d-flex justify-content-between border-bottom pb-2">
                                 <div>
-                                  <div class="fw-semibold text-dark">Product Brand</div>
+                                  <div class="fw-semibold text-dark">Item Department</div>
                                   <div class="fs-sm text-muted"><span id="pbrand"></span></div>
                                 </div>
                                 <div>...</div>
                               </div>
                               <div class="d-flex justify-content-between border-bottom py-2">
                                 <div>
-                                  <div class="fw-semibold text-dark">Product Category</div>
+                                  <div class="fw-semibold text-dark">Item Category</div>
                                   <div class="fs-sm text-muted">
 
                                     @if(session()->get('language') == 'filipino')
@@ -816,7 +816,7 @@
                               </div>
                               <div class="d-flex justify-content-between border-bottom py-2 ">
                                 <div>
-                                  <div class="fw-semibold text-dark">Product Tag</div>
+                                  <div class="fw-semibold text-dark">Item Tag</div>
                                   <div class="fs-sm text-muted">
 
                                     @if(session()->get('language') == 'filipino')
@@ -831,18 +831,26 @@
                                 <div>...</div>
                               </div>
 
-                              <div class="d-flex justify-content-between pt-2">
+                              <div class="d-flex justify-content-between border-bottom py-2">
                                 <div>
-                                  <div class="fw-semibold text-dark">Product Stock</div>
+                                  <div class="fw-semibold text-dark">Item Stock</div>
                                   <div class="fs-sm text-muted"><span id="pquantity"></span></div>
                                 </div>
                                 <div>...</div>
                               </div>
 
-
-                               <div class="d-flex justify-content-between border-bottom " style="visibility:collapse">
+                              <div class="d-flex justify-content-between pt-2">
                                 <div>
-                                  <div class="fw-semibold text-dark">Product Vendor</div>
+                                  <div class="fw-semibold text-dark">Unit</div>
+                                  <div class="fs-sm text-muted"><span id="pcode"></span></div>
+                                </div>
+                                <div>...</div>
+                              </div>
+
+
+                               <div class="d-flex justify-content-between my_vendor">
+                                <div class="my_vendor">
+                                  <div class="fw-semibold text-dark">Item Vendor</div>
                                   <div class="fs-sm text-muted">
 
                                     <span id="pvendor_id"></span>
@@ -850,7 +858,7 @@
 
                                   </div>
                                 </div>
-                                <div>...</div>
+                                <div class="my_vendor">...</div>
                               </div>
 
 
@@ -862,7 +870,7 @@
                           </div>
                         </div>
                         <div class="accordion-item">
-                          <h3 class="accordion-header"><a class="accordion-button collapsed" href="#localStore" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="localStore"><i class="ci-list text-muted fs-lg align-middle mt-n1 me-2"></i>Product Description</a></h3>
+                          <h3 class="accordion-header"><a class="accordion-button collapsed" href="#localStore" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="localStore"><i class="ci-list text-muted fs-lg align-middle mt-n1 me-2"></i>Item Description</a></h3>
                           <div class="accordion-collapse collapse" id="localStore" data-bs-parent="#productPanels">
                             <div class="accordion-body pt-3 pb-1">
                                 <dl>
@@ -890,7 +898,7 @@
                           </div>
                         </div>
                         {{-- <div class="accordion-item">
-                            <h3 class="accordion-header"><a class="accordion-button collapsed" href="#localStore" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="localStore"><i class="ci-list text-muted fs-lg align-middle mt-n1 me-2"></i>Product Vendor</a></h3>
+                            <h3 class="accordion-header"><a class="accordion-button collapsed" href="#localStore" role="button" data-bs-toggle="collapse" aria-expanded="true" aria-controls="localStore"><i class="ci-list text-muted fs-lg align-middle mt-n1 me-2"></i>Item Vendor</a></h3>
                             <div class="accordion-collapse collapse" id="localStore" data-bs-parent="#productPanels">
                               <div class="accordion-body pt-3 pb-1">
                                   <dl>
@@ -937,7 +945,7 @@
                 'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
             }
         })
-    // Start Product View with Modal
+    // Start Item View with Modal
     function productView(id){
         // alert(id)
         $.ajax({
@@ -966,11 +974,11 @@
                 $('#longDetailsFil').html(data.product.long_descp_fil);
                 $('#pquantity').text(data.product.product_qty);
                 $('#qty').val(1);
-                // !! Start Product Color !!
+                // !! Start Item Color !!
 
 
 
-                // Product Price
+                // Item Price
                 if (data.product.discount_price == null) {
                     $('#pprice').text('');
                     $('#oldprice').text('');
@@ -984,7 +992,7 @@
 
                     $('#aviable').text('');
                     $('#stockout').text('');
-                    $('#aviable').html(`<div class="product-badge product-available mt-n1"><i class="ci-security-check" ></i>Product Available</div>`);
+                    $('#aviable').html(`<div class="product-badge product-available mt-n1"><i class="ci-security-check" ></i>Item Available</div>`);
                     $('#try').attr('disabled',false);
                     $('#qty').attr('max',data.product.product_qty);
 
@@ -1029,10 +1037,10 @@
         })
 
     }
-    // Eend Product View with Modal
+    // Eend Item View with Modal
 
 
- // Start Add To Cart Product
+ // Start Add To Cart Item
     function addToCart(){
         var product_name = $('#pname').text();
         var id = $('#product_id').val();
@@ -1086,10 +1094,10 @@
         })
     }
 
-// End Add To Cart Product
+// End Add To Cart Item
 
 
-        /// Start Details Page Add To Cart Product
+        /// Start Details Page Add To Cart Item
     function addToCartDetails(){
      var product_name = $('#dpname').text();
      var id = $('#dproduct_id').val();
@@ -1133,7 +1141,7 @@
         }
      })
     }
-     /// Eend Details Page Add To Cart Product
+     /// Eend Details Page Add To Cart Item
 
 
 </script>
@@ -1158,11 +1166,12 @@
                                               aria-hidden="true">&times;</span></button>
                                       <div class="d-flex align-items-center"><a class="d-block flex-shrink-0"
                                               href="#"><img
-                                                  src="/${value.options.image}" width="64" alt="Product" class="pt-1"></a>
+                                                  src="/${value.options.image}" width="64" alt="Item" class="pt-1"></a>
                                           <div class="ps-2">
                                               <h6 class="widget-product-title"><a href="#">${value.name}</a></h6>
-                                              <div class="widget-product-meta"><span
-                                                      class="text-accent me-2"> ₱ ${value.price}.<small>00</small></span><span
+                                              <div class="widget-product-meta">
+
+                                                      <span
                                                       class="text-muted">x ${value.qty}</span></div>
                                           </div>
                                       </div>
@@ -1285,19 +1294,18 @@
 
                        rows += `
         <div class="d-sm-flex justify-content-between my-4 mt-lg-4 pb-3 pb-sm-4 border-bottom">
-          <div class="d-block d-sm-flex align-items-start text-center text-sm-start"><a class="d-block flex-shrink-0 mx-auto me-sm-4" href="/product/details/${value.product_id}/${value.product.product_slug_en}" style="width: 10rem;"><img src="/${value.product.product_thumbnail}" alt="Product"></a>
+          <div class="d-block d-sm-flex align-items-start text-center text-sm-start"><a class="d-block flex-shrink-0 mx-auto me-sm-4" href="/product/details/${value.product_id}/${value.product.product_slug_en}" style="width: 10rem;"><img src="/${value.product.product_thumbnail}" alt="Item"></a>
             <div class="pt-2">
               <h3 class="product-title fs-base mb-2"><a href="/product/details/${value.product_id}/${value.product.product_slug_en}">${value.product.product_name_en}</a></h3>
-              <div class="fs-sm"><span class="text-muted me-2">Sizes:</span>${value.product.product_size_en != null ? `${value.product.product_size_en}` : `----`}</div>
-              <div class="fs-sm"><span class="text-muted me-2">Variants:</span>${value.product.product_color_en != null ? `${value.product.product_color_en}` : `----`} </div>
-              <div class="fs-lg text-accent pt-2">${value.product.discount_price == null ? `₱ ${value.product.selling_price}` : `<del class="text-muted fs-lg me-1">₱ ${value.product.selling_price}.<small>00</small></del> <span> ₱ ${value.product.discount_price}</span>`}.<small>00</small></div>
+
+
             </div>
           </div>
           <div class="pt-2 ps-sm-3 mx-auto mx-sm-0 text-center">
 
             <button class="btn btn-outline-primary btn-sm" type="submit" href="#quick-view-electro"
                             data-bs-toggle="modal" data-bs-target="#quick-view-electro" id="${value.id}"
-                            onclick="productView(${value.product_id})"><i class="ci-cart me-2"></i>Add to Cart</button>
+                            onclick="productView(${value.product_id})"><i class="ci-bag me-2"></i>Add to Cart</button>
             <button class="btn btn-outline-danger btn-sm" type="submit" id="${value.id}" onclick="wishlistRemove(this.id)"><i class="ci-trash me-2"></i>Remove</button>
           </div>
         </div>`
@@ -1432,7 +1440,7 @@
                   <h3 class="product-title fs-sm"><a href="/product/details/${value.product_id}/${value.product.product_slug_en}">${value.product.product_name_en}</a></h3>
                   <button class="btn btn-icon btn-primary btn-sm" type="submit" href="#quick-view-electro"
                             data-bs-toggle="modal" data-bs-target="#quick-view-electro" id="${value.id}"
-                            onclick="productView(${value.product_id})" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to Cart"><i class="ci-cart fs-lg"></i></button>
+                            onclick="productView(${value.product_id})" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to Cart"><i class="ci-bag fs-lg"></i></button>
 
                   <button class="btn btn-sm btn-danger btn-icon" type="submit" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to Wishlist" id="${value.id}" onclick="addToWishList(this.id)" ><i class="ci-heart fs-lg"></i></button>
 
@@ -1601,13 +1609,12 @@
      $.each(response.carts, function(key,value){
          rows += `
          <div class="d-sm-flex justify-content-between align-items-center my-2 pb-3 border-bottom">
-          <div class="d-block d-sm-flex align-items-center text-center text-sm-start"><a class="d-inline-block flex-shrink-0 mx-auto me-sm-4" href="#"><img src="/${value.options.image}" width="160" alt="Product"></a>
+          <div class="d-block d-sm-flex align-items-center text-center text-sm-start"><a class="d-inline-block flex-shrink-0 mx-auto me-sm-4" href="#"><img src="/${value.options.image}" width="160" alt="Item"></a>
             <div class="pt-2">
               <h3 class="product-title fs-base mb-2"><a href="#">${value.name}</a></h3>
-              <div class="fs-sm"><span class="text-muted me-2">Size:</span>${value.options.size == null ? `---`:`${value.options.size}`}</div>
-              <div class="fs-sm"><span class="text-muted me-2">Variant:</span>${value.options.color == null ? `---`:`${value.options.color}`}</div>
-              <div class="fs-lg text-accent pt-2"> <span class="fs-ms text-dark">₱ ${value.price}.<small>00</small> x <strong>${value.qty}</strong> = </span>
-                ₱ ${value.subtotal}.<small>00</small></div>
+
+              <div class="fs-lg text-accent pt-2">  <small>x</small><strong>${value.qty}</strong>
+                </div>
             </div>
           </div>
           <div class="pt-2 pt-sm-0 ps-sm-3 mx-auto mx-sm-0 text-center text-sm-start" style="max-width: 10rem;">
@@ -1643,10 +1650,10 @@
     <div class="row justify-content-center pt-lg-4 text-center">
       <div class="col-lg-5 col-md-7 col-sm-9"><img class="d-block mx-auto mb-5" src="{{ asset('frontendv2/assets/img/pages/404.png') }}" width="340"
           alt="404 Error">
-        <h1 class="h2">Your Cart is Empty</h1>
+        <h1 class="h2">Your Requests is Empty</h1>
       <a href="{{ url('/') }}">
         <p class="fs-md mb-4">
-          <u>Add more products to Cart</u>
+          <u>Add more items to Request</u>
         </p>
       </a>
       </div>
@@ -2240,6 +2247,17 @@ sections.forEach((section) => {
     opacity: 0
   },'<50%')
 });
+
+      </script>
+
+      <script>
+
+
+        // hide my_vendor
+        $(document).ready(function(){
+          $('.my_vendor').hide();
+        });
+
 
       </script>
 

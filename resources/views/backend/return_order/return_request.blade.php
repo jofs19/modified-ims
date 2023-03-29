@@ -18,7 +18,7 @@
 
 			 <div class="box">
 				<div class="box-header with-border">
-				  <h3 class="box-title">Return Orders List</h3>
+				  <h3 class="box-title">Return Items List</h3>
 				</div>
 				<!-- /.box-header -->
 				<div class="box-body">
@@ -27,9 +27,9 @@
 						<thead>
 							<tr>
 								<th>Date </th>
-								<th>Invoice </th>
-								<th>Amount </th>
-								<th>Payment </th>
+								<th>Request # </th>
+								{{-- <th>Amount </th>
+								<th>Payment </th> --}}
 								<th>Status </th>
 								<th>Action</th>
 
@@ -40,7 +40,7 @@
 	 <tr>
 		<td> {{ $item->order_date }}  </td>
 		<td> {{ $item->invoice_no }}  </td>
-		<td> @if($item->amount >= 1000)
+		{{-- <td> @if($item->amount >= 1000)
 			₱ {{ $item->amount }}
 
 			@else
@@ -48,7 +48,7 @@
 
 			@endif  </td>
 
-		<td> {{ $item->payment_method }}  </td>
+		<td> {{ $item->payment_method }}  </td> --}}
 		<td>
 		@if($item->return_order == 1)
       <span class="badge badge-pill badge-primary">pending for approval </span>

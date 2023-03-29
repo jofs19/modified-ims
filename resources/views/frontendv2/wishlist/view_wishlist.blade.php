@@ -2,7 +2,7 @@
 @section('content')
 
 @section('title')
-Vartouhi | My Wishlist
+PSU-LC | My Favorites
 @endsection
 
 <div class="page-title-overlap bg-dark pt-4">
@@ -13,12 +13,12 @@ Vartouhi | My Wishlist
             <li class="breadcrumb-item"><a class="text-nowrap" href="index.html"><i class="ci-home"></i>Home</a></li>
             <li class="breadcrumb-item text-nowrap"><a href="#">Account</a>
             </li>
-            <li class="breadcrumb-item text-nowrap active" aria-current="page">Wishlist</li>
+            <li class="breadcrumb-item text-nowrap active" aria-current="page">Favorites</li>
           </ol>
         </nav>
       </div>
       <div class="order-lg-1 pe-lg-4 text-center text-lg-start">
-        <h1 class="h3 text-light mb-0">My wishlist</h1>
+        <h1 class="h3 text-light mb-0">My Favorites</h1>
       </div>
     </div>
   </div>
@@ -38,7 +38,7 @@ Vartouhi | My Wishlist
         <!-- Toolbar-->
 
         <div class="d-none d-lg-flex justify-content-between align-items-center pt-lg-3 pb-4 pb-lg-5 mb-lg-3">
-          <h6 class="fs-base text-light mb-0">List of items you added to wishlist:</h6><a class="btn btn-primary btn-sm" href="account-signin.html"><i class="ci-sign-out me-2"></i>Sign out</a>
+          <h6 class="fs-base text-light mb-0">List of items you added to favorites:</h6><a class="btn btn-primary btn-sm" href="{{ route('user.logout') }}"><i class="ci-sign-out me-2"></i>Sign out</a>
         </div>
         <!-- Wishlist-->
         <div style="height: 33rem;" data-simplebar data-simplebar-auto-hide="false">

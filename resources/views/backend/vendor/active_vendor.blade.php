@@ -28,7 +28,7 @@
 
 			 <div class="box">
 				<div class="box-header with-border">
-				  <h3 class="box-title">Authorized Vendors <sup><span class="badge badge-pill badge-danger"> {{$Activecount }} </span></sup></h3>
+				  <h3 class="box-title">Authorized Staff <sup><span class="badge badge-pill badge-danger"> {{$Activecount }} </span></sup></h3>
 {{-- <a href="{{ route('add.post') }}" class="btn btn-success" style="float: right;">Add Post</a> --}}
 				</div>
 				<!-- /.box-header -->
@@ -38,11 +38,11 @@
 						<thead>
 							<tr>
 
-                                <th>Shop name</th>
-                                <th>Vendor Username</th>
-                                <th>Vendor Email</th>
+                                <th>Department</th>
+                                <th>Staff Username</th>
+                                <th>Staff Email</th>
                                 <th>Date of Join</th>
-                                <th>Vendor status</th>
+                                <th>Staff status</th>
                                 <th>Action</th>
 
 							</tr>

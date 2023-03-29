@@ -30,7 +30,7 @@
       <section class="col-lg-8">
         <!-- Toolbar-->
         <div class="d-none d-lg-flex justify-content-between align-items-center pt-lg-3 pb-4 pb-lg-5 mb-lg-3">
-          <h6 class="fs-base text-light mb-0">Update you profile details below:</h6><a class="btn btn-primary btn-sm" href="account-signin.html"><i class="ci-sign-out me-2"></i>Sign out</a>
+          <h6 class="fs-base text-light mb-0">Update you profile details below:</h6><a class="btn btn-primary btn-sm" href="{{ route('user.logout') }}"><i class="ci-sign-out me-2"></i>Sign out</a>
         </div>
         <!-- Profile form-->
         <form method="post" action="{{ route('user.profile.store') }}" enctype="multipart/form-data">
@@ -42,7 +42,7 @@
 
 
           <div class="bg-secondary rounded-3 p-4 mb-4">
-            <div class="d-flex align-items-center"><img class="rounded" 
+            <div class="d-flex align-items-center"><img class="rounded"
               src="{{ (!empty($user->profile_photo_path)) ? asset($user->profile_photo_path):url('upload/no_image.jpg') }}" width="90" alt="User">
               <div class="ps-3">
 
@@ -70,7 +70,7 @@
               <label class="form-label" for="account-ln">Email Address</label>
               <input class="form-control" name="email" type="email" id="account-ln" value="{{ $user->email }}">
               @error('email')
-              <span class="text-danger">{{ $message }}</span>         
+              <span class="text-danger">{{ $message }}</span>
               @enderror
             </div>
             <div class="col-sm-6">

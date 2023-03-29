@@ -24,7 +24,7 @@
                           <tr>
                               <th>Category Icon</th>
                               <th>Category (Eng)</th>
-                              <th>Category (Fil)</th>
+                              {{-- <th>Category (Fil)</th> --}}
                               <th>Action</th>
                           
                           </tr>
@@ -36,7 +36,7 @@
                           <tr>
                               <td  width="20"> <span><i class="{{ $item->category_icon }}"></i></span></td>
                               <td>{{ $item->category_name_en }}</td>
-                              <td>{{ $item->category_name_fil }}</td>
+                              {{-- <td>{{ $item->category_name_fil }}</td> --}}
 
                               <td width="100">
                                 
@@ -56,7 +56,7 @@
                           <tr>
                             <th>Category Icon</th>
                             <th>Category (Eng)</th>
-                            <th>Category (Fil)</th>
+                            {{-- <th>Category (Fil)</th> --}}
                             <th>Action</th>
                               
                           </tr>
@@ -105,7 +105,7 @@
                                 </div>
 
                                 <!--brand name fil-->
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <h5>Category Name (Fil) <span class="text-danger">*</span></h5>
                                     <div class="controls">
                                         <input type="text" name="category_name_fil" class="form-control"> 
@@ -114,10 +114,10 @@
                                             
                                         @enderror
                                     </div>
-                                </div>
+                                </div> --}}
 
                                 <!--icon-->
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <h5>Category Icon <span class="text-danger">*</span></h5>
                                     <div class="controls">
                                         <input type="text" name="category_icon" class="form-control"> 
@@ -126,7 +126,7 @@
                                             
                                         @enderror
                                     </div>
-                                </div>
+                                </div> --}}
 
                             
 

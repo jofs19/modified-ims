@@ -25,12 +25,12 @@
 <div class="content-header">
 			<div class="d-flex align-items-center">
 				<div class="mr-auto">
-					<h3 class="page-title">Order Details</h3>
+					<h3 class="page-title">Request Details</h3>
 					<div class="d-inline-block align-items-center">
 						<nav>
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
-								<li class="breadcrumb-item" aria-current="page">Order Details</li>
+								<li class="breadcrumb-item" aria-current="page">Request Details</li>
 
 							</ol>
 						</nav>
@@ -53,14 +53,14 @@
           <button class="tst2 btn btn-warning btn-block mb-15">Warning Message</button>
           <button class="tst3 btn btn-success btn-block mb-15">Success Message</button>
           <button class="tst4 btn btn-danger btn-block mb-15">Danger Message</button>
-        </div>              
+        </div>
       </div>
       <!-- /.box-body --> --}}
- 
+
 
 
     <section class="invoice printableArea box-round ">
-			
+
       <!-- title row -->
       <div class="row">
       <div class="col-12">
@@ -69,27 +69,26 @@
           <button id="print2" class="btn btn-warning ml-2" type="button"> <span><i class="fa fa-print"></i> Print</span> </button>
 
           @if ($order->receipt == '')
-            
+
           @else
-          <a href="{{ asset($order->receipt) }}" data-toggle="lightbox" data-title="Purchase Receipt" class="btn btn-secondary ml-2" class="all studio isotope-item" >View Purchase Receipt</a>
+          <a href="{{ asset($order->receipt) }}" data-toggle="lightbox" data-title="Purchase Receipt" class="btn btn-secondary ml-2" class="all studio isotope-item" >View Request Receipt</a>
           @endif
 
 
-        </div>	
+        </div>
         </div>
       </div>
       <div class="col-12">
         <div class="page-header">
-        <h2 class="d-inline"><span class="font-size-30">Order Details</span></h2>
+        <h2 class="d-inline"><span class="font-size-30">Request Details</span></h2>
         <div class="pull-right text-right">
           <h3>{{ $order->order_date }}</h3>
-        </div>	
+        </div>
         </div>
       </div>
       <!-- /.col -->
       </div>
       <!-- info row -->
-      <p>Customer needs a change from: {{ $order->change_amount }}</p>
       {{-- @if ($order->shipping_charge < 1000)
       <p>Shipping Fees: {{ $order->shipping_charge }}</p>
 
@@ -103,59 +102,57 @@
       <div class="col-md-6 invoice-col">
         {{-- <img src="{{ asset('upload/user_images/'.$order->user->profile_photo_path) }}" alt="" style="width: 120px;height:120px; position:relative" > --}}
 
-       
 
 
-        <strong> <u> Recipient Details</u></strong>	
+
+        <strong> <u> Requestor Details</u></strong>
         <address>
         <strong class="text-blue font-size-24">{{ $order->name }}</strong><br>
-        <strong>Phone:</strong>   {{ $order->user->phone }} <br> <strong> Email:</strong>  {{ $order->email }} 
- 
+        <strong>Phone:</strong>   {{ $order->user->phone }} <br> <strong> Email:</strong>  {{ $order->email }}
+
         </address>
       </div>
       <!-- /.col -->
       <div class="col-md-6 invoice-col text-right">
-        <strong> <u> Billing Address</u></strong>
+        <strong> <u> Requestor Address</u></strong>
 
 
         <address>
         <p class="d-inline"> {{ $order->address }}</p><br>
         @if($order->address2 == NULL)
         @else
-        
+
         <p class="d-inline"> {{ $order->address2 }}</p><br>
         @endif
-        <strong>{{ $order->district->district_name }}, {{ $order->division->division_name }} {{ $order->state->state_name }}</strong>         <strong>({{ $order->post_code }})</strong> 
+        {{-- <strong>{{ $order->district->district_name }}, {{ $order->division->division_name }} {{ $order->state->state_name }}</strong>         <strong>({{ $order->post_code }})</strong>  --}}
 
-        </address> 
+        </address>
         <br>
       </div>
-      
+
       <!-- /.col -->
       <div class="col-sm-12 invoice-col mb-15">
         <div class="invoice-details row no-margin text-center">
           @if ($order->payment_method == 'Cash On Delivery')
-          <div class="col-md-6 col-lg-4"><b>Invoice </b>#: {{ $order->invoice_no }}</div>
-          <div class="col-md-6 col-lg-4"><b>Payment Type:</b> {{ $order->payment_method }}</div>
-          <div class="col-md-6 col-lg-4"><b>Order Status:</b> 
+          <div class="col-md-6 col-lg-6"><b>Request </b>#: {{ $order->invoice_no }}</div>
+          <div class="col-md-6 col-lg-6"><b>Request Status:</b>
             @if($order->status == 'confirm' || $order->status == 'reject')
               {{ $order->status }}ed
             @else
               {{ $order->status }}
-            
-            @endif  
+
+            @endif
           </div>
 
           @else
-          <div class="col-md-6 col-lg-3"><b>Invoice </b>#: {{ $order->invoice_no }}</div>
-          <div class="col-md-6 col-lg-3"><b>Transaction ID:</b> {{ $order->transaction_id }}</div>
+          <div class="col-md-6 col-lg-3"><b>Request </b>#: {{ $order->invoice_no }}</div>
           <div class="col-md-6 col-lg-3"><b>Payment Type:</b> {{ $order->payment_method }}</div>
-          <div class="col-md-6 col-lg-3"><b>Order Status:</b> 
+          <div class="col-md-6 col-lg-3"><b>Request Status:</b>
             @if($order->status == 'confirm')
               confirmed
             @else
               {{ $order->status }}
-            
+
             @endif
             </div>
 
@@ -173,18 +170,16 @@
         <tbody>
         <tr class="text-center">
           <th>#</th>
-          <th>Product Image</th>
-          <th>Product Code #</th>
-          <th class="text-center">Product Name</th>
-          <th class="text-center">Variant</th>
-          <th class="text-center">Size</th>
+          <th>Item Image</th>
+          <th>Item Department</th>
+          <th class="text-center">Item Name</th>
+
           <th class="text-center">Quantity</th>
-          <th class="text-center">Price</th>
-          <th class="text-center">Total Price</th>
+
 
         </tr>
 
-     
+
 
         @foreach($orderItem as $item)
         <tr>
@@ -195,31 +190,31 @@
                   @if ($x->product_id == $item->product_id)
                   {{ $loop->iteration }}
                   @endif
-                    
+
                   @endforeach
 
                 </td>
 
                 <td >
                    <label for="">
-                    
-                    
+
+
                     <div id="gallery">
 
                       <a href="{{ asset($item->product->product_thumbnail) }}" data-toggle="lightbox" data-gallery="multiimages" data-title="{{ $item->product->product_name_en }}"><img src="{{ asset($item->product->product_thumbnail) }}" class="all studio isotope-item" alt="gallery" style=" width:50px;height:50px"> </a>
-                    
+
                     </div>
-                    
-                    
+
+
                     {{-- <img src="{{ asset($item->product->product_thumbnail) }}" height="50px;" width="50px;">  --}}
-                  
-                  
-                  
-                  
+
+
+
+
                   </label>
                  </td>
- 
- 
+
+
                  <td >
                   <label for=""> {{ $item->product->product_code }}</label>
                 </td>
@@ -228,29 +223,17 @@
                 <td >
                    <label for=""> {{ $item->product->product_name_en }}</label>
                  </td>
- 
 
- 
-                <td >
-                   <label for=""> {{ $item->color }}</label>
-                 </td>
- 
-                <td >
-                   <label for=""> {{ $item->size }}</label>
-                 </td>
- 
+
+
+
+
                  <td >
                    <label for=""> {{ $item->qty }}</label>
                  </td>
- 
-                  <td >
-                   <label for=""> ₱{{ $item->price }} </label>
-                 </td>
 
-                 <td>
-                  <label for="">₱ {{ $item->price * $item->qty}} </label>
-                 </td>
- 
+
+
                </tr>
                @endforeach
 
@@ -258,7 +241,7 @@
 
         </tbody>
 
-      
+
         </table>
       </div>
       <!-- /.col -->
@@ -270,40 +253,39 @@
       <div class="row">
         <div class="col-12 text-right">
           {{-- <p class="lead"><b>Coupon</b><span class="text-danger"> *coupon name*  --}}
-          
+
             @php
               $total=0;
 
               foreach ($orderItem as $item) {
                 $total += $item->price * $item->qty;
-                
+
               }
 
-              
+
               $total_formatted = number_format($total, 2);
               $all_total = floatval($total);
 
             @endphp
 
-                  
-          
+
+
           </span></p>
 
 
                        {{-- @php
-	
+
 	$convert = number_format($total = (int)str_replace(',','',Cart::total()) + $order->shipping_charge, 2)
 
 @endphp
 
 {{ $convert }} --}}
           <div>
-            <h5>Total amount  : ₱ {{ $total_formatted}}</h5>
+            {{-- <h5>Total amount  : ₱ {{ $total_formatted}}</h5>
 
             @php
               $discount_amount = floatval($order->amount);
             @endphp
-            {{-- {{  $all_total - $discount_amount }} --}}
 
             @php
               $discount_format = number_format($all_total - $discount_amount, 2);
@@ -312,7 +294,6 @@
 
             <p>Coupon Discount : ₱ {{ $discount_format }}</p>
 
-            {{-- <p>Sub-Total : ₱ {{ $total - $discount }}</p> --}}
 
             @php
               $subtotal_format = number_format($total - $discount, 2);
@@ -359,11 +340,11 @@
 
         @endif
 
-        <h2><strong>Grand-Total :</strong> <span class="text-success"> ₱ {{ $grandTotal_format }} </span></h3>
+        <h2><strong>Grand-Total :</strong> <span class="text-success"> ₱ {{ $grandTotal_format }} </span></h3> --}}
 
-            
 
-          
+
+
             {{-- @php
             $discount = 0;
             $amount = number_format($order->amount, 2);
@@ -375,7 +356,7 @@
             @endphp --}}
 
             {{-- @php
-	
+
 	$convert = number_format($total = (float)str_replace(',','',Cart::total()) + $data['shipping_charge'], 2)
 
 @endphp
@@ -395,19 +376,19 @@
           </div>
           <div class="total-payment">
 
-            
+
 
             {{-- <h3><b>Grand Total :</b> ₱ {{ $grandTotal}}</h3>  --}}
 <br><br>
-            
-            
 
-            
+
+
+
           </div>
-  
+
         </div>
         <!-- /.col -->
- 
+
       </div>
       <!-- /.row -->
 
@@ -417,41 +398,41 @@
 							<small class="text-light mb-0">{{ $order->notes }}</small>
 						</div> <!-- end box-body-->
 					</div> --}}
-{{-- 
+{{--
           <p class="lead"><b>Note</b></p>
 
         <p><small class="text-light mb-0 text-sm">{{ $order->notes }}</small></p> --}}
-        
 
 
 
 
-      
+
+
 
       <!-- this row will not appear when printing -->
       <div class="row no-print">
       <div class="col-12">
         @if($order->status == 'pending')
-        <a href="{{ route('reject-orders', $order->id) }}" class="btn btn-danger pull-right" id="reject">Reject Order</a>
+        <a href="{{ route('reject-orders', $order->id) }}" class="btn btn-danger pull-right" id="reject">Reject Request</a>
 
-        <a href="{{ route('pending-confirm',$order->id) }}" class="btn  btn-success pull-right mx-5" id="confirm">Confirm Order</a>    
+        <a href="{{ route('pending-confirm',$order->id) }}" class="btn  btn-success pull-right mx-5" id="confirm">Confirm Request</a>
 
         @elseif($order->status == 'confirm')
-        <a href="{{ route('confirm.processing',$order->id) }}" class="btn btn-success pull-right" id="processing">Process Order</a>
+        <a href="{{ route('confirm.processing',$order->id) }}" class="btn btn-success pull-right" id="processing">Process Request</a>
 
         @elseif($order->status == 'processing')
-        <a href="{{ route('processing.picked',$order->id) }}" class="btn  btn-success pull-right" id="picked">Pick Order</a>
+        <a href="{{ route('processing.picked',$order->id) }}" class="btn  btn-success pull-right" id="picked">Pick Item</a>
 
         @elseif($order->status == 'picked')
-        <a href="{{ route('picked.shipped',$order->id) }}" class="btn  btn-success pull-right" id="shipped">Ship Order</a>
+        <a href="{{ route('picked.shipped',$order->id) }}" class="btn  btn-success pull-right" id="shipped">Distribute Item</a>
 
         @elseif($order->status == 'shipped')
-       <a href="{{ route('shipped.delivered',$order->id) }}" class="btn btn-success pull-right" id="delivered">Successfuly Delivered</a>
+       <a href="{{ route('shipped.delivered',$order->id) }}" class="btn btn-success pull-right" id="delivered">Completed</a>
 
         @endif
       </div>
       </div>
-      
+
   </section>
 
 
@@ -467,19 +448,19 @@
       <h4 class="box-title"><strong>Note</strong> </h4>
       </div>
       <div class="box-body">
-      <p><small class="text-light mb-0 text-sm">{{ $order->notes }}</small></p> 
+      <p><small class="text-light mb-0 text-sm">{{ $order->notes }}</small></p>
     </div>
     </div>
     </div>
 
   </div>
-  
+
   </section>
 
   @else
 
   @endif
-  
+
 
 {{-- <div id="gallery">
 

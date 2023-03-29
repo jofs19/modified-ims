@@ -3,7 +3,7 @@
 
 
 @section('title')
-    Vartouhi | Order History
+PSU-LC | Requests History
 @endsection
 
 <head>
@@ -12,12 +12,12 @@
 
       a:hover{
         color: #fff;
-        
+
       }
 
-     
 
-    
+
+
 
   </style>
 
@@ -32,12 +32,12 @@
           <li class="breadcrumb-item"><a class="text-nowrap" href="index.html"><i class="ci-home"></i>Home</a></li>
           <li class="breadcrumb-item text-nowrap"><a href="{{ url('dashboard') }}">Account</a>
           </li>
-          <li class="breadcrumb-item text-nowrap active" aria-current="page">Orders history</li>
+          <li class="breadcrumb-item text-nowrap active" aria-current="page">Request history</li>
         </ol>
       </nav>
     </div>
     <div class="order-lg-1 pe-lg-4 text-center text-lg-start">
-      <h1 class="h3 text-light mb-0">My orders</h1>
+      <h1 class="h3 text-light mb-0">My Requests</h1>
     </div>
   </div>
 </div>
@@ -49,17 +49,17 @@
     @include('frontendv2.common.user_sidebar')
     <!-- Sidebar-->
 
-    
+
 
     <!-- Content  -->
     <section class="col-lg-8">
       <!-- Toolbar-->
       <div class="d-flex justify-content-between align-items-center pt-lg-2 pb-4 pb-lg-5 mb-lg-3">
         <div class="d-flex align-items-center">
-          <label class="d-none d-lg-block fs-sm text-light text-nowrap opacity-75 me-2" for="order-sort">Sort orders:</label>
+          <label class="d-none d-lg-block fs-sm text-light text-nowrap opacity-75 me-2" for="order-sort">Sort request:</label>
           <form name="sortOrders" id="sortOrders">
             {{-- <input type="hidden" name="url" id="url" value="{{ $url }}"> --}}
-          <label class="d-lg-none fs-sm text-nowrap opacity-75 me-2" for="order-sort">Sort orders:</label>
+          <label class="d-lg-none fs-sm text-nowrap opacity-75 me-2" for="order-sort">Sort request:</label>
           <select class="form-select" id="sort_order" name="sort_order">
             <option value="all" @if (isset($_GET['sort_order']) && $_GET['sort_order'] == 'all') selected="" @endif>All</option>
             <option value="pending" @if (isset($_GET['sort_order']) && $_GET['sort_order'] == 'pending') selected="" @endif>Pending</option>
@@ -83,10 +83,9 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>Invoice No.</th>
-              <th>Date Purchased</th>
-              <th>M.O.P.</th>
-              <th>Amount</th>
+              <th>Request No.</th>
+              <th>Date Requested</th>
+
               <th>Order Status</th>
 
               <th>Action</th>
@@ -107,16 +106,15 @@
               <td colspan="7" class="text-center">No Order Found</td>
             </tr>
             @endif
-            
+
           </tbody>
 
           <tfoot>
             <tr>
               <th>#</th>
-              <th>Invoice No.</th>
-              <th>Date Purchased</th>
-              <th>M.O.P.</th>
-              <th>Amount</th>
+              <th>Request No.</th>
+              <th>Date Requested</th>
+
               <th>Order Status</th>
 
               <th>Action</th>
@@ -160,7 +158,7 @@
             </div>
             <div class="modal-body pb-0">
               @foreach ($carts as $order)
-                
+
               <!-- Item-->
               <div class="d-sm-flex justify-content-between mb-4 pb-3 pb-sm-2 border-bottom">
                 <div class="d-sm-flex text-center text-sm-start"><a class="d-inline-block flex-shrink-0 mx-auto" href="shop-single-v1.html" style="width: 10rem;"><img src="img/shop/cart/01.jpg" alt="Product"></a>
@@ -182,7 +180,7 @@
 
               @endforeach
 
-              
+
             </div>
             <!-- Footer-->
             <div class="modal-footer flex-wrap justify-content-between bg-secondary fs-md">

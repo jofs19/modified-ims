@@ -22,18 +22,7 @@ class SubCategoryController extends Controller
 
     public function SubCategoryStore(Request $request){
 
-        $request->validate([
-            'category_id' => 'required',
-            'subcategory_name_en' => 'required',
-            'subcategory_name_fil' => 'required',
-
-        ],[
-            'category_id.required' => 'Please Select Category',
-            'subcategory_name_en.required' => 'Input English Sub Category Name',
-            'subcategory_name_fil.required' => 'Input Filipino Sub Category Name',
-
-        ]); //end validate
-
+       
         SubCategory::insert([
             'category_id' => $request->category_id,
             'subcategory_name_en' => $request->subcategory_name_en,

@@ -17,7 +17,7 @@
 
         <div class="row justify-content-center pt-lg-4 text-center">
           <div class="col-lg-5 col-md-7 col-sm-9">
-            <h2 class="h3 mb-4">Wait for the admin to authorize your Vendor account.</h2>
+            <h2 class="h3 mb-4">Wait for the admin to authorize your account.</h2>
             <p class="fs-md mb-4">
             </p>
           </div>
@@ -78,27 +78,27 @@
                 <div class="pt-2 px-4 ps-lg-0 pe-xl-5">
                   <h2 class="h3 py-2 text-center text-sm-start">Your total products</h2>
                   <div class="row mx-n2 pt-2">
-                    <div class="col-md-4 col-sm-6 px-2 mb-4">
+                    <div class="col-md-6 col-sm-6 px-2 mb-4">
                       <div class="bg-secondary h-100 rounded-3 p-4 text-center">
-                        <h3 class="fs-sm text-muted">Total Products</h3>
+                        <h3 class="fs-sm text-muted">Total Items</h3>
                         <p class="h2 mb-2">{{ $total_products }}</p>
                         <p class="fs-ms text-muted mb-0">as of {{ $current_date }}</p>
                       </div>
                     </div>
-                    <div class="col-md-4 col-sm-6 px-2 mb-4">
+                    <div class="col-md-6 col-sm-6 px-2 mb-4">
                       <div class="bg-secondary h-100 rounded-3 p-4 text-center">
-                        <h3 class="fs-sm text-muted">Customer Orders</h3>
+                        <h3 class="fs-sm text-muted">Requestor Requests</h3>
                         <p class="h2 mb-2">{{ count($orderitem) }}</p>
                         <p class="fs-ms text-muted mb-0">as of {{ $current_date }}</p>
                       </div>
                     </div>
-                    <div class="col-md-4 col-sm-12 px-2 mb-4">
+                    {{-- <div class="col-md-4 col-sm-12 px-2 mb-4">
                       <div class="bg-secondary h-100 rounded-3 p-4 text-center">
                         <h3 class="fs-sm text-muted">Customer reviews</h3>
                         <p class="h2 mb-2">{{ $customer_reviews }}</p>
                         <p class="fs-ms text-muted mb-0">as of {{ $current_date }}</p>
                       </div>
-                    </div>
+                    </div> --}}
                   </div>
 
                 </div>

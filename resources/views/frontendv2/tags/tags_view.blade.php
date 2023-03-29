@@ -1,7 +1,7 @@
 @extends('frontendv2.main_master')
 @section('content')
 @section('title')
-Product Tags
+Item Tags
 @endsection
 
 
@@ -16,7 +16,7 @@ Product Tags
 
             <li class="breadcrumb-item text-nowrap active" aria-current="page">Product Tags</li>
 
-            
+
           </ol>
         </nav>
       </div>
@@ -45,14 +45,13 @@ Product Tags
                 <option selected="">Select options</option>
                 <option value="product_latest" @if (isset($_GET['sort']) && $_GET['sort'] == 'product_latest') selected="" @endif>Latest</option>
                 <option value="product_oldest" @if (isset($_GET['sort']) && $_GET['sort'] == 'product_oldest') selected="" @endif>Oldest</option>
-                <option value="price_lowest" @if (isset($_GET['sort']) && $_GET['sort'] == 'price_lowest') selected="" @endif>Low - Hight Price</option>
-                <option value="price_highest" @if (isset($_GET['sort']) && $_GET['sort'] == 'price_highest') selected="" @endif>High - Low Price</option>
+
                 <option value="name_a_z" @if (isset($_GET['sort']) && $_GET['sort'] == 'name_a_z') selected="" @endif>A - Z Order</option>
                 <option value="name_z_a" @if (isset($_GET['sort']) && $_GET['sort'] == 'name_z_a') selected="" @endif>Z - A Order</option>
               </select>
 
               </form>
-              
+
               {{-- Product count --}}
               @php
               $product_count = App\Models\Product::where('status',1)->count();
@@ -80,7 +79,7 @@ Product Tags
 
                 <li class="nav-item">
             {{-- Grid view --}}
-            <a class="btn btn-icon nav-link-style nav-link-light me-2" href="#grid" 
+            <a class="btn btn-icon nav-link-style nav-link-light me-2" href="#grid"
             class="nav-link active" data-bs-toggle="tab" role="tab" id="gridT">
 
             {{-- btn btn-icon nav-link-style bg-light text-dark disabled opacity-100 me-2 --}}
@@ -93,9 +92,9 @@ Product Tags
                 <li class="nav-item">
 
             {{-- List view --}}
-            <a class="btn btn-icon nav-link-style nav-link-light" href="#list" class="nav-link" data-bs-toggle="tab" role="tab" id="listT">
+            {{-- <a class="btn btn-icon nav-link-style nav-link-light" href="#list" class="nav-link" data-bs-toggle="tab" role="tab" id="listT">
                 <i class="ci-view-list"></i>
-            </a>
+            </a> --}}
             {{-- End List view --}}
                 </li>
 
@@ -107,16 +106,16 @@ Product Tags
         <div class="tab-content">
 
         <div class="tab-pane fade show active" id="grid" role="tabpanel">
-            
+
         <!-- Products grid-->
         <div class="row mx-n2">
           <!-- Product-->
           @forelse ($products as $product)
-              
+
           <div class="col-md-4 col-sm-6 px-2 mb-4">
             <div class="card product-card">
 
-                @php
+                {{-- @php
                 $amount = $product->selling_price - $product->discount_price;
                 $discount = ($amount/$product->selling_price) * 100;
                 @endphp
@@ -126,17 +125,17 @@ Product Tags
                     New
                 </span> @else
                 <span class="badge bg-danger badge-shadow">
-                   
+
                    <i class="ci-discount"></i> Sale {{ round($discount) }}%
                 </span>
-                @endif
+                @endif --}}
 
-              <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist" id="{{ $product->id }}" onclick="addToWishList(this.id)"><i class="ci-heart"></i></button><a class="card-img-top d-block overflow-hidden" href="{{ url('product/details/'.$product->id.'/'.$product->product_slug_en ) }}"><img src="{{ asset($product->product_thumbnail) }}" alt="Product"></a>
+              <button class="btn-wishlist btn-sm" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Favorites" id="{{ $product->id }}" onclick="addToWishList(this.id)"><i class="ci-star"></i></button><a class="card-img-top d-block overflow-hidden" href="{{ url('product/details/'.$product->id.'/'.$product->product_slug_en ) }}"><img src="{{ asset($product->product_thumbnail) }}" alt="Product"></a>
               <div class="card-body py-2"><a class="product-meta d-block fs-xs pb-1" href="{{ url('product/details/'.$product->id.'/'.$product->product_slug_en ) }}">{{ $product->category->category_name_en }}</a>
                 <h3 class="product-title fs-sm"><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug_en ) }}">@if(session()->get('language') == 'filipino') {{ $product->product_name_fil }} @else {{ $product->product_name_en }} @endif </a></h3>
                 <div class="d-flex justify-content-between">
 
-                    @if($product->discount_price == NULL)
+                    {{-- @if($product->discount_price == NULL)
 
                     <div class="product-price"><span class="text-accent fs-sm">
                             ₱ {{ $product->selling_price }} <small>.00</small>
@@ -151,98 +150,13 @@ Product Tags
 
                     </div>
 
-                    @endif
+                    @endif --}}
 
                   {{-- <div class="product-price"><span class="text-accent">$154.<small>00</small></span></div> --}}
 
 
 
-                  @php
-                  $reviewcount =
-                  App\Models\Review::where('product_id',$product->id)->where('status',1)->latest()->get();
-                  $average =
-                  App\Models\Review::where('product_id',$product->id)->where('status',1)->avg('rating');
-                  @endphp
 
-
-
-                  @if($average == 0 || $average < 0) <a
-                      href="{{ url('product/details/'.$product->id.'/'.$product->product_slug_en ) }}">
-                      <div class="star-rating"><i class="star-rating-icon ci-star-filled "></i><i
-                              class="star-rating-icon ci-star-filled "></i><i
-                              class="star-rating-icon ci-star-filled "></i><i
-                              class="star-rating-icon ci-star-filled "></i><i
-                              class="star-rating-icon ci-star-filled "></i>
-                      </div>
-                      {{-- <span class="review">{{ count($reviewcount) }}
-                      Review(s)</span> --}}
-                      </a>
-                      @elseif($average == 1 || $average < 2) <a
-                          href="{{ url('product/details/'.$product->id.'/'.$product->product_slug_en ) }}">
-                          <div class="star-rating"><i class="star-rating-icon ci-star-filled active"></i><i
-                                  class="star-rating-icon ci-star-filled "></i><i
-                                  class="star-rating-icon ci-star-filled "></i><i
-                                  class="star-rating-icon ci-star-filled "></i><i
-                                  class="star-rating-icon ci-star-filled "></i>
-                          </div>
-                          {{-- <span class="review">{{ count($reviewcount) }}
-                          Review(s)</span> --}}
-                          </a>
-                          @elseif($average == 2 || $average < 3) <a
-                              href="{{ url('product/details/'.$product->id.'/'.$product->product_slug_en ) }}">
-                              <div class="star-rating"><i
-                                      class="star-rating-icon ci-star-filled active"></i><i
-                                      class="star-rating-icon ci-star-filled active"></i><i
-                                      class="star-rating-icon ci-star-filled "></i><i
-                                      class="star-rating-icon ci-star-filled "></i><i
-                                      class="star-rating-icon ci-star-filled "></i>
-                              </div>
-                              {{-- <span class="review">{{ count($reviewcount) }}
-                              Review(s)</span> --}}
-                              </a>
-
-                              @elseif($average == 3 || $average < 4) <a
-                                  href="{{ url('product/details/'.$product->id.'/'.$product->product_slug_en ) }}">
-                                  <div class="star-rating"><i
-                                          class="star-rating-icon ci-star-filled active"></i><i
-                                          class="star-rating-icon ci-star-filled active"></i><i
-                                          class="star-rating-icon ci-star-filled active"></i><i
-                                          class="star-rating-icon ci-star-filled "></i><i
-                                          class="star-rating-icon ci-star-filled"></i>
-                                  </div>
-                                  {{-- <span class="review">{{ count($reviewcount) }}
-                                  Review(s)</span> --}}
-                                  </a>
-
-
-                                  @elseif($average == 4 || $average < 5) <a
-                                      href="{{ url('product/details/'.$product->id.'/'.$product->product_slug_en ) }}">
-                                      <div class="star-rating"><i
-                                              class="star-rating-icon ci-star-filled active"></i><i
-                                              class="star-rating-icon ci-star-filled active"></i><i
-                                              class="star-rating-icon ci-star-filled active"></i><i
-                                              class="star-rating-icon ci-star-filled active"></i><i
-                                              class="star-rating-icon ci-star-filled "></i>
-                                      </div>
-                                      {{-- <span class="review">{{ count($reviewcount) }}
-                                      Review(s)</span> --}}
-                                      </a>
-                                      @elseif($average == 5 || $average < 5) <div class="reviews">
-                                          <a
-                                              href="{{ url('product/details/'.$product->id.'/'.$product->product_slug_en ) }}">
-                                              <div class="star-rating"><i
-                                                      class="star-rating-icon ci-star-filled active"></i><i
-                                                      class="star-rating-icon ci-star-filled active"></i><i
-                                                      class="star-rating-icon ci-star-filled active"></i><i
-                                                      class="star-rating-icon ci-star-filled active"></i><i
-                                                      class="star-rating-icon ci-star-filled active"></i>
-                                              </div>
-                                              {{-- <span class="review">{{ count($reviewcount) }}
-                                              Review(s)</span> --}}
-                                          </a>
-              </div>
-
-              @endif
                 </div>
               </div>
               <div class="card-body card-body-hidden">
@@ -264,12 +178,12 @@ Product Tags
                     <label class="form-option-label" for="s-90">9</label>
                   </div>
                 </div> --}}
-                <button class="btn btn-primary btn-sm d-block w-100 mb-2" type="button"><i class="ci-cart fs-sm me-1"></i>Add to Cart</button>
+                {{-- <button class="btn btn-primary btn-sm d-block w-100 mb-2" type="button"><i class="ci-cart fs-sm me-1"></i>Add to Cart</button>
                 <div class="text-center">
                     <a class="nav-link-style fs-ms" href="#quick-view-electro"
                     data-bs-toggle="modal" data-bs-target="#quick-view-electro" id="{{ $product->id }}"
                     onclick="productView(this.id)"><i class="ci-eye align-middle me-1"></i>Quick view</a>
-                </div>
+                </div> --}}
               </div>
             </div>
             @if($loop->last)
@@ -278,15 +192,15 @@ Product Tags
             @else
 
             <hr class="d-sm-none">
-            
+
             @endif
           </div>
 
           {{-- @if($loop->iteration == 1)
-          
+
               @include('frontendv2.common.colorOptions')
 
-            
+
             @endif --}}
 
           @empty
@@ -305,14 +219,14 @@ Product Tags
         </div> <!-- End Tab Pane -->
 
         <div class="tab-pane fade show" id="list" role="tabpanel">
-            
+
         <!-- Products list -->
         @include('frontendv2.tags.tags_list_view')
         <!-- End Products list -->
         </div> <!-- End Tab Pane -->
 
         </div> <!-- End Tab Content -->
-        
+
 
         <hr class="my-3">
         {{ $products->links('vendor.pagination.grid_paginate') }}
@@ -335,7 +249,7 @@ Product Tags
             <li class="page-item"><a class="page-link" href="#" aria-label="Next">Next<i class="ci-arrow-right ms-2"></i></a></li>
           </ul>
         </nav> --}}
-        
+
 
         {{-- {{ $products->links('vendor.pagination.grid_paginate') }} --}}
 
@@ -359,7 +273,7 @@ Product Tags
 
     })
 
-    
+
 
   </script> --}}
 

@@ -163,7 +163,7 @@
 
             <!-- Filter by Brand-->
             <div class="widget widget-filter mb-4 pb-4 border-bottom">
-              <h3 class="widget-title">Shop by Brand</h3>
+              <h3 class="widget-title">Search by Department</h3>
               <div class="input-group input-group-sm mb-2">
                 <input class="widget-filter-search form-control rounded-end pe-5" type="text" placeholder="Search"><i class="ci-search position-absolute top-50 end-0 translate-middle-y fs-sm me-3"></i>
               </div>

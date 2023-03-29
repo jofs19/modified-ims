@@ -188,9 +188,7 @@
                             <thead>
                                 <tr>
                                     <th>Date</th>
-                                    <th>Invoice #</th>
-                                    <th>Amount</th>
-                                    <th>Payment Type</th>
+                                    <th>Request #</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -212,26 +210,7 @@
                                         </span>
                                     </td>
 
-                                    <td>
-                                        <span class="text-fade font-weight-600 d-block font-size-16">
 
-                                            @if($item->amount >= 1000)
-                                            ₱ {{ $item->amount }}
-
-                                            @else
-                                            ₱ {{ $item->amount + $item->shipping_charge }}
-
-                                            @endif
-                                        </span>
-
-                                    </td>
-
-                                    <td>
-
-                                        <span class="text-white font-weight-600 d-block font-size-16">
-                                            {{ $item->payment_method }}
-                                        </span>
-                                    </td>
                                     <td>
                                         <span class="badge badge-primary-light badge-lg">{{ $item->status }}</span>
                                     </td>

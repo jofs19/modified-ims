@@ -3,7 +3,7 @@
 
 
 @section('title')
-Vartouhi | {{  $order->invoice_no }}
+PSU-LC | {{  $order->invoice_no }}
 @endsection
 
 
@@ -19,7 +19,7 @@ Vartouhi | {{  $order->invoice_no }}
                 <ol class="breadcrumb breadcrumb-light flex-lg-nowrap justify-content-center justify-content-lg-start">
                     <li class="breadcrumb-item"><a class="text-nowrap" href="index.html"><i class="ci-home"></i>Home</a>
                     </li>
-                    <li class="breadcrumb-item text-nowrap"><a href="{{ route('my.orders') }}">Orders</a>
+                    <li class="breadcrumb-item text-nowrap"><a href="{{ route('my.orders') }}">Requests</a>
                     </li>
                     <li class="breadcrumb-item text-nowrap active" aria-current="page">{{ $order->invoice_no }}</li>
                 </ol>
@@ -40,12 +40,12 @@ Vartouhi | {{  $order->invoice_no }}
         <section class="col-lg-8">
             <!-- Toolbar-->
             <div class="d-none d-lg-flex justify-content-between align-items-center pt-lg-3 pb-4 pb-lg-5 mb-lg-3">
-                <h6 class="fs-base text-light mb-0">Invoice #: {{ $order->invoice_no }}</h6>
+                <h6 class="fs-base text-light mb-0">Request #: {{ $order->invoice_no }}</h6>
 
                 <a class="btn btn-primary btn-sm d-none d-lg-inline-block" href="http://127.0.0.1:8000/user/logout"><i class="ci-sign-out me-2"></i>Sign out</a>
 
 
-                
+
                 {{-- @if ($order->status == 'reject'|| $order->status == 'confirm')
                 {{ $order->status }}ed
                 @else
@@ -59,83 +59,86 @@ Vartouhi | {{  $order->invoice_no }}
             <div class="bg-secondary rounded-3 px-4 pt-4 pb-2">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h4 class="h6">Shipping to:</h4>
+                        <h4 class="h6">To be received by:</h4>
                         <ul class="list-unstyled fs-sm">
-                            <li><span class="text-muted">Recipient:&nbsp;</span>{{ $order->name }}</li>
+                            <li><span class="text-muted">Requestor:&nbsp;</span>{{ $order->name }}</li>
                             <li><span class="text-muted">Email Address:&nbsp;</span>{{ $order->email }}</li>
                             <li><span class="text-muted">Phone:&nbsp;</span>{{ $order->phone }}</li>
-                            <li><span class="text-muted">Address 1:&nbsp;</span>{{ $order->address }}</li>
+                            <li><span class="text-muted">Address:&nbsp;</span>{{ $order->address }}</li>
+
                             @if($order->address2 != NULL)
                             <li><span class="text-muted">Address 2:&nbsp;</span>{{ $order->address2 }}</li>
                             @endif
-                            <li><span class="text-muted">Local Area:&nbsp;</span>{{ $order->division->division_name }}, {{ $order->district->district_name }}, {{ $order->state->state_name }} [{{ $order->post_code }}] </li>
+                            {{-- <li><span class="text-muted">Local Area:&nbsp;</span>{{ $order->division->division_name }}, {{ $order->district->district_name }}, {{ $order->state->state_name }} [{{ $order->post_code }}] </li> --}}
 
                         </ul>
                     </div>
                     <div class="col-sm-6">
-                        <h4 class="h6">Order Details:</h4>
+                        <h4 class="h6">Request Details:</h4>
                         <ul class="list-unstyled fs-sm">
-                            <li><span class="text-muted">Invoice #:&nbsp;</span>{{ $order->invoice_no }}</li>
+                            <li><span class="text-muted">Request #:&nbsp;</span>{{ $order->invoice_no }}</li>
+                            {{-- Vendor info --}}
 
-                            @if($order->payment_method == 'Cash On Delivery')
+
+                            {{-- @if($order->payment_method == 'Cash On Delivery')
                             <li><span class="text-muted">Payment Method:&nbsp;</span>{{ $order->payment_method }}</li>
                             @else
                             <li><span class="text-muted">Online Payment:&nbsp;</span>{{ $order->payment_method }}</li>
                             @endif
-                        
+
 
                             <li><span class="text-muted">Date of Purchase:&nbsp;</span>{{ $order->order_date }}</li>
                             @if($order->payment_method == 'Stripe')
                             <li><span class="text-muted">Transaction ID:&nbsp;</span>{{ $order->order_date }}</li>
-                            @endif      
+                            @endif       --}}
 
                 @if($order->status == 'delivered')
 
-                @if($order->return_order == 0) 
+                @if($order->return_order == 0)
 
-                  <li> <span class="text-muted">Order Status:&nbsp;</span>  <span class="badge bg-success m-0">Delivered</span> </li>
+                  <li> <span class="text-muted">Request Status:&nbsp;</span>  <span class="badge bg-success m-0">Delivered</span> </li>
 
                     @elseif($order->return_order == 1)
 
-                   <li> <span class="text-muted">Order Status:&nbsp;</span>  <span class="badge bg-dark m-0"> Return requested </span>
+                   <li> <span class="text-muted">Request Status:&nbsp;</span>  <span class="badge bg-dark m-0"> Return requested </span>
                    </li>
-                   
+
                     @elseif($order->return_order == 2)
-                     <li> <span class="text-muted">Order Status:&nbsp;</span> <span class="badge bg-success m-0">Returned </span></li>
+                     <li> <span class="text-muted">Request Status:&nbsp;</span> <span class="badge bg-success m-0">Returned </span></li>
                 @endif
 
                 @else
 
-                
+
 
                 @if($order->status == 'pending')
-                <li><span class="text-muted">Order Status:&nbsp;</span> <span class="badge bg-light m-0"> Pending </span></li>
+                <li><span class="text-muted">Request Status:&nbsp;</span> <span class="badge bg-light m-0"> Pending </span></li>
                 @elseif($order->status == 'confirm')
-                <li><span class="text-muted">Order Status:&nbsp;</span> <span class="badge bg-info m-0"> Confirmed </span></li>
+                <li><span class="text-muted">Request Status:&nbsp;</span> <span class="badge bg-info m-0"> Confirmed </span></li>
                 @elseif($order->status == 'processing')
-                <li><span class="text-muted">Order Status:&nbsp;</span> <span class="badge bg-accent m-0"> Processed </span></li>
+                <li><span class="text-muted">Request Status:&nbsp;</span> <span class="badge bg-accent m-0"> Processed </span></li>
                 @elseif($order->status == 'picked')
-                <li><span class="text-muted">Order Status:&nbsp;</span> <span class="badge bg-warning m-0"> Picked </span></li>
+                <li><span class="text-muted">Request Status:&nbsp;</span> <span class="badge bg-warning m-0"> Picked </span></li>
                 @elseif($order->status == 'shipped')
-                <li><span class="text-muted">Order Status:&nbsp;</span> <span class="badge bg-primary m-0"> Shipped </span></li>
+                <li><span class="text-muted">Request Status:&nbsp;</span> <span class="badge bg-primary m-0"> Shipped </span></li>
                 @elseif($order->status == 'delivered')
-                <li><span class="text-muted">Order Status:&nbsp;</span> <span class="badge bg-success m-0"> Delivered </span></li>
+                <li><span class="text-muted">Request Status:&nbsp;</span> <span class="badge bg-success m-0"> Delivered </span></li>
                 @elseif($order->status == 'cancel_order')
-                <li><span class="text-muted">Order Status:&nbsp;</span> <span class="badge bg-danger m-0"> Cancelled </span></li>
+                <li><span class="text-muted">Request Status:&nbsp;</span> <span class="badge bg-danger m-0"> Cancelled </span></li>
                 @else
-                <li><span class="text-muted">Order Status:&nbsp;</span> <span class="badge bg-danger m-0"> Rejected </span></li>
+                <li><span class="text-muted">Request Status:&nbsp;</span> <span class="badge bg-danger m-0"> Rejected </span></li>
                 @endif
-                    
+
 
                 @endif
 
-                
+
 
 
 
             </ul>
 
-                        
+
                     </div>
                 </div>
             </div>
@@ -152,10 +155,10 @@ Vartouhi | {{  $order->invoice_no }}
                             style="width: 10rem;"><img src="{{ asset($item->product->product_thumbnail) }}" alt="Product"></a>
                         <div class="pt-2">
                             <h3 class="product-title fs-base mb-2"><a href="{{ url('product/details/'.$item->id.'/'.$item->product_slug_en ) }}">{{ $item->product->product_name_en }}</a></h3>
-                            <div class="fs-sm"><span class="text-muted me-2">Size:</span>{{ $item->size }}</div>
-                            <div class="fs-sm"><span class="text-muted me-2">Variant:</span>{{ $item->color }}</div>
-                            <div class="fs-lg text-accent pt-2">₱ {{ $item->price }}.<small>00</small> x <strong>{{ $item->qty }}</strong> = </span>   
-                                ₱ {{ $item->price * $item->qty}}.<small>00</small></div>
+                            {{-- <div class="fs-sm"><span class="text-muted me-2">Size:</span>{{ $item->size }}</div>
+                            <div class="fs-sm"><span class="text-muted me-2">Variant:</span>{{ $item->color }}</div> --}}
+                            {{-- <div class="fs-lg text-accent pt-2">{{ $item->qty }}</span>
+                            </div> --}}
                         </div>
                     </div>
                     <div class="pt-2 ps-sm-3 mx-auto mx-sm-0 text-center">
@@ -173,10 +176,10 @@ Vartouhi | {{  $order->invoice_no }}
 
               foreach ($orderItem as $item) {
                 $total += $item->price * $item->qty;
-                
+
               }
 
-              
+
               $total_formatted = number_format($total, 2);
               $all_total = floatval($total);
 
@@ -201,25 +204,35 @@ Vartouhi | {{  $order->invoice_no }}
 @endphp
 
 {{-- <h3>Sub-Total : ₱ {{ $subtotal_format }}</h3> --}}
-                <div class="modal-footer flex-wrap justify-content-between bg-secondary fs-md">
-                    <div class="px-2 py-1"><span class="text-muted">SubTotal:&nbsp;</span><span> ₱ {{ $total_formatted}} </span></div>
-                    <div class="px-2 py-1"><span class="text-muted">Discount:&nbsp;</span><span>-₱ {{ $discount_format }}</span></div>
-                    <div class="px-2 py-1"><span class="text-muted">Shipping:&nbsp;</span>
+                <div class="modal-footer flex-wrap bg-secondary fs-md text-right">
 
-                        @if($order->shipping_charge == NULL)
+                    @if($order->status !== "delivered")
+
+                    @if ($order->status == "pending")
+
+                    <div class="text-center">
+                      <a class="btn btn-danger btn-sm removeOrder" href="{{ route("cancel.order", $order->id) }}"><i class="ci-reply me-2"></i>Cancel Request</a>
+                      </div>
+
+                    @endif
+                    {{-- <div class="px-2 py-1"><span class="text-muted">SubTotal:&nbsp;</span><span> ₱ {{ $total_formatted}} </span></div>
+                    <div class="px-2 py-1"><span class="text-muted">Discount:&nbsp;</span><span>-₱ {{ $discount_format }}</span></div>
+                    <div class="px-2 py-1"><span class="text-muted">Shipping:&nbsp;</span> --}}
+
+                        {{-- @if($order->shipping_charge == NULL)
                         <span>Free shipping</span>
                         @else
                         <span>+₱ {{ number_format($order->shipping_charge,2) }}</span>
                         @endif
-                    
+
                     </div>
-                    
-                    <div class="px-2 py-1"><span class="text-muted">Grand total:&nbsp;</span><span class="fs-lg text-accent">₱ {{ number_format($order->amount+$order->shipping_charge,2) }}</span></div>
+
+                    <div class="px-2 py-1"><span class="text-muted">Grand total:&nbsp;</span><span class="fs-lg text-accent">₱ {{ number_format($order->amount+$order->shipping_charge,2) }}</span></div> --}}
                     {{-- @if($order->status !== "delivered")
-            
+
 @else
 
-@php 
+@php
 $order = App\Models\Order::where('id',$order->id)->where('return_reason','=',NULL)->first();
 @endphp
 
@@ -234,11 +247,11 @@ $order = App\Models\Order::where('id',$order->id)->where('return_reason','=',NUL
 
 
     You have sent return request for this product
-  
+
   </span>
 
-@endif 
-              
+@endif
+
 
 @endif --}}
                   </div>
@@ -246,27 +259,19 @@ $order = App\Models\Order::where('id',$order->id)->where('return_reason','=',NUL
 
             </div><!--simplebar-->
 
-           
 
-            @if($order->status !== "delivered")
 
-            @if ($order->status == "pending")
 
-            <div class="text-end pt-2">
-              <a class="btn btn-danger btn-sm removeOrder" href="{{ route("cancel.order", $order->id) }}"><i class="ci-reply me-2"></i>Cancel Order</a>
-              </div>
-              
-            @endif
 
             @else
-            
-            @php 
+
+            @php
             $order = App\Models\Order::where('id',$order->id)->where('return_reason','=',NULL)->first();
             @endphp
-            
-            
+
+
             @if($order)
-            
+
             <div class="text-end pt-2">
             <a class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#open-ticket"><i class="ci-reply me-2"></i>Return Order</a>
             </div>
@@ -298,14 +303,14 @@ $order = App\Models\Order::where('id',$order->id)->where('return_reason','=',NUL
             <button class="file-drop-btn btn btn-outline-accent" type="button">Or select file</button>
           </div>
     </div>
-    
-    
+
+
     <div class="col-12">
       <label class="form-label" for="ticket-description">Describe your issue</label>
       <textarea class="form-control" id="ticket-description" rows="8" required name="return_reason"></textarea>
       <div class="invalid-feedback">Please provide description!</div>
     </div>
-    
+
   </div>
 </div>
 <div class="modal-footer">

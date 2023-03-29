@@ -3,7 +3,7 @@
 
 
 @section('title')
-Vartouhi | About Us
+PSU-LC | About Us
 @endsection
 
           <!-- Page Title (Light)-->
@@ -15,10 +15,10 @@ Vartouhi | About Us
                     <li class="breadcrumb-item"><a class="text-nowrap" href="{{ url('/') }}"><i class="ci-home"></i>Home</a></li>
                     <li class="breadcrumb-item text-nowrap"><a href="{{ url('/about') }}">About Us</a>
                     </li>
-        
+
                     {{-- <li class="breadcrumb-item text-nowrap active" aria-current="page">Shop</li> --}}
-        
-                    
+
+
                   </ol>
                 </nav>
               </div>

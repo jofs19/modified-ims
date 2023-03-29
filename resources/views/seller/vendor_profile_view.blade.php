@@ -44,7 +44,7 @@
 
 
         <div class="col-sm-5">
-            <label class="form-label" for="account-email">Shop name</label>
+            <label class="form-label" for="account-email">Department name</label>
             <input class="form-control" name="name" type="text" value="{{ $vendorData->name }}" value="" style="width: 22rem;">
         </div>
 

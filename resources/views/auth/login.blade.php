@@ -219,20 +219,20 @@
             </div>
             <div class="col-sm-6">
               <label class="form-label" for="email">E-mail Address</label>
-              <input class="form-control" type="email" required  id="email" name="email" placeholder="jofs@example.com">
+              <input class="form-control" type="email" required  id="email" name="email" placeholder="johndoe@example.com">
 
               <div class="invalid-feedback">Please enter valid email address!</div>
             </div>
             <div class="col-sm-6">
               <label class="form-label" for="address">Home Address</label>
-              <input class="form-control" type="text" id="address" name="address" required placeholder="House #, Street/Bldg. Name, Brgy.">
+              <input class="form-control" type="text" id="address" name="address" required>
 			  <div class="invalid-feedback">Please enter your address!</div>
 
 			  <div class="form-text">(<strong>e.g.</strong> #26 Padilla St. West Poblacion)</div>
             </div>
             <div class="col-sm-6">
               <label class="form-label" for="phone">Phone Number </label>
-              <input class="form-control" type="tel" id="phone" name="phone" required placeholder="+(63)-947-5220-247" pattern="[0-9]+" title="numbers are only allowed" max="11">
+              <input class="form-control" type="tel" id="phone" name="phone" required  pattern="[0-9]+" title="numbers are only allowed" max="11">
               <div class="invalid-feedback">Please enter valid phone number!</div>
             </div>
             <div class="col-sm-6">

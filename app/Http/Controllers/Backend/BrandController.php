@@ -25,13 +25,9 @@ class BrandController extends Controller
     {
         $request->validate([
             'brand_name_en' => 'required',
-            'brand_name_fil' => 'required',
-            'brand_image' => 'required',
 
         ],[
             'brand_name_en.required' => 'Input English Brand Name',
-            'brand_name_fil.required' => 'Input Filipino Brand Name',
-            'brand_image.required' => 'Input Brand Image',
         ]); //end validate
 
         $image = $request->file('brand_image');
@@ -78,7 +74,7 @@ class BrandController extends Controller
             $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
             Image::make($image)->resize(500, 500)->save('upload/brand/'.$name_gen);
             $save_url = 'upload/brand/'.$name_gen;
-    
+
             Brand::findOrFail($brand_id)->update([
                 'brand_name_en' => $request->brand_name_en,
                 'brand_name_fil' => $request->brand_name_fil,
@@ -86,13 +82,13 @@ class BrandController extends Controller
                 'brand_slug_fil' => str_replace(' ', '-', $request->brand_name_fil),
                 'brand_image' => $save_url,
             ]);
-    
+
             $notification = array(
                 'message' => 'Brand Updated Successfully',
                 'alert-type' => 'info'
             );
             return redirect()->route('all.brand')->with($notification);
-    
+
         }else{
 
             Brand::findOrFail( $brand_id)->update([
@@ -100,9 +96,9 @@ class BrandController extends Controller
                 'brand_name_fil' => $request->brand_name_fil,
                 'brand_slug_en' => strtolower(str_replace(' ', '-', $request->brand_name_en)),
                 'brand_slug_fil' => str_replace(' ', '-', $request->brand_name_fil),
-    
+
             ]);
-    
+
             $notification = array(
                 'message' => 'Brand Updated Successfully',
                 'alert-type' => 'info'

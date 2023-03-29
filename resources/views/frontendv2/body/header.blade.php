@@ -90,7 +90,7 @@
                                 'filipino') Ikumpara (<span class="compareQty">0</span>) @else Compare (<span class="compareQty">0</span>) @endif </a></li> --}}
                     <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalLarge" href="#modalLarge"><i
                                 class="ci-location text-muted me-2"></i>@if(session()->get('language') ==
-                                'filipino') Sundan ang Order @else Order Tracking @endif </a></li>
+                                'filipino') Sundan ang Requests @else Requests Tracking @endif </a></li>
                 </ul>
             </div>
             <div class="d-none d-md-block ms-3 text-nowrap"><a class="topbar-link d-none d-md-inline-block"
@@ -102,7 +102,7 @@
                     <a
                     class="topbar-link ms-3 border-start border-light ps-3 d-none d-md-inline-block"
                     data-bs-toggle="modal" data-bs-target="#modalLarge" href="#modalLarge"><i class="ci-location mt-n1"></i>@if(session()->get('language') ==
-                    'filipino') Sundan ang Order @else Order Tracking @endif</a></div>
+                    'filipino') Sundan ang Requests @else Requests Tracking @endif</a></div>
         </div>
     </div>
     <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page.-->
@@ -183,7 +183,7 @@
                             href="{{ route('login') }}"><img class="rounded-circle"
                             src="{{ (!empty($user->profile_photo_path)) ? asset($user->profile_photo_path):url('upload/no_image.jpg') }}"
                                 alt="User Profile"></a><a class="navbar-tool-text ms-n1"
-                            href="{{ route('login') }}"><small>User Account</small>
+                            href="{{ route('login') }}"><small>Requestor</small>
                           @php
                               $truncate = Auth::user()->name;
                               $numOfChars = strlen($truncate);
@@ -211,7 +211,7 @@
 
 
                                         <a class="dropdown-item d-flex align-items-center {{ (request()->is('user/my/orders')) ? 'active' : '' }}" href="{{ route('my.orders') }}"><i
-                                        class="ci-basket opacity-60 me-2"></i>Order History<span
+                                        class="ci-basket opacity-60 me-2"></i>Requests History<span
                                         class="fs-xs text-muted ms-auto">{{ count($order) }}</span></a><a
                                     class="dropdown-item d-flex align-items-center {{ (request()->is('user/wishlist')) ? 'active' : '' }}" href="{{ route('wishlist') }}"><i
                                         class="ci-heart opacity-60 me-2"></i>Wishlist<span
@@ -223,7 +223,7 @@
 
                                         <a
                                     class="dropdown-item d-flex align-items-center {{ (request()->is('user/return/order/list')) ? 'active' : '' }}" href="{{ route('return.order.list') }}"><i
-                                        class="ci-reply opacity-60 me-2"></i>Returned Orders<span
+                                        class="ci-reply opacity-60 me-2"></i>Returned Items<span
                                         class="fs-xs text-muted ms-auto">{{ count($returned) }}</span></a>
 
                                         @php
@@ -259,10 +259,11 @@
                                     class="dropdown-item d-flex align-items-center {{ (request()->is('user/profile')) ? 'active' : '' }}" href="{{ route('user.profile') }}"><i
                                         class="ci-user opacity-60 me-2"></i>Profile Information</a>
                                         <a class="dropdown-item d-flex align-items-center {{ (request()->is('user/change/password')) ? 'active' : '' }}" href="{{ route('change.password') }}"><i
-                                        class="ci-security-check opacity-60 me-2"></i>Update Password</a><a
+                                        class="ci-security-check opacity-60 me-2"></i>Update Password</a>
+                                        {{-- <a
                                     class="dropdown-item d-flex align-items-center {{ (request()->is('help')) ? 'active' : '' }}"
                                     href="{{ url('/help') }}"><i
-                                        class="ci-help opacity-60 me-2"></i>Help Center</a>
+                                        class="ci-help opacity-60 me-2"></i>Help Center</a> --}}
                                 <div class="dropdown-divider"></div><a class="dropdown-item d-flex align-items-center"
                                     href="{{ route('user.logout') }}"><i class="ci-sign-out opacity-60 me-2"></i>Sign
                                     Out</a>
@@ -272,7 +273,7 @@
                     @else
                     <a class="navbar-tool ms-1 ms-lg-0 me-n1 me-lg-2" href="#signin-modal" data-bs-toggle="modal">
                         <div class="navbar-tool-icon-box"><i class="navbar-tool-icon ci-user"></i></div>
-                        <div class="navbar-tool-text ms-n3"><small>Hello, Sign in</small>My Account</div>
+                        <div class="navbar-tool-text ms-n3"><small>Sign in as Requestor</small>My Account</div>
                     </a>
                     @endauth
 
@@ -300,14 +301,13 @@
 
                                 </div>
                                 <div class="d-flex flex-wrap justify-content-between align-items-center py-3">
-                                    <div class="fs-sm me-2 py-2"><span class="text-muted">Subtotal:</span> <span
-                                            class="text-accent fs-base ms-1" id="cartSubTotal"></span></div>
-                                            <a class="btn btn-outline-secondary btn-sm checkoutMe" href="{{ route('mycart') }}">Expand cart<i
+                                    <div class="fs-sm me-2 py-2"></div>
+                                            <a class="btn btn-outline-secondary btn-sm checkoutMe" href="{{ route('mycart') }}">View All Requests<i
                                             class="ci-arrow-right ms-1 me-n1"></i></a>
                                 </div>
 
                                 <a class="btn btn-primary btn-sm d-block w-100 checkoutMe" href="{{ route('checkout') }}"><i
-                                        class="ci-card me-2 fs-base align-middle"></i>Checkout</a>
+                                        class="ci-card me-2 fs-base align-middle"></i>Request Item</a>
 
                             </div>
                         </div>
@@ -421,18 +421,17 @@
 
                                           @endforeach
 
-                                            <div class="mega-dropdown-column d-none d-lg-block py-4 text-center"><a
-                                                    class="d-block mb-2" href="#">
+                                            {{-- <div class="mega-dropdown-column d-none d-lg-block py-4 text-center"><a
+                                                    class="d-block mb-2" href="#"> --}}
 
-                                              @php
+                                              {{-- @php
                                                 $productss = App\Models\Product::where('subcategory_id',$subcategory->id)->get();
-                                                $lowest_price = App\Models\Product::where('subcategory_id',$subcategory->id)->min('selling_price');
+
                                               @endphp
 
 
                                               @foreach ($productss as $product)
 
-                                              {{-- get first result --}}
                                               @if ($loop->first)
 
                                               <center>
@@ -441,7 +440,7 @@
 
                                               @endif
 
-                                              @endforeach
+                                              @endforeach --}}
 
 
                                                       {{-- @if ($productss->product_thumbnail == NULL)
@@ -455,14 +454,14 @@
 
 
 
-                                                      </a>
+                                                      {{-- </a> --}}
                                                 {{-- <div class="fs-sm mb-3">Starting from <span
                                                         class='fw-medium'>{{ $lowest_price }}.<small>00</small></span>
                                                 </div> --}}
-                                                        <a
+                                                        {{-- <a
                                                     class="btn btn-primary btn-shadow btn-sm" href="{{ route('shop.page') }}">See offers<i
-                                                        class="ci-arrow-right fs-xs ms-1"></i></a>
-                                            </div>
+                                                        class="ci-arrow-right fs-xs ms-1"></i></a> --}}
+                                            {{-- </div> --}}
                                         </div>
                                     </div>
                                 </li>
@@ -531,7 +530,7 @@
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title">Track your Order</h4>
+            <h4 class="modal-title">Track your Requests</h4>
             <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
 

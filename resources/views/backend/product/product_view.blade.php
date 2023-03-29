@@ -28,9 +28,9 @@
                                     <tr>
                                         <th>Image </th>
                                         <th>Product En</th>
-                                        <th>Product Price </th>
+                                        {{-- <th>Product Price </th> --}}
                                         <th>Quantity </th>
-                                        <th>Discount </th>
+                                        {{-- <th>Discount </th> --}}
                                         <th>Status </th>
                                         <th>Action</th>
 
@@ -39,20 +39,20 @@
                                 <tbody>
                                     @foreach($products as $item)
                                         <tr>
-                                            <td> 
-                                                
+                                            <td>
+
                                                 <a href="{{ asset($item->product_thumbnail) }}" data-toggle="lightbox" data-gallery="multiimages" data-title="{{ $item->product_name_en }}"><img src="{{ asset($item->product_thumbnail) }}" class="all studio isotope-item" alt="gallery" style="width: 60px; height: 50px;"> </a>
-                                                
+
                                                 {{-- <img src="{{ asset($item->product_thumbnail) }}"
                                                     style="width: 60px; height: 50px;">  --}}
-                                                
-                                                
+
+
                                             </td>
                                             <td>{{ $item->product_name_en }}</td>
-                                            <td>₱ {{ $item->selling_price }} </td>
+                                            {{-- <td>₱ {{ $item->selling_price }} </td> --}}
                                             <td>{{ $item->product_qty }} pcs.</td>
 
-                                            <td>
+                                            {{-- <td>
                                                 @if($item->discount_price == NULL)
                                                     <span class="badge badge-pill badge-danger">No Discount</span>
 
@@ -63,14 +63,14 @@
                                                     @endphp
                                                     <span class="badge badge-pill badge-dark">{{ round($discount) }}
                                                         %</span>
-                                                    <br>valid until 
+                                                    <br>valid until
                                                     {{ $item->sale_time }}
-                                                    
+
                                                 @endif
 
 
 
-                                            </td>
+                                            </td> --}}
 
                                             <td>
                                                 @if($item->status == 1)

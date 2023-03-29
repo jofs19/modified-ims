@@ -11,9 +11,9 @@ use App\Models\MultiImg;
 use App\Models\Brand;
 use App\Models\Product;
 use App\Models\User;
-use Image;
+use Intervention\Image\Facades\Image;
 use Carbon\Carbon;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class VendorProductController extends Controller
 {
@@ -28,9 +28,9 @@ class VendorProductController extends Controller
 
 		$categories = Category::latest()->get();
         $subcategories = SubCategory::latest()->get();
-        $subsubcategories = SubSubCategory::latest()->get();
+        // $subsubcategories = SubSubCategory::latest()->get();
 		$brands = Brand::latest()->get();
-        return view('seller.backend.product.vendor_product_add',compact('brands','categories','subcategories','subsubcategories'));
+        return view('seller.backend.product.vendor_product_add',compact('brands','categories','subcategories'));
 
     } // End Method
 
@@ -60,7 +60,7 @@ public function VendorStoreProduct(Request $request){
             'brand_id' => $request->brand_id,
             'category_id' => $request->category_id,
             'subcategory_id' => $request->subcategory_id,
-            'subsubcategory_id' => $request->subsubcategory_id,
+            // 'subsubcategory_id' => $request->subsubcategory_id,
             'product_name_en' => $request->product_name_en,
             'product_slug_en' => strtolower(str_replace(' ','-',$request->product_name_en)),
             'product_code' => $request->product_code,
@@ -124,9 +124,9 @@ public function VendorStoreProduct(Request $request){
         $categories = Category::latest()->get();
         $subcategories = SubCategory::latest()->get();
         $products = Product::findOrFail($id);
-        $subsubcategories = SubSubCategory::latest()->get();
+        // $subsubcategories = SubSubCategory::latest()->get();
 
-        return view('seller.backend.product.vendor_product_edit',compact('brands','categories', 'products','subcategories','multiImgs','subsubcategories'));
+        return view('seller.backend.product.vendor_product_edit',compact('brands','categories', 'products','subcategories','multiImgs'));
     }// End Method
 
 
@@ -140,7 +140,7 @@ public function VendorUpdateProduct(Request $request){
             'brand_id' => $request->brand_id,
             'category_id' => $request->category_id,
             'subcategory_id' => $request->subcategory_id,
-            'subsubcategory_id' => $request->subsubcategory_id,
+            // 'subsubcategory_id' => $request->subsubcategory_id,
             'product_name_en' => $request->product_name_en,
             'product_slug_en' => strtolower(str_replace(' ','-',$request->product_name_en)),
 

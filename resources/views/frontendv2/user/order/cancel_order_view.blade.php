@@ -43,8 +43,7 @@
               <tr>
                 <th>Invoice</th>
                 <th>Date of Cancel</th>
-                <th>Amount</th>
-                <th>M.O.P.</th>
+
                 <th>Request status</th>
               </tr>
             </thead>
@@ -54,34 +53,23 @@
               <tr>
                 <td class="py-3"><a class="nav-link-style fw-medium fs-sm" target="_blank" href="{{ url('user/order_details/'.$order->id ) }}">{{ $order->invoice_no }}</a></td>
                 <td class="py-3"><a class="nav-link-style fw-medium" href="account-single-ticket.html">{{ $order->order_date }}</a></td>
-                <td class="py-3">
-                  
-                  @if($order->amount >= 1000)
-                 ₱{{ number_format($order->amount,2) }}
 
-                @else
-                ₱{{ number_format($order->amount + $order->shipping_charge,2) }}
 
-                @endif
-                
-                </td>
-                <td class="py-3">{{ $order->payment_method }}</td>
-                
                 <td class="py-3">
-                    
+
 
                     <span class="badge bg-danger m-0">Cancelled</span>
-                   
-                
+
+
                 </td>
 
-                
+
               </tr>
 
               @endforeach
 
 
-              
+
             </tbody>
           </table>
         </div>
@@ -93,3 +81,4 @@
   </div>
 
   @endsection
+

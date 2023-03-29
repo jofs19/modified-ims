@@ -3,7 +3,7 @@
 
 
 @section('title')
-Vartouhi | Contact Us
+PSU-LC | Contact Us
 @endsection
 
 
@@ -22,7 +22,7 @@ Vartouhi | Contact Us
 
             {{-- <li class="breadcrumb-item text-nowrap active" aria-current="page">Shop</li> --}}
 
-            
+
           </ol>
         </nav>
       </div>

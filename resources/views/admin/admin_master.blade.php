@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <meta property="og:image" content="{{ asset('frontendv2/assets/img/logo.png') }}" />
+    <meta property="og:image" content="{{ asset('frontendv2/assets/img/psu.png') }}" />
 
     <!-- Favicon and Touch Icons-->
     {{-- <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"> --}}
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('frontendv2/assets/img/logo.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('frontendv2/assets/img/logo.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('frontendv2/assets/img/psu.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('frontendv2/assets/img/psu.png') }}">
 
-    <title>Vartouhi E-Commerce Admin - Dashboard</title>
+    <title>PSU-LC Admin - IMS Dashboard</title>
 
 	<!-- Vendors Style-->
 	<link rel="stylesheet" href="{{ asset('backend/css/vendors_css.css') }}">

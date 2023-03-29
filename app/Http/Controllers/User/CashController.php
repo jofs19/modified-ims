@@ -56,7 +56,7 @@ class CashController extends Controller
 		'change_amount' => $request->change_amount,
 
 
-     	'invoice_no' => 'VRTH'.mt_rand(10000000,99999999),
+     	'invoice_no' => 'PSULC'.mt_rand(10000000,99999999),
      	'order_date' => Carbon::now()->format('d F Y'),
      	'order_month' => Carbon::now()->format('F'),
      	'order_year' => Carbon::now()->format('Y'),

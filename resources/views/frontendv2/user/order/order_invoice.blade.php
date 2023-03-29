@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Invoice</title>
+<title>Memorandum of Receipts</title>
 <style type="text/css">
     * {
         font-family: Verdana, Arial, sans-serif;
@@ -28,12 +28,12 @@
     }
     .authority h5 {
         margin-top: -10px;
-        color: green;
+        color: black;
         /*text-align: center;*/
         margin-left: 35px;
     }
     .thanks p {
-        color: green;;
+        color: black;
         font-size: 16px;
         font-weight: normal;
         font-family: serif;
@@ -41,68 +41,67 @@
     }
 </style>
 </head>
+
+
+
 <body>
+
+
+
   <table width="100%" style="background: #F7F7F7; padding:0 20px 0 20px;">
+
     <tr>
-        <td valign="top">
+        <td valign="top" class="pt-3 mt-3">
+            <br>
           <!-- {{-- <img src="" alt="" width="150"/> --}} -->
-          <h2 style="color: green; font-size: 26px;"><strong>Vartouhi E-Commerce</strong></h2>
+          <img src="{{ public_path("frontendv2/assets/img/psu.png")  }}" width="90" alt="Vartouhi" class="pt-3 mt-3">
+
         </td>
         <td align="right">
             <pre class="font" >
-               Vartouhi Head Office
-               Email:support@jofs.com <br>
-               +63 947 5220 247 <br>
-               Laguna, Philippines <br>
-              
+               Pangasinan State University Lingayen, Campus
+               Email:psu-edu.ph.com <br>
+               Website: <a href="https://www.main.psu.edu.ph/">https://www.main.psu.edu.ph</a>  <br>
+               Alvear Street, Poblacion, Lingayen, Philippines, 2401 <br>
+
             </pre>
         </td>
     </tr>
   </table>
-  <table width="100%" style="background:white; padding:2px;""></table>
+  <table width="100%" style="background:white; padding:2px;"></table>
   <table width="100%" style="background: #F7F7F7; padding:0 5 0 5px;" class="font">
     <tr>
         <td>
           <p class="font" style="margin-left: 20px;">
-           <strong>Name:</strong> {{ $order->name }}<br>
+           <strong>Requestor's name:</strong> {{ $order->name }}<br>
            <strong>Email:</strong> {{ $order->email }} <br>
            <strong>Phone:</strong> {{ $order->phone }} <br>
-           @php
-            $div = $order->division->division_name;
-            $dis = $order->district->district_name;
-            $state = $order->state->state_name;
-           @endphp
-            
-           <strong>Address:</strong> {{ $div }},{{ $dis }}.{{ $state }} <br>
-           <strong>Post Code:</strong> {{ $order->post_code }}
-         </p>
+             </p>
         </td>
         <td>
           <p class="font">
-            <h3><span style="color: green;">Invoice:</span> #{{ $order->invoice_no}}</h3>
-            Order Date: {{ $order->order_date }} <br>
-             Delivery Date: {{ $order->delivered_date }} <br>
-            Payment Type : {{ $order->payment_method }} </span>
+            <h4><span>Request #:</span> <span  style="color: #0b29d7;">{{ $order->invoice_no}}</span> </h4>
+            <h4 class="text-muted"> Date Requested: {{ $order->order_date }} </h4>
+
+              <br>
+             </span>
          </p>
         </td>
     </tr>
 
-    
-  
+
+
   </table>
   <br/>
-<h3>Products</h3>
+<h3>Requested Items</h3>
   <table width="100%">
-    <thead style="background-color: green; color:#FFFFFF;">
+    <thead style="background-color: #0b29d7; color:#FFFFFF;">
       <tr class="font">
         <th>Image</th>
-        <th>Product Name</th>
-        <th>Size</th>
-        <th>Color</th>
-        <th>Code</th>
+        <th>Item Name</th>
+
         <th>Quantity</th>
-        <th>Unit Price </th>
-        <th>Total </th>
+
       </tr>
     </thead>
     <tbody>
@@ -112,46 +111,21 @@
             <img src="{{ public_path($item->product->product_thumbnail)  }}" height="60px;" width="60px;" alt="">
         </td>
         <td align="center"> {{ $item->product->product_name_en }}</td>
-        <td align="center">
-          @if($item->size == NULL)
-           ----
-          @else
-            {{ $item->size }}
-          @endif
-            
-        </td>
-        <td align="center">{{ $item->color }}</td>
-        <td align="center">{{ $item->product->product_code }}</td>
         <td align="center">{{ $item->qty }}</td>
-        <td align="center">{{ $item->price }} php</td>
 
-        <td align="center">{{ $item->price * $item->qty }} php </td>
       </tr>
 
 
       @endforeach
-      
+
     </tbody>
   </table>
   <br>
   <table width="100%" style=" padding:0 10px 0 10px;">
-    <tr>
-        <td align="right" >
-            <h3><span style="color: green;">Sub total: </span>{{ $order->amount }} php</h3>
-            <h3><span style="color: green;">Shipping amount: </span>{{ $order->shipping_charge }} php</h3>
-            {{-- discount amount --}}
-            
 
-            <h2><span style="color: green;">Total:</span> {{ $order->amount + $order->shipping_charge }} php</h2>
-
-            {{-- <h2><span style="color: green;">Full Payment PAID</h2> --}}
-        </td>
-
-    </tr>
 
   </table>
   <div class="thanks mt-3">
-    <p>Thanks For Buying Products!</p>
   </div>
   <div class="authority float-right mt-5">
       <p>-----------------------------------</p>

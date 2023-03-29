@@ -27,9 +27,9 @@
 						<thead>
 							<tr>
 								<th>Date </th>
-								<th>Invoice </th>
-								<th>Amount </th>
-								<th>Payment </th>
+								<th>Request # </th>
+								{{-- <th>Amount </th>
+								<th>Payment </th> --}}
 								<th>Status </th>
 								<th>Action</th>
 
@@ -40,9 +40,9 @@
 	 <tr>
 		<td> {{ $item->order_date }}  </td>
 		<td> {{ $item->invoice_no }}  </td>
-		<td> ₱ {{ $item->amount + $item->shipping_charge }}  </td>
+		{{-- <td> ₱ {{ $item->amount + $item->shipping_charge }}  </td>
 
-		<td> {{ $item->payment_method }}  </td>
+		<td> {{ $item->payment_method }}  </td> --}}
 		<td> <span class="badge badge-pill badge-primary">{{ $item->status }} </span>  </td>
 
 		<td width="25%">

@@ -9,12 +9,12 @@
             <li class="breadcrumb-item"><a class="text-nowrap" href="index.html"><i class="ci-home"></i>Home</a></li>
             <li class="breadcrumb-item text-nowrap"><a href="#">Account</a>
             </li>
-            <li class="breadcrumb-item text-nowrap active" aria-current="page">Returned Orders</li>
+            <li class="breadcrumb-item text-nowrap active" aria-current="page">Returned Items</li>
           </ol>
         </nav>
       </div>
       <div class="order-lg-1 pe-lg-4 text-center text-lg-start">
-        <h1 class="h3 text-light mb-0">Returned Orders</h1>
+        <h1 class="h3 text-light mb-0">Returned Items</h1>
       </div>
     </div>
   </div>
@@ -43,8 +43,7 @@
               <tr>
                 <th>Invoice</th>
                 <th>Date of Return</th>
-                <th>Amount</th>
-                <th>M.O.P.</th>
+
                 <th>Request status</th>
                 <th>View</th>
               </tr>
@@ -56,7 +55,7 @@
                 <td class="py-3"><a class="nav-link-style fw-medium fs-sm" target="_blank" href="{{ url('user/order_details/'.$order->id ) }}">{{ $order->invoice_no }}</a></td>
                 <td class="py-3"><a class="nav-link-style fw-medium" href="account-single-ticket.html">{{ $order->order_date }}</a></td>
                 <td class="py-3">
-                  
+
                   @if($order->amount >= 1000)
                  ₱{{ number_format($order->amount,2) }}
 
@@ -64,23 +63,9 @@
                 ₱{{ number_format($order->amount + $order->shipping_charge,2) }}
 
                 @endif
-                
-                </td>
-                <td class="py-3">{{ $order->payment_method }}</td>
-                
-                <td class="py-3">
-                    @if($order->return_order == 0) 
 
-                    <span class="badge bg-info m-0">No return request</span>
-                    @elseif($order->return_order == 1)
-
-                    <span class="badge bg-dark m-0">Return Requested </span>
-                   
-                    @elseif($order->return_order == 2)
-                     <span class="badge bg-success m-0">Returned </span>
-                     @endif
-                
                 </td>
+
 
                 <td class="py-3">
 
@@ -93,16 +78,16 @@
                       <span class="gallery-item-caption">...</span>
                     </a>
                   </div>
-                  
-                
-                
+
+
+
                 </td>
               </tr>
 
               @endforeach
 
 
-              
+
             </tbody>
           </table>
         </div>

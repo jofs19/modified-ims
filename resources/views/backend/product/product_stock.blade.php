@@ -27,10 +27,10 @@
 						<thead>
 							<tr>
 								<th>Image </th>
-								<th>Product En</th>
-								<th>Product Price </th>
+								<th>Product</th>
+								{{-- <th>Product Price </th> --}}
 								<th>Quantity </th>
-								<th>Discount </th>
+								{{-- <th>Discount </th> --}}
 								<th>Status </th>
 
 
@@ -50,10 +50,10 @@
 		
 		</td>
 		<td>{{ $item->product_name_en }}</td>
-		 <td>₱{{ $item->selling_price }}</td>
+		 {{-- <td>₱{{ $item->selling_price }}</td> --}}
 		 <td>{{ $item->product_qty }} pcs.</td>
 
-		 <td> 
+		 {{-- <td> 
 		 	@if($item->discount_price == NULL)
 		 	<span class="badge badge-pill badge-danger">No Discount</span>
 
@@ -68,7 +68,7 @@
 
 
 
-		 </td>
+		 </td> --}}
 
 		 <td>
 		 	@if($item->status == 1)

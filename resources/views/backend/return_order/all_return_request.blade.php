@@ -27,9 +27,9 @@
 						<thead>
 							<tr>
 								<th>Date </th>
-								<th>Invoice </th>
-								<th>Amount </th>
-								<th>Payment </th>
+								<th>Request # </th>
+								{{-- <th>Amount </th>
+								<th>Payment </th> --}}
 								<th>Status </th>
 								{{-- <th>Action</th> --}}
 
@@ -40,7 +40,7 @@
 	 <tr>
 		<td> {{ $item->order_date }}  </td>
 		<td> {{ $item->invoice_no }}  </td>
-		<td> @if($item->amount >= 1000)
+		{{-- <td> @if($item->amount >= 1000)
 			₱ {{ $item->amount }}
 
 			@else
@@ -48,7 +48,7 @@
 
 			@endif  </td>
 
-		<td> {{ $item->payment_method }}  </td>
+		<td> {{ $item->payment_method }}  </td> --}}
 		<td width="25%">
 		@if($item->return_order == 1)
       <span class="badge badge-pill badge-primary">Pending </span>

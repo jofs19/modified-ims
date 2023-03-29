@@ -10,7 +10,7 @@
         <!-- Basic Forms -->
          <div class="box">
            <div class="box-header with-border">
-             <h4 class="box-title">Unauthorized Vendor Details</h4>
+             <h4 class="box-title">Unauthorized Staff Details</h4>
              {{-- <h6 class="box-subtitle">Fill in the<span class="text-success"> required fields </span></h6> --}}
            </div>
            <!-- /.box-header -->
@@ -45,7 +45,7 @@
                             <div class="col-md-6">
 
                                 <div class="form-group">
-                                    <h5>Shop Name <span class="text-danger">*</span></h5>
+                                    <h5>Department Name <span class="text-danger">*</span></h5>
                                     <div class="controls">
                                         <input type="text" name="name" class="form-control" required="" data-validation-required-message="This field is required" value="{{ $inactiveVendorDetails->name }}">
 
@@ -57,7 +57,7 @@
                             <div class="col-md-6">
 
                                 <div class="form-group">
-                                    <h5>Vendor Email <span class="text-danger">*</span></h5>
+                                    <h5>Staff Email <span class="text-danger">*</span></h5>
                                     <div class="controls">
                                         <input type="email" name="email" class="form-control" required="" data-validation-required-message="This field is required" value="{{ $inactiveVendorDetails->email }}">
 
@@ -71,7 +71,7 @@
                             <div class="col-md-6">
 
                                 <div class="form-group">
-                                    <h5>Vendor Phone <span class="text-danger">*</span></h5>
+                                    <h5>Staff Phone <span class="text-danger">*</span></h5>
                                     <div class="controls">
                                         <input type="tel" name="phone" class="form-control" required="" data-validation-required-message="This field is required" value="{{ $inactiveVendorDetails->phone }}">
 
@@ -145,7 +145,7 @@
 
 
                        <div class="text-xs-right">
-                        <input type="submit" class="btn btn-danger px-4" value="Authorize Vendor" />
+                        <input type="submit" class="btn btn-danger px-4" value="Authorize Staff" />
                        </div>
                    </form>
 

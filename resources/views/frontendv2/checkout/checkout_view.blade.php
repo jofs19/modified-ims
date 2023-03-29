@@ -3,7 +3,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 @section('title')
-Checkout Details
+Item Details
 @endsection
 
 
@@ -20,7 +20,7 @@ Checkout Details
         </nav>
       </div>
       <div class="order-lg-1 pe-lg-4 text-center text-lg-start">
-        <h1 class="h3 text-light mb-0">Checkout</h1>
+        <h1 class="h3 text-light mb-0">Requestor Information</h1>
       </div>
     </div>
   </div>
@@ -30,7 +30,7 @@ Checkout Details
         <!-- Steps-->
         <div class="steps steps-light pt-2 pb-3 mb-5"><a class="step-item active" href="{{ route('mycart') }}">
             <div class="step-progress"><span class="step-count">1</span></div>
-            <div class="step-label"><i class="ci-cart"></i>Cart</div></a><a class="step-item active current" href="{{ route('mycart') }}">
+            <div class="step-label"><i class="ci-cart"></i>Request</div></a><a class="step-item active current" href="{{ route('mycart') }}">
             <div class="step-progress"><span class="step-count">2</span></div>
             <div class="step-label"><i class="ci-user-circle"></i>Details</div></a><a class="step-item" href="{{ route('checkout') }}">
             {{-- <div class="step-progress"><span class="step-count">3</span></div>
@@ -51,7 +51,7 @@ Checkout Details
               <img class="rounded-circle" src="{{ (!empty($user->profile_photo_path)) ? asset($user->profile_photo_path):url('upload/no_image.jpg') }}" width="90" alt="User Image"></div>
             <div class="ps-3">
               <h3 class="fs-base mb-0">{{ Auth::user()->name }}</h3><span class="text-accent fs-sm">
-                
+
                 @php
                 $truncate = Auth::user()->email;
                 $numOfChars = strlen($truncate);
@@ -61,25 +61,25 @@ Checkout Details
                     $truncate = substr($truncate, 0, 22);
                 }
                 @endphp
-            
+
             {{ $truncate }}
-              
-              
+
+
               </span>
             </div>
           </div><a class="btn btn-light btn-sm btn-shadow mt-3 mt-sm-0" href="{{ route('user.profile') }}"><i class="ci-edit me-2"></i>Edit profile</a>
         </div>
         <!-- Shipping address-->
-       
 
-        <h2 class="h6 pt-1 pb-3 mb-3 border-bottom">Shipping address</h2>
+
+        <h2 class="h6 pt-1 pb-3 mb-3 border-bottom">Requestor Details</h2>
         <form class="needs-validation" action="{{ route('checkout.store') }}" method="POST" novalidate enctype="multipart/form-data">
             @csrf
-            
+
         <div class="row">
           <div class="col-sm-6">
             <div class="mb-3">
-              <label class="form-label" for="checkout-fn"><small> <span class="ci-announcement mb-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Field is required"></span></small> Recipient's Username </label>
+              <label class="form-label" for="checkout-fn"><small> <span class="ci-announcement mb-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Field is required"></span></small> Requestor's Name </label>
               <input class="form-control" type="text" id="checkout-fn" name="shipping_name" value="{{ Auth::user()->name }}" required>
             </div>
           </div>
@@ -99,67 +99,24 @@ Checkout Details
           </div>
           <div class="col-sm-6">
             <div class="mb-3">
-              <label class="form-label" for="checkout-phone"> <small> <span class="ci-announcement mb-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Field is required"></span></small> ZIP/Postal Code </label>
-              <input class="form-control" type="text" id="checkout-phone" name="post_code" placeholder="(e.g. 2401)" required>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-6">
-            <div class="mb-3">
               <label class="form-label" for="checkout-company"> <small> <span class="ci-announcement mb-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Field is required"></span></small> Home Address [House #, Street/Bldg. Name, Brgy.] </label>
               <input class="form-control" type="text" id="checkout-company" name="shipping_address" value="{{ Auth::user()->address }}" required placeholder="House #, Street/Bldg. Name, Brgy.">
             </div>
           </div>
-
-          <div class="col-sm-6">
-
-
-
-                      <div class="mb-3">
-
-                        <label class="form-label" for="checkout-company"> <small> <span class="ci-announcement mb-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Field is required"></span></small> Choose Province/City/Region </label>
-
-                        <select class="form-select" required="required" name="division_id">
-                          <option value="" disabled class="bg-secondary" selected>Choose your Province</option>
-
-                          @foreach($divisions as $item)
-                              <option value="{{ $item->id }}">{{ $item->division_name }}</option>	
-                          @endforeach        
-
-                        </select>
-                        
-                       
-                        <div class="invalid-feedback">Please choose your Province!</div>
-                      </div>
-
-
-                  <input type="hidden" name="shipping_charge" class="form-control unicase-form-control text-input" id="shipping_form" placeholder="(optional)">
-
-              
-
-
-          </div>
-
-
-
-
-
-
-
         </div>
+
         {{-- <div class="row">
             <div class="col-12 mb-4">
                 <label class="form-label mb-3" for="fd-comments"><span class="badge bg-info fs-xs me-2">Note</span>Additional comments</label>
                 <textarea class="form-control" rows="5" id="fd-comments" name="notes" placeholder="Write a note... (optional)"></textarea>
               </div>
         </div>  --}}
-       <div class="row">
+       {{-- <div class="row">
           <div class="col-sm-6">
             <div class="mb-3">
               <select class="form-select" required="required" name="district_id">
                 <option value="" disabled class="bg-secondary" selected>Choose your City</option>
-                
+
               </select>
               <div class="invalid-feedback">Please choose your City!</div>
             </div>
@@ -168,15 +125,15 @@ Checkout Details
             <div class="mb-3">
               <select class="form-select" required="required" name="state_id">
                   <option value="">Your Region</option>
-                  
+
                 </select>
                 <div class="invalid-feedback">Please choose your city!</div>
           </div>
           </div>
-        </div>
-        <h6 class="mb-3 py-3 border-bottom">Select Mode of Payment</h6>
+        </div> --}}
+        {{-- <h6 class="mb-3 py-3 border-bottom">Select Mode of Payment</h6> --}}
 
-        <div class="row">
+        {{-- <div class="row">
           <div class="col-12">
             <div class="accordion accordio-flush shadow-sm rounded-3 mb-1" id="payment-methods">
               <div class="accordion-item border-bottom">
@@ -212,7 +169,7 @@ Checkout Details
                         <div class="col-6">
                             <!-- Toggle first element -->
                             <a href="#multiCollapseExample1" class="btn btn-info btn-shadow d-block w-100 collapsed fw-semibold" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
-                              <span class="fw-bold">Via QR Code</span>  
+                              <span class="fw-bold">Via QR Code</span>
                             </a>
                         </div>
 
@@ -258,9 +215,7 @@ Checkout Details
                         <p class="mb-4 fs-sm">File types supported: PNG, JPG/JPEG, & GIF. Max size:
                             2mb.</p>
                         <!-- Drag and drop file upload-->
-                        {{-- <form action="http://127.0.0.1:8000/user/cash/order" method="post" id="payment-form" enctype="multipart/form-data">
-                            <input type="hidden" name="_token" value="N6hL7uwLl5QvxPWkZbVYmceqy6Vm2UlvRZWG5eL0">                                    
-                            <input type="hidden" name="receipt" value=""> --}}
+
 
 
 
@@ -295,19 +250,19 @@ Checkout Details
                   </div> <!--end body-->
                 </div>
               </div>
-              
-              
+
+
             </div>
           </div>
-        
-        </div>
 
-        
-        
+        </div> --}}
+
+
+
         <!-- Navigation (desktop)-->
         <div class="d-none d-lg-flex pt-4 mt-3">
           <div class="w-50 pe-3"><a class="btn btn-secondary d-block w-100" href="{{ route('mycart') }}"><i class="ci-arrow-left mt-sm-0 me-1"></i><span class="d-none d-sm-inline">Back to Cart</span><span class="d-inline d-sm-none">Back</span></a></div>
-          <div class="w-50 ps-2"><button class="btn btn-primary d-block w-100" type="submit"><span class="d-none d-sm-inline">Proceed to Payment</span><span class="d-inline d-sm-none">Next</span><i class="ci-arrow-right mt-sm-0 ms-1"></i></button></div>
+          <div class="w-50 ps-2"><button class="btn btn-primary d-block w-100" type="submit"><span class="d-none d-sm-inline">Finalize</span><span class="d-inline d-sm-none">Next</span><i class="ci-arrow-right mt-sm-0 ms-1"></i></button></div>
         </div>
       </section>
       <!-- Sidebar-->
@@ -315,37 +270,36 @@ Checkout Details
         <div class="bg-white rounded-3 shadow-lg p-4 ms-lg-auto">
           <div class="py-2 px-xl-2">
             <div class="widget mb-3">
-              <h2 class="widget-title text-center">Order summary</h2>
+              <h2 class="widget-title text-center">Request summary</h2>
               <div style="height: 14.5rem;" data-simplebar data-simplebar-auto-hide="false">
 
                 @foreach ($carts as $item)
-                    
+
 
               <div class="d-flex align-items-center py-2 border-bottom"><a class="d-block flex-shrink-0" href="shop-single-v1.html"><img src="{{ asset($item->options->image) }}" width="64" alt="Product"></a>
                 <div class="ps-2">
-                  <h6 class="widget-product-title"><a href="shop-single-v1.html">{{ $item->name }}</a></h6>
-                  <div class="widget-product-meta fs-ms">
+                  <h6 class="widget-product-title"><a href="#">{{ $item->name }}</a></h6>
+                  {{-- <div class="widget-product-meta fs-ms">
                     <span class="text-muted me-2"><span class="fw-bold">Size:</span> @if($item->options->size == null) --- @else {{ $item->options->size }} @endif </span> <span class="text-muted"><span class="fw-bold">Variant:</span> @if($item->options->color == null) --- @else {{ $item->options->color }} @endif</span>
-                    </div>
-                  <div class="widget-product-meta"><span class="text-accent me-2">₱ {{ $item->price }}<small>.00</small></span><span class="text-muted"><small>x</small> {{ $item->qty }}</span></div>
-                  
+                    </div>--}}
+                  <div class="widget-product-meta"><span class="text-accent me-2"><small>x</small> {{ $item->qty }}</span></div>
+
                 </div>
               </div>
-              
+
               @endforeach
               </div>
 
-              
+
             </div>
-            @if(Session::has('coupon'))
+            {{-- @if(Session::has('coupon'))
 
             <ul class="list-unstyled fs-sm pb-2 border-bottom">
               <li class="d-flex justify-content-between align-items-center"><span class="me-2">Subtotal:</span><span class="text-end">₱ {{ str_replace(',', '', Cart::Subtotal()) }}</span></li>
 
-              <li class="d-flex justify-content-between align-items-center"><span class="me-2">Discount:</span><span class="text-end">-₱ {{ number_format(session()->get('coupon')['discount_amount'], 2) }} 
+              <li class="d-flex justify-content-between align-items-center"><span class="me-2">Discount:</span><span class="text-end">-₱ {{ number_format(session()->get('coupon')['discount_amount'], 2) }}
                 <small> ({{ session()->get('coupon')['coupon_discount'] }})%</small></span></li>
 
-              {{-- if grand total is greater than 1000 --}}
 	        @if(str_replace(',', '',session()->get('coupon')['total_amount']) >= 1000)
               <li class="d-flex justify-content-between align-items-center"><span class="me-2">Shipping:</span><span class="text-end shipping_fee">Free Shipping</span></li>
 
@@ -353,7 +307,7 @@ Checkout Details
 
             <h3 class="fw-normal text-center my-4">₱{{ number_format(session()->get('coupon')['total_amount'],2)}}</h3>
 
-            @else {{-- if grand total is less than 1000 --}}
+            @else
 
             <li class="d-flex justify-content-between align-items-center" ><span class="me-2">Shipping:</span><span class="text-end shipping_fee" >—</span></li>
 
@@ -362,13 +316,13 @@ Checkout Details
 
         <h3 class="fw-normal text-center my-4 grand_total">—</h3>
 
-            @endif
-
-              
-              
-            
+            @endif --}}
 
 
+
+
+
+{{--
             @else <!--HAS NO COUPON-->
 
             <ul class="list-unstyled fs-sm pb-2 border-bottom">
@@ -378,7 +332,7 @@ Checkout Details
 
                 @if(str_replace(',', '', Cart::Subtotal())  >= 1000)
 
-                
+
 
                 <li class="d-flex justify-content-between align-items-center"><span class="me-2">Shipping:</span><span class="text-end ">Free Shipping</span></li>
 
@@ -387,8 +341,8 @@ Checkout Details
             <h3 class="fw-normal text-center my-4"> ₱{{ str_replace(',', '', Cart::Subtotal())}} </h3>
 
 
-                @else {{-- if grand total is less than 1000 --}}
-                
+                @else
+
 
                 <li class="d-flex justify-content-between align-items-center"><span class="me-2">Shipping:</span><span class="text-end shipping_fee">—</span></li>
 
@@ -396,21 +350,21 @@ Checkout Details
 
             <h3 class="fw-normal text-center my-4 grand_total">—</h3>
 
-                @endif <!--if($cartTotal > 1000)-->
+                @endif
 
 
-    @endif <!--If session has coupon-->
+    @endif  --}}
 
 
                 {{-- <li class="d-flex justify-content-between align-items-center"><span class="me-2">Taxes:</span><span class="text-end">$9.<small>50</small></span></li> --}}
-                
-              
 
 
 
 
 
-            
+
+
+
 
           </div>
 
@@ -430,7 +384,7 @@ Checkout Details
       <div class="col-lg-8">
         <div class="d-flex pt-4 mt-3">
           <div class="w-50 pe-3"><a class="btn btn-secondary d-block w-100" href="{{ route('mycart') }}"><i class="ci-arrow-left mt-sm-0 me-1"></i><span class="d-none d-sm-inline">Back to Cart</span><span class="d-inline d-sm-none">Back</span></a></div>
-          <div class="w-50 ps-2"><button class="btn btn-primary d-block w-100" type="submit"><span class="d-none d-sm-inline">Proceed to Payment</span><span class="d-inline d-sm-none">Next</span><i class="ci-arrow-right mt-sm-0 ms-1"></i></button></div>
+          <div class="w-50 ps-2"><button class="btn btn-primary d-block w-100" type="submit"><span class="d-none d-sm-inline">Finalize</span><span class="d-inline d-sm-none">Next</span><i class="ci-arrow-right mt-sm-0 ms-1"></i></button></div>
         </div>
       </div>
     </div>

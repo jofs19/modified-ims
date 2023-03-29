@@ -1,7 +1,7 @@
 @extends('frontendv2.main_master')
 @section('content')
 @section('title')
-PC Build
+PSU-LC
 @endsection
 
 @php
@@ -199,7 +199,7 @@ $vendors = App\Models\User::where('status','active')->where('role','vendor')->or
 
     <div class="d-flex flex-wrap justify-content-between align-items-center pt-1 border-bottom pb-4 mb-4">
         <h2 class="h3 mb-0 pt-3 me-2 text-shadow-drop-center">Added Items</h2>
-        <div class="pt-3"><a class="btn btn-outline-accent btn-sm" href="shop-grid-ls.html">More products<i
+        <div class="pt-3"><a class="btn btn-outline-accent btn-sm" href="{{ route('shop.page') }}">More Items<i
                     class="ci-arrow-right ms-1 me-n1"></i></a></div>
     </div>
     <!-- Grid-->

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Vendor Dashboard </title>
+    <title>Staff Dashboard </title>
 
     <!-- SEO Meta Tags-->
     <meta name="description" content="JOFS E-Commerce">
@@ -13,12 +13,12 @@
     <meta name="author" content="John Oliver Santiago">
     <!-- Viewport-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:image" content="{{ asset('frontendv2/assets/img/logo.png') }}" />
+    <meta property="og:image" content="{{ asset('frontendv2/assets/img/psu.png') }}" />
 
     <!-- Favicon and Touch Icons-->
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('frontendv2/assets/img/logo.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('frontendv2/assets/img/logo.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('frontendv2/assets/img/psu.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('frontendv2/assets/img/psu.png') }}">
     <link rel="manifest" href="site.webmanifest">
     <link rel="mask-icon" color="#fe6a6a" href="safari-pinned-tab.svg">
     <meta name="msapplication-TileColor" content="#ffffff">
@@ -318,7 +318,7 @@
 
     <!-- Toolbar for handheld devices (Marketplace)-->
     <div class="handheld-toolbar">
-      <div class="d-table table-layout-fixed w-100"><a class="d-table-cell handheld-toolbar-item {{ (request()->is('vendor/all/product')) ? 'active' : '' }}" href="{{ route('vendor.all.product') }}"><span class="handheld-toolbar-icon"><i class="ci-package"></i></span><span class="handheld-toolbar-label">Products</span></a><a class="d-table-cell handheld-toolbar-item" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" onclick="window.scrollTo(0, 0)"><span class="handheld-toolbar-icon"><i class="ci-menu"></i></span><span class="handheld-toolbar-label">Menu</span></a><a class="d-table-cell handheld-toolbar-item {{ (request()->is('vendor/order')) ? 'active' : '' }}" href="{{ route('vendor.order') }}"><span class="handheld-toolbar-icon"><i class="ci-currency-exchange opacity-60"></i><span class="badge bg-primary rounded-pill ms-1">3</span></span><span class="handheld-toolbar-label">Orders</span></a></div>
+      <div class="d-table table-layout-fixed w-100"><a class="d-table-cell handheld-toolbar-item {{ (request()->is('vendor/all/product')) ? 'active' : '' }}" href="{{ route('vendor.all.product') }}"><span class="handheld-toolbar-icon"><i class="ci-package"></i></span><span class="handheld-toolbar-label">Items</span></a><a class="d-table-cell handheld-toolbar-item" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" onclick="window.scrollTo(0, 0)"><span class="handheld-toolbar-icon"><i class="ci-menu"></i></span><span class="handheld-toolbar-label">Menu</span></a><a class="d-table-cell handheld-toolbar-item {{ (request()->is('vendor/order')) ? 'active' : '' }}" href="{{ route('vendor.order') }}"><span class="handheld-toolbar-icon"><i class="ci-currency-exchange opacity-60"></i></span><span class="handheld-toolbar-label">Requests</span></a></div>
     </div>
     <!-- Back To Top Button--><a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon ci-arrow-up">   </i></a>
     <!-- Vendor scrits: js libraries and plugins-->

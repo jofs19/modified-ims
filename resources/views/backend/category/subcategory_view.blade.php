@@ -24,7 +24,7 @@
                           <tr>
                               <th>Category</th>
                               <th>Sub Category (Eng)</th>
-                              <th>Sub Category (Fil)</th>
+                              {{-- <th>Sub Category (Fil)</th> --}}
                               <th>Action</th>
                           
                           </tr>
@@ -35,9 +35,27 @@
                             @foreach($subcategory as $item)
                           <tr>
 
+                            @if($item['category']['category_name_en'] == Null)
+                            <td>N/A</td>
+                            @else
                               <td>{{ $item['category']['category_name_en'] }}</td>
+                            @endif
+
+                            @if($item->subcategory_name_en == null)
+                            <td>N/A</td>
+                            @else
                               <td>{{ $item->subcategory_name_en }}</td>
+                            @endif
+
+                            {{-- @if($item->subcategory_name_fil == null)
+
+                            <td>N/A</td>
+
+                            @else
+
                               <td>{{ $item->subcategory_name_fil }}</td>
+                            @endif --}}
+                            
 
                               <td width="100">
                                 
@@ -57,7 +75,7 @@
                           <tr>
                             <th>Sub Category Icon</th>
                             <th>Sub Category (Eng)</th>
-                            <th>Sub Category (Fil)</th>
+                            {{-- <th>Sub Category (Fil)</th> --}}
                             <th>Action</th>
                               
                           </tr>
@@ -126,7 +144,7 @@
                                 </div>
 
                                 <!--icon-->
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <h5>Sub Category Name (Fil) <span class="text-danger">*</span></h5>
                                     <div class="controls">
                                         <input type="text" name="subcategory_name_fil" class="form-control"> 
@@ -135,7 +153,7 @@
                                             
                                         @enderror
                                     </div>
-                                </div>
+                                </div> --}}
 
                             
 

@@ -2,7 +2,7 @@
 
 
 
-@if($order->status == 'pending')  
+@if($order->status == 'pending')
 
 <tr class="bg-faded-light">
 
@@ -33,29 +33,20 @@
 @endif
 
 
-<td class="py-3"> 
+<td class="py-3">
 @foreach ($orders as $key => $item)
     @if ($item->id == $order->id)
         {{ $orders->firstItem()+$key }}
     @endif
-      
+
 @endforeach
 </td>
 
 <td class="py-3"><a class="nav-link-style fw-medium fs-sm" target="_blank" href="{{ url('user/order_details/'.$order->id ) }}">{{ $order->invoice_no }}</a></td>
 <td class="py-3">{{ $order->order_date }}</td>
-<td class="py-3">{{ $order->payment_method }}</td>
-<td class="py-3">
-@if($order->amount >= 1000)
- ₱{{ number_format($order->amount,2) }}
 
-@else
-₱{{ number_format($order->amount + $order->shipping_charge,2) }}
-
-@endif
-</td>
 <td class="py-3">
-@if($order->status == 'pending')  
+@if($order->status == 'pending')
 
 <span class="badge bg-secondary m-0">Pending</span>
 
@@ -85,7 +76,7 @@
 <span class="badge bg-danger m-0">Cancelled</span>
 
 
-@if($order->return_order == 1) 
+@if($order->return_order == 1)
 
 <br>
 <span class="badge bg-light m-0">Return requested</span>

@@ -43,7 +43,7 @@ class CartController extends Controller
 					],
 				]);
 
-				return response()->json(['success' => 'Successfully Added to Cart']);
+				return response()->json(['success' => 'Successfully Added to Request List']);
 
 			}else{
 
@@ -61,7 +61,7 @@ class CartController extends Controller
 					],
 
 				]);
-				return response()->json(['success' => 'Successfully Added to Cart']);
+				return response()->json(['success' => 'Successfully Added to Request List']);
 			}
 		}else{
 
@@ -98,7 +98,7 @@ class CartController extends Controller
 					],
 				]);
 
-				return response()->json(['success' => 'Successfully Added to Cart']);
+				return response()->json(['success' => 'Successfully Added to Request List']);
 
 			}else{
 
@@ -116,7 +116,7 @@ class CartController extends Controller
 					],
 
 				]);
-				return response()->json(['success' => 'Successfully Added to Cart']);
+				return response()->json(['success' => 'Successfully Added to Request List']);
 			}
 		}else{
 
@@ -148,7 +148,7 @@ class CartController extends Controller
 // remove mini cart
     public function RemoveMiniCart($rowId){
     	Cart::remove($rowId);
-    	return response()->json(['success' => 'Successfully Removed from Cart']);
+    	return response()->json(['success' => 'Successfully Removed from Requests List']);
 
     } // end mehtod
 
@@ -171,14 +171,14 @@ class CartController extends Controller
 				return response()->json(array(
 
 					'wishlistQty' => $wishlistQty + 1,
-					'success' => 'Successfully Added to Wishlist',
+					'success' => 'Successfully Added to Favorites',
 
 				));
 
 
 				}else{
 
-					return response()->json(['error' => 'This product was already added on your Wishlist']);
+					return response()->json(['error' => 'This product was already added on your Favorites']);
 
 				}
 
@@ -238,7 +238,7 @@ class CartController extends Controller
 		public function CheckoutCreate(){
 
 			if (Auth::check()) {
-				if (Cart::total() > 0) {
+				if (Cart::total() !== null) {
 
 			$carts = Cart::content();
 			$cartQty = Cart::count();

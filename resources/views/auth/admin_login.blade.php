@@ -106,10 +106,9 @@
 			<meta name="viewport" content="width=device-width, initial-scale=1">
 			<meta name="description" content="">
 			<meta name="author" content="">
-			<link rel="icon" type="image/png" sizes="32x32" href="{{ asset('frontendv2/assets/img/vlogos.png') }}">
-			<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('frontendv2/assets/img/vlogos.png') }}">
-			<title>Vartouhi Admin - Log in </title>
-            <title>Document</title>
+			<link rel="icon" type="image/png" sizes="32x32" href="{{ asset('frontendv2/assets/img/psu.png') }}">
+			<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('frontendv2/assets/img/psu.png') }}">
+			<title>PSU Admin - Log in </title>
             <style>
                 @import url("https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap");
 
@@ -151,14 +150,14 @@
                     background-repeat: no-repeat;
                     background-position: center;
                 } */
-				
+
 
 				@media (min-width: 767px) {
 					.right {
                     flex: 1;
                     background-color: black;
                     transition: 2s;
-                    background-image: url({{ asset('frontendv2/assets/img/logo5.svg') }});
+                    background-image: url({{ asset('frontendv2/assets/img/psu-bg.jpg') }});
                     background-size: cover;
                     background-repeat: no-repeat;
                     background-position: center;
@@ -172,7 +171,7 @@
                     flex: 1;
                     background-color: black;
                     transition: 2s;
-                    background-image: url({{ asset('frontendv2/assets/img/logo5.svg') }});
+                    background-image: url({{ asset('frontendv2/assets/img/psu-bg.jpg') }});
                     background-size: cover;
                     background-repeat: no-repeat;
                     background-position: center;
@@ -188,7 +187,7 @@
                     flex: 1;
                     background-color: black;
                     transition: 2s;
-                    background-image: url({{ asset('frontendv2/assets/img/logo5.svg') }});
+                    background-image: url({{ asset('frontendv2/assets/img/psu-bg.jpg') }});
                     background-size: cover;
                     background-repeat: no-repeat;
                     background-position: center;
@@ -197,7 +196,7 @@
 
 				}
 
-				
+
 
                 .header>h2 {
                     margin: 0;
@@ -355,7 +354,7 @@
             <div class="container">
                 <div class="left">
                     <div class="header">
-                        <h2 class="animation a1">Welcome Back</h2>
+                        <h2 class="animation a1">Welcome Back, Admin!</h2>
                         <h4 class="animation a2">Log in to your account using email and password</h4>
                     </div>
 
@@ -363,19 +362,19 @@
 						@csrf
 
                     <div class="form">
-						
+
 
 						<input type="email" class="form-field animation a3"
                             placeholder="Email Address" id="email" name="email">
-							
+
 							<input type="password" class="form-field animation a4"
                             placeholder="Password" id="password" name="password">
-							
+
 
                         <p class="animation a5"><a href="{{ route('password.request') }}">Forgot Password</a></p>
 						<button type="submit" class="animation a6">Login</button>
 
-					
+
 					</form>
 
                     </div>

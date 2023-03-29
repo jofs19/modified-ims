@@ -18,7 +18,7 @@
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 
 
-<title>Vendor Registration </title>
+<title>Staff Registration </title>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -77,13 +77,13 @@
 	  {{-- ANCHOR SIGN-UP --}}
       <div class="col-md-6 pt-4 mt-3 mt-md-0">
         <h2 class="h4 mb-3"> Already have an account? <a href="{{ route('vendor.login') }}">Click here to Sign in</a> </h2>
-        <p class="fs-sm text-muted mb-4">Registration takes less than a minute to gain access as a Vendor.</p>
+        <p class="fs-sm text-muted mb-4">Registration takes less than a minute to gain access as a Staff.</p>
         <form class="needs-validation" novalidate method="POST" action="{{ route('vendor.register') }}" onSubmit = "return checkPasswords(this)" id="myForm">
 			@csrf
 
           <div class="row gx-4 gy-3">
             <div class="col-sm-6">
-                <label class="form-label" for="name">Shop Name</label>
+                <label class="form-label" for="name">Department Name</label>
                 <input class="form-control" type="text" required  id="name" name="name" >
 
                 <div class="invalid-feedback">Please enter your username!</div>
@@ -101,7 +101,7 @@
               <div class="invalid-feedback">Please enter valid email address!</div>
             </div>
             <div class="col-sm-6">
-              <label class="form-label" for="address">Store Address</label>
+              <label class="form-label" for="address">Address</label>
               <input class="form-control" type="text" id="address" name="address" required >
 			  <div class="invalid-feedback">Please enter your address!</div>
 
