@@ -78,6 +78,7 @@
 							<tr>
 								<th>Date </th>
 								<th>Request # </th>
+								<th>Requestor</th>
 								{{-- <th>Amount </th>
 								<th>Payment </th> --}}
 								<th>Status </th>
@@ -90,6 +91,7 @@
 	 <tr>
 		<td> {{ $item->order_date }}  </td>
 		<td> {{ $item->invoice_no }}  </td>
+		<td>{{$item->name}}</td>
 		{{-- <td> ₱{{ $item->amount + $item->shipping_charge }}  </td>
 
 		<td> {{ $item->payment_method }}  </td> --}}
@@ -111,6 +113,7 @@
 							<tr>
 								<th>Date </th>
 								<th>Request # </th>
+								<th>Requestor</th>
 								{{-- <th>Amount </th>
 								<th>Payment </th> --}}
 								<th>Status </th>

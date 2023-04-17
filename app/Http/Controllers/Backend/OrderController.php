@@ -186,7 +186,6 @@ class OrderController extends Controller
 
           return redirect()->route('processing-orders')->with($notification);
 
-
     } // end method
 
 

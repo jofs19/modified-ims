@@ -94,7 +94,7 @@
 
                 <!-- Textual addon -->
                 <div class="input-group">
-                    <span class="input-group-text fw-medium">Department</span>
+                    <span class="input-group-text fw-medium">Offices</span>
                     <select class="form-select" name="brand_id">
                     <option>Choose one...</option>
                     @foreach($brands as $brand)
@@ -137,7 +137,7 @@
                 <div class="input-group">
                     <span class="input-group-text fw-medium">Sub Category</span>
                     <select class="form-select" name="subcategory_id">
-                        <option value="" selected="" disabled>Select Sub- Sub Category
+                        <option value="" selected="" disabled>Select Sub Category
                         </option>
                         @foreach( $subcategories as $subcategory)
                         @if($subcategory->subcategory_name_en != "-----")

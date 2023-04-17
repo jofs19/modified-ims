@@ -32,7 +32,7 @@
     <div class="pt-2 px-4 ps-lg-0 pe-xl-5">
       <!-- Title-->
       <div class="d-sm-flex flex-wrap justify-content-between align-items-center pb-2">
-        <h2 class="h3 py-2 me-2 text-center text-sm-start">Add New Product</h2>
+        <h2 class="h3 py-2 me-2 text-center text-sm-start">Edit New Item</h2>
         {{-- <div class="py-2">
           <select class="form-select me-2" id="unp-category">
             <option>Select Vendor</option>
@@ -127,7 +127,7 @@
 
             </div>
 
-            <div class="col-6">
+            {{-- <div class="col-6">
 
 
                 <!-- Textual addon -->
@@ -148,7 +148,7 @@
                 </select>
             </div>
 
-        </div>
+        </div> --}}
 
 
 

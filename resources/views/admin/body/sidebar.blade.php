@@ -58,13 +58,13 @@
         <li class="treeview {{ ($prefix == '/brand')? 'active':'' }}">
           <a href="#">
             <i class="glyphicon glyphicon-home"></i>
-            <span>Departments</span>
+            <span>Offices</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="{{ ($route == 'all.brand')? 'active':'' }}"><a href="{{ route('all.brand') }}"><i class="ti-more"></i>All Departments</a></li>
+            <li class="{{ ($route == 'all.brand')? 'active':'' }}"><a href="{{ route('all.brand') }}"><i class="ti-more"></i>All Offices</a></li>
             {{-- <li><a href="calendar.html"><i class="ti-more"></i>Calendar</a></li> --}}
           </ul>
         </li>
@@ -83,8 +83,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="{{ ($route == 'all.category')? 'active':'' }}"><a href="{{ route('all.category') }}"><i class="ti-more"></i>All Category</a></li>
-            <li class="{{ ($route == 'all.subcategory')? 'active':'' }}"><a href="{{ route('all.subcategory') }}"><i class="ti-more"></i>All Sub Category</a></li>
+            <li class="{{ ($route == 'all.category')? 'active':'' }}"><a href="{{ route('all.category') }}"><i class="ti-more"></i>Categories</a></li>
+            <li class="{{ ($route == 'all.subcategory')? 'active':'' }}"><a href="{{ route('all.subcategory') }}"><i class="ti-more"></i>Description of Categories</a></li>
             {{-- <li class="{{ ($route == 'all.subsubcategory')? 'active':'' }}"><a href="{{ route('all.subsubcategory') }}"><i class="ti-more"></i>All Sub-Sub Category</a></li> --}}
           </ul>
         </li>

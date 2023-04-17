@@ -256,10 +256,16 @@ Route::prefix('shipping')->group(function(){
     // Admin Manage Stock Routes
     Route::prefix('stock')->group(function(){
 
-    Route::get('/product', [ProductController::class, 'ProductStock'])->name('product.stock');
+        // Route::get('/product', [ProductController::class, 'ProductStock'])->name('product.stock');
+        Route::get('/product', [ProductController::class, 'StockReportView'])->name('product.stock');
+        Route::post('/search/by/date/stockd', [ProductController::class, 'StockReportByDate'])->name('search-by-date-stock');
+        Route::post('/search/by/date/stockm', [ProductController::class, 'StockReportByMonth'])->name('search-by-month-stock');
+        Route::post('/search/by/date/stocky', [ProductController::class, 'StockReportByYear'])->name('search-by-year-stock');
+        Route::post('/search/by/stock', [ProductController::class, 'StockReportByStock'])->name('search-by-stock');
 
-
-    });
+    
+    
+        });
 
 
  // Admin Order All Routes

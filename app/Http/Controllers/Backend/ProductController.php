@@ -12,7 +12,7 @@ use App\Models\Product;
 use Carbon\Carbon;
 use Intervention\Image\Facades\Image;
 use App\Models\MultiImg;
-
+use DateTime;
 use App\Models\User;
 use App\Notifications\StockNotification;
 use Illuminate\Support\Facades\Notification;
@@ -77,6 +77,9 @@ class ProductController extends Controller
       	'special_deals' => $request->special_deals,
 		'sale_time' => $request->sale_time,
 		'so_saletime' => $request->so_saletime,
+		'item_created_date' => Carbon::now()->format('d F Y'),
+		'item_created_month' => Carbon::now()->format('F'),	
+		'item_created_year' => Carbon::now()->format('Y'),
       	'product_thumbnail' => $save_url,
       	'status' => 1,
         'vendor_id' => $request->vendor_id,
@@ -182,6 +185,9 @@ class ProductController extends Controller
 
 		'sale_time' => $request->sale_time,
 		'so_saletime' => $request->so_saletime,
+		'item_created_date' => Carbon::now()->format('d F Y'),
+		'item_created_month' => Carbon::now()->format('F'),	
+		'item_created_year' => Carbon::now()->format('Y'),
 
       	'status' => 1,
         'vendor_id' => $request->vendor_id,
@@ -316,14 +322,70 @@ class ProductController extends Controller
 	}// end method
 
 	  // product Stock
-	public function ProductStock(){
+// 	public function ProductStock(){
 
-    $products = Product::latest()->get();
+//     $products = Product::latest()->get();
 
-	// Notifications if product is nearly out of stock
+//     return view('backend.product.product_stock',compact('products'));
+//   }
 
-    return view('backend.product.product_stock',compact('products'));
-  }
+	public function stockReportView(){
+		return view('backend.product.stockReport_view');
+	}
+
+	public function StockReportByDate(Request $request){
+		// $created_at =
+		$date = new DateTime($request->date);
+		// format created_at date to d F Y
+	
+		$formatDate = $date->format('d F Y');
+	
+		// return $formatDate;
+		$products = Product::where('item_created_date',$formatDate)->latest()->get();
+		return view('backend.product.stockReport_show',compact('products'));
+	
+	
+	
+	} // end method
+	
+	
+	
+	public function StockReportByMonth(Request $request){
+	
+		$products = Product::where('item_created_month',$request->month)->where('item_created_year',$request->year_name)->latest()->get();
+		return view('backend.product.stockReport_show',compact('products'));
+	
+	} // end method
+	
+	
+	   public function StockReportByYear(Request $request){
+	
+		$products = Product::where('item_created_year',$request->year)->latest()->get();
+		return view('backend.product.stockReport_show',compact('products'));
+	
+	} // end method
+
+	public function StockReportByStock(Request $request){
+		// where stock is less than 10
+	
+		if($request->stock == 10){
+			$products = Product::whereBetween('stock', [0,10] )->latest()->get();
+	
+		}elseif($request->stock == 50){
+			$products = Product::whereBetween('stock', [11,50] )->latest()->get();
+		}elseif($request->stock == 100){
+			$products = Product::whereBetween('stock', [51,100] )->latest()->get();
+		}elseif($request->stock == 500){
+			$products = Product::whereBetween('stock', [101,500] )->latest()->get();
+		}elseif($request->stock == 1000){
+			$products = Product::whereBetween('stock', [501,1000] )->latest()->get();
+		}
+	
+	
+		// $products = Product::whereBetween('stock', [$request->stock] )->latest()->get();
+		return view('backend.product.stockReport_show',compact('products'));
+	
+	} // end method
 
 
 

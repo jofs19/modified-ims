@@ -95,7 +95,7 @@
 
                                     <div class="row">
                                         <!-- start 2nd row  -->
-                                        <div class="col-md-4">
+                                        {{-- <div class="col-md-4">
 
                                             <div class="form-group">
                                                 <h5>SubSubCategory Select <span class="text-danger">*</span></h5>
@@ -113,7 +113,7 @@
                                                 </div>
                                             </div>
 
-                                        </div> <!-- end col md 4 -->
+                                        </div> <!-- end col md 4 --> --}}
 
                                         <div class="col-md-4">
 
